@@ -1,500 +1,1008 @@
-- author: Fabio M. Mitchelli
-  img: 41DLCaQHjdL._SL160_SL150_.jpg
-  price: 19.9
-  title: La Compassion du Diable
-  url: http://www.amazon.fr/La-Compassion-Diable-Fabio-Mitchelli/dp/2954271078
-- author: George R-R Martin
-  img: 51hhuuMzNkL._SL160_SL150_.jpg
-  price: 22.9
-  title: "Le Tr\xF4ne de fer l'Int\xE9grale (A game o..."
-  url: http://www.amazon.fr/Tr%C3%B4ne-lInt%C3%A9grale-game-Thrones-Tome/dp/2756415936
-- author: George R-R Martin
-  img: 51l6jdkdagL._SL160_SL150_.jpg
-  price: 39.95
-  title: 'Game of Thrones : les origines'
-  url: http://www.amazon.fr/Game-Thrones-George-R-R-Martin/dp/2364802709
-- author: Bernard Werber
-  img: 518atILfKaL._SL160_PIsitb-sticker-arrow-dp,TopRight,12,-18_SH30_OU08_SL150_.jpg
-  price: 22.9
-  title: La Voix de la Terre
-  url: http://www.amazon.fr/La-Voix-Terre-Bernard-Werber/dp/2226259880
-- author: Robin Hobb
-  img: 51LryrE7IuL._SL160_SL150_.jpg
-  price: 6.7
-  title: "Les Cit\xE9s des Anciens, Tome 8 : Le pu..."
-  url: http://www.amazon.fr/Les-Cit%C3%A9s-Anciens-Tome-dargent/dp/2290085987
-- author: Ward J.R.
-  img: 41QumjVkYML._SL160_SL150_.jpg
-  price: 9.9
-  title: La Confrerie de la Dague Noire, tome...
-  url: http://www.amazon.fr/La-Confrerie-Dague-Noire-11/dp/2811213678
-- author: George R-R Martin
-  img: 51BKc-4LPEL._SL160_SL150_.jpg
-  price: 8.5
-  title: "Le tr\xF4ne de fer (A game of Thrones),..."
-  url: http://www.amazon.fr/tr%C3%B4ne-fer-game-Thrones-Tome/dp/2290098876
-- author: Anna Zaires
-  img: 51LDHjbFZhL._SL160_SL150_.jpg
-  price: 3.99
-  title: Obsessions Intimes (Les Chroniques Kr...
-  url: http://www.amazon.fr/Obsessions-Intimes-Les-Chroniques-Krinar-ebook/dp/B00OFKHB5I
-- author: Robin Hobb
-  img: 51rzAi2BD2L._SL160_SL150_.jpg
-  price: 21.9
-  title: Le fou et l'assassin
-  url: http://www.amazon.fr/Le-fou-lassassin-Robin-Hobb/dp/2756411183
-- author: Terry Goodkind
-  img: 51klUecPTGL._SL160_SL150_.jpg
-  price: 25.0
-  title: "L'\xC9p\xE9e de V\xE9rit\xE9 T14 Le Cr\xE9puscule de..."
-  url: http://www.amazon.fr/L%C3%89p%C3%A9e-V%C3%A9rit%C3%A9-T14-Cr%C3%A9puscule-Proph%C3%A9ties/dp/2352947987
-- author: John Lang
-  img: 616W6r%2BxfrL._SL160_SL150_.jpg
-  price: 13.95
-  title: 'Le Donjon de Naheulbeuk, Tome 15 :'
-  url: http://www.amazon.fr/Le-Donjon-Naheulbeuk-Tome-15/dp/2353256627
-- author: Terry PRATCHETT
-  img: 514CBz7ZN4L._SL160_SL150_.jpg
-  price: 5.8
-  title: Les Recettes de Nounou Ogg
-  url: http://www.amazon.fr/Les-Recettes-Nounou-Terry-PRATCHETT/dp/2266247808
-- author: Stephen King
-  img: 51D991FKBIL._SL160_PIsitb-sticker-arrow-dp,TopRight,12,-18_SH30_OU08_SL150_.jpg
-  price: 9.9
-  title: 22/11/63
-  url: http://www.amazon.fr/22-11-63-Stephen-King/dp/2253195103
-- author: Wright Suzanne
-  img: 51d2DSlMPJL._SL160_SL150_.jpg
-  price: 8.2
-  title: 'La Meute du Phenix T3 : Nick Axton'
-  url: http://www.amazon.fr/La-Meute-Phenix-T3-Axton/dp/2811213686
-- author: Mervyn Peake
-  img: 41P%2B%2BnvThXL._SL160_SL150_.jpg
-  price: 8.3
-  title: La trilogie de Gormenghast, Tome 1 :...
-  url: http://www.amazon.fr/La-trilogie-Gormenghast-Tome-denfer/dp/2757804634
-- author: Martin George R.R.
-  img: 51C3vg2EacL._SL160_SL150_.jpg
-  price: 9.9
-  title: "Maximes et Pens\xE9es de Tyrion Lannister"
-  url: http://www.amazon.fr/Maximes-Pens%C3%A9es-Tyrion-Lannister-Martin/dp/2290091308
-- author: J.R.R. Tolkien
-  img: 51oO2zzzG1L._SL160_SL150_.jpg
-  price: 6.0
-  title: Bilbo le Hobbit
-  url: http://www.amazon.fr/Bilbo-Hobbit-J-R-R-Tolkien/dp/2253049417
-- author: J. R. R. (John Ronald Reuel) Tolkien
-  img: 51NYH3667AL._SL160_SL150_.jpg
-  price: 6.8
-  title: Le Silmarillion
-  url: http://www.amazon.fr/Silmarillion-John-Ronald-Reuel-Tolkien/dp/2266121022
-- author: "Th\xE9a Harrison"
-  img: 51Z379-mofL._SL160_SL150_.jpg
-  price: 7.4
-  title: 'La chronique des anciens, Tome 5 : La...'
-  url: http://www.amazon.fr/La-chronique-anciens-Tome-seigneur/dp/2290087882
-- author: Jacques Baudou
-  img: 51x9fbdS8TL._SL160_SL150_.jpg
-  price: 17.71
-  title: "L'encyclop\xE9die du fantastique"
-  url: http://www.amazon.fr/Lencyclop%C3%A9die-du-fantastique-Jacques-Baudou/dp/2354252374
-- author: Darynda Jones
-  img: 51T29B12t1L._SL160_SL150_.jpg
-  price: 8.2
-  title: 'Charley Davidson T6 : Au bord de la s...'
-  url: http://www.amazon.fr/Charley-Davidson-T6-sixieme-tombe/dp/2811213694
-- author: Daniel Keyes
-  img: 41tQCW7F1eL._SL160_SL150_.jpg
-  price: 6.0
-  title: Des fleurs pour Algernon
-  url: http://www.amazon.fr/fleurs-pour-Algernon-Daniel-Keyes/dp/2290032727
-- author: Ray Bradbury
-  img: 51C49B44ZDL._SL160_SL150_.jpg
-  price: 5.6
-  title: Fahrenheit 451
-  url: http://www.amazon.fr/Fahrenheit-451-Ray-Bradbury/dp/2070415732
-- author: Nalini Singh
-  img: 51EStBOrh7L._SL160_SL150_.jpg
-  price: 8.7
-  title: 'Psi-changeling, Tome 10 : Le baiser d...'
-  url: http://www.amazon.fr/Psi-changeling-Tome-10-baiser-loup/dp/2811213031
-- author: Martin George R.R.
-  img: 51F2UUMooLL._SL160_SL150_.jpg
-  price: 15.9
-  title: L'Oeuf de Dragon
-  url: http://www.amazon.fr/LOeuf-Dragon-Martin-George-R-R/dp/2756411140
-- author: Robin Hobb
-  img: 41k9nOR5ynL._SL160_SL150_.jpg
-  price: 6.7
-  title: "Les Cit\xE9s des Anciens, Tome 7 : Le vo..."
-  url: http://www.amazon.fr/Les-Cit%C3%A9s-Anciens-Tome-dragons/dp/2290085979
-- author: Stephen King
-  img: 51cXTrz94XL._SL160_SL150_.jpg
-  price: 8.9
-  title: "D\xF4me tome 2"
-  url: http://www.amazon.fr/D%C3%B4me-2-Stephen-King/dp/225316979X
-- author: Isaac Asimov
-  img: 41InJ7zXnhL._SL160_SL150_.jpg
-  price: 6.0
-  title: 'Le cycle des robots, Tome 1 : Les robots'
-  url: http://www.amazon.fr/Le-cycle-robots-Tome-Les/dp/2290055956
-- author: Frank Jacquelyn
-  img: 51n9iVcYf-L._SL160_SL150_.jpg
-  price: 8.2
-  title: 'Creatures des Tenebres, tome 4 : Forg...'
-  url: http://www.amazon.fr/Creatures-Tenebres-Forge-dans-Flammes/dp/281121366X
-- author: Eric Nylund
-  img: 51ax0P2CMbL._SL160_SL150_.jpg
-  price: 8.2
-  title: "Halo, Tome 4 : Les fant\xF4mes d'Onyx"
-  url: http://www.amazon.fr/Halo-Tome-Les-fant%C3%B4mes-dOnyx/dp/2811213074
-- author: Diana Rowland
-  img: 51qK9Du-aYL._SL160_SL150_.jpg
-  price: 8.2
-  title: "Kara Gillian, Tome 5 : La main du d\xE9mon"
-  url: http://www.amazon.fr/Kara-Gillian-Tome-main-d%C3%A9mon/dp/2811212639
-- author: H.V. Gavriel
-  img: 51xcfct-WiL._SL160_SL150_.jpg
-  price: 8.2
-  title: 'Les Loups de Riverdance 1 : Lucas'
-  url: http://www.amazon.fr/Les-Loups-Riverdance-1-Lucas/dp/2811213651
-- author: Pierre Pevel
-  img: 61GfpTevbkL._SL160_SL150_.jpg
-  price: 25.0
-  title: "Haut-Royaume T2 L'H\xE9ritier (reli\xE9)"
-  url: http://www.amazon.fr/Haut-Royaume-LH%C3%A9ritier-reli%C3%A9-Pierre-Pevel/dp/2352948045
-- author: George R.R. Martin
-  img: 51sHz4HFVaL._SL160_SL150_.jpg
-  price: 6.4
-  title: "Le chevalier errant, suivi de L'\xE9p\xE9e..."
-  url: http://www.amazon.fr/chevalier-errant-suivi-L%C3%A9p%C3%A9e-lige/dp/2290011487
-- author: Patrick Rothfuss
-  img: 51f0sq5rPeL._SL160_SL150_.jpg
-  price: 20.0
-  title: La Musique du silence
-  url: http://www.amazon.fr/La-Musique-silence-Patrick-Rothfuss/dp/2352947790
-- author: Isaac Asimov
-  img: 41UVJQ94HRL._SL160_SL150_.jpg
-  price: 6.2
-  title: "Le cycle de Fondation, I\_:\_Fondation"
-  url: http://www.amazon.fr/Le-cycle-Fondation-I-Fondation/dp/2070360539
-- author: Isaac Asimov
-  img: 51zISRo8-QL._SL160_SL150_.jpg
-  price: 6.8
-  title: "Le cycle de Fondation, II\_:\_Fondation..."
-  url: http://www.amazon.fr/Le-cycle-Fondation-II-Fondation/dp/2070360555
-- author: Terry Pratchett
-  img: no-img-lg._V192209323_SL150_.gif
-  price: 23.0
-  title: Les annales du Disque-Monde, Tome 35...
-  url: http://www.amazon.fr/Les-annales-Disque-Monde-Tome-35/dp/2841726886
-- author: Anna Zaires
-  img: 51%2BglZhHNgL._SL160_SL150_.jpg
-  price: 3.99
-  title: Liaisons Intimes (Les Chroniques Krin...
-  url: http://www.amazon.fr/Liaisons-Intimes-Les-Chroniques-Krinar-ebook/dp/B00LMRHJTK
-- author: Robin Hobb
-  img: 41rNKQ5DkgL._SL160_SL150_.jpg
-  price: 8.5
-  title: 'L''Assassin royal, Tome 1 : L''apprenti...'
-  url: http://www.amazon.fr/LAssassin-royal-Tome-Lapprenti-assassin/dp/2290352624
-- author: Jeaniene Frost
-  img: 51pZ2CKsXgL._SL160_SL150_.jpg
-  price: 8.2
-  title: 'Chasseuse de la nuit, Tome 7 : Hors d...'
-  url: http://www.amazon.fr/Chasseuse-nuit-Tome-Hors-tombe/dp/2811212604
-- author: Collectif
-  img: 515yJnz%2BgtL._SL160_SL150_.jpg
-  price: 2.0
-  title: La dimension fantastique 1
-  url: http://www.amazon.fr/La-dimension-fantastique-1-Collectif/dp/2290038490
-- author: Chris Loseus
-  img: 51K%2BZ4JA7bL._SL160_SL150_.jpg
-  price: 2.99
-  title: NOUVELLE ERE
-  url: http://www.amazon.fr/NOUVELLE-ERE-Chris-Loseus-ebook/dp/B00M242SC0
-- author: Deborah Harkness
-  img: 51Zb%2B2cXRAL._SL160_SL150_.jpg
-  price: 8.6
-  title: "Le Livre perdu des sortil\xE8ges"
-  url: http://www.amazon.fr/Livre-perdu-sortil%C3%A8ges-Deborah-Harkness/dp/2253164259
-- author: Coreene Callahan
-  img: 510DcXUwQiL._SL160_SL150_.jpg
-  price: 7.9
-  title: 'Dragonfury, Tome 1 : Furie de flamme'
-  url: http://www.amazon.fr/Dragonfury-Tome-1-Furie-flamme/dp/2811212620
-- author: Stephen King
-  img: 51vyJmk8OAL._SL160_PIsitb-sticker-arrow-dp,TopRight,12,-18_SH30_OU08_SL150_.jpg
-  price: 8.9
-  title: "D\xF4me tome 1"
-  url: http://www.amazon.fr/D%C3%B4me-1-Stephen-King/dp/2253169781
-- author: Maxime Chattam
-  img: 518r9Z06rIL._SL160_PIsitb-sticker-arrow-dp,TopRight,12,-18_SH30_OU08_SL150_.jpg
-  price: 22.0
-  title: Autre-Monde Tome 6 - Neverland
-  url: http://www.amazon.fr/Autre-Monde-Tome-Neverland-Maxime-Chattam/dp/2226252010
-- author: Roxane Dambre
-  img: 51UKTejgloL._SL160_SL150_.jpg
-  price: 7.6
-  title: Le Cauchemar du chien (Animae tome 3)
-  url: http://www.amazon.fr/Cauchemar-chien-Animae-Roxane-Dambre/dp/2253195146
-- author: Jules Verne
-  img: 41T2j0DavAL._SL160_SL150_.jpg
-  price: 1.79
-  title: "Jules Verne : Oeuvres compl\xE8tes et an..."
-  url: http://www.amazon.fr/Jules-Verne-compl%C3%A8tes-Nouvelle-enrichie-ebook/dp/B00ASC74TU
-- author: "De\xEFmian"
-  img: 41QnQi21RIL._SL160_SL150_.jpg
-  price: 3.05
-  title: 'Origine: Tome 1'
-  url: http://www.amazon.fr/Origine-Tome-1-De%C3%AFmian-ebook/dp/B00KFPDK3E
-- author: John Lang
-  img: 51apEG0FBQL._SL160_SL150_.jpg
-  price: 21.0
-  title: 'Le Donjon de Naheulbeuk, Tome :'
-  url: http://www.amazon.fr/Donjon-Naheulbeuk-Tome-John-Lang/dp/2915621470
-- author: Robert Kirkman
-  img: 51mpmOIQGaL._SL160_SL150_.jpg
-  price: 8.1
-  title: La Chute du Gouverneur (The Walking D...
-  url: http://www.amazon.fr/Chute-Gouverneur-Walking-Dead-Volume/dp/225319509X
-- author: "Mich\xE8le Bardsley"
-  img: 51fD3Qd5wPL._SL160_SL150_.jpg
-  price: 7.4
-  title: "Bienvenue \xE0 Nevermore, Tome 2 : Sombr..."
-  url: http://www.amazon.fr/Bienvenue-Nevermore-Tome-Sombre-sacrifice/dp/2290099139
-- author: Jennifer Armentrout
-  img: 51JYHCNw1aL._SL160_SL150_.jpg
-  price: 13.0
-  title: 'Lux, Tome 1 : Obsidienne'
-  url: http://www.amazon.fr/Lux-Tome-Obsidienne-Jennifer-Armentrout/dp/2290070467
-- author: Alain Damasio
-  img: 51wj8G%2B9CNL._SL160_SL150_.jpg
-  price: 10.6
-  title: La Horde du Contrevent
-  url: http://www.amazon.fr/La-Horde-Contrevent-Alain-Damasio/dp/2070458253
-- author: Chloe Neill
-  img: 51jHIgBzNjL._SL160_SL150_.jpg
-  price: 8.2
-  title: 'Les vampires de Chicago, Tome 9 : Mor...'
-  url: http://www.amazon.fr/Les-vampires-Chicago-Tome-Mords/dp/2811212647
-- author: Deborah Harkness
-  img: 510xFNbQiSL._SL160_SL150_.jpg
-  price: 8.9
-  title: "L'\xC9cole de la nuit"
-  url: http://www.amazon.fr/L%C3%89cole-nuit-Deborah-Harkness/dp/2253169846
-- author: J.R.R. TOLKIEN
-  img: 51cWy76Ct3L._SL160_SL150_.jpg
-  price: 6.8
-  title: Le seigneur des anneaux
-  url: http://www.amazon.fr/Le-seigneur-anneaux-J-R-R-TOLKIEN/dp/2266154117
-- author: Douglas Adams
-  img: 51Ot8Qed8xL._SL160_SL150_.jpg
-  price: 6.8
-  title: "H2G2, I\_:\_Le Guide du voyageur galact..."
-  url: http://www.amazon.fr/H2G2-Guide-voyageur-galactique/dp/2070437434
-- author: Robert Jordan
-  img: 51xqp9D4pML._SL160_SL150_.jpg
-  price: 30.0
-  title: La Roue du temps T6 Le Seigneur du chaos
-  url: http://www.amazon.fr/La-Roue-temps-Seigneur-chaos/dp/2352947847
-- author: Robert Kirkman
-  img: 51F5v7eyMUL._SL160_SL150_.jpg
-  price: 8.1
-  title: La Chute du Gouverneur (The Walking D...
-  url: http://www.amazon.fr/Chute-Gouverneur-Walking-Dead-Volume/dp/2253134848
-- author: Stephen King
-  img: 41-wYR4XDjL._SL160_PIsitb-sticker-arrow-dp,TopRight,12,-18_SH30_OU08_SL150_.jpg
-  price: 22.3
-  title: "D\xF4me, Tome 1 :"
-  url: http://www.amazon.fr/D%C3%B4me-Tome-1-Stephen-King/dp/2226220585
-- author: J.R.R. Tolkien
-  img: 51DjG2bLM6L._SL160_SL150_.jpg
-  price: 4.7
-  title: "Contes et L\xE9gendes inachev\xE9es, tome 2..."
-  url: http://www.amazon.fr/Contes-L%C3%A9gendes-inachev%C3%A9es-Second-Age/dp/2266118005
-- author: George Orwell
-  img: 51HnyT6WpJL._SL160_SL150_.jpg
-  price: 7.99
-  title: '1984'
-  url: http://www.amazon.fr/1984-George-Orwell-ebook/dp/B00D5XNXQ2
-- author: Michel ROBERT
-  img: 512j33nkdaL._SL160_SL150_.jpg
-  price: 8.8
-  title: L'Agent des ombres, Tome 7 - Chiens d...
-  url: http://www.amazon.fr/LAgent-ombres-Tome-Chiens-guerre/dp/2266242474
-- author: Stephen King
-  img: 51eCC2EYbcL._SL160_SL150_.jpg
-  price: 8.6
-  title: "\xC7a, tome 1"
-  url: http://www.amazon.fr/%C3%87a-1-Stephen-King/dp/2253151343
-- author: Cody McFADYEN
-  img: 41wJOdgBzmL._SL160_SL150_.jpg
-  price: 8.4
-  title: La mort en face
-  url: http://www.amazon.fr/La-mort-face-Cody-McFADYEN/dp/2266181777
-- author: Sylvie Sabatier
-  img: 51qUKQZs8YL._SL160_SL150_.jpg
-  price: 13.95
-  title: 'Le Donjon de Naheulbeuk, Tome 13 : Qu...'
-  url: http://www.amazon.fr/Le-Donjon-Naheulbeuk-Tome-Quatri%C3%A8me/dp/2353255744
-- author: Andrzej Sapkowski
-  img: 51-80eFIzVL._SL160_PIsitb-sticker-arrow-dp,TopRight,12,-18_SH30_OU08_SL150_.jpg
-  price: 7.6
-  title: 'Sorceleur, Tome 3 : Le sang des elfes'
-  url: http://www.amazon.fr/Sorceleur-Tome-Le-sang-elfes/dp/2811205705
-- author: Keri Arthur
-  img: 512HkPwDXqL._SL160_SL150_.jpg
-  price: 8.2
-  title: "Risa Jones, Tome 6 : Eclats de ten\xE8bres"
-  url: http://www.amazon.fr/Risa-Jones-Tome-Eclats-ten%C3%A8bres/dp/2811213023
-- author: Patricia Briggs
-  img: 51pRVfTdR0L._SL160_SL150_.jpg
-  price: 7.1
-  title: 'Mercy Thompson, T7 : la Morsure du Givre'
-  url: http://www.amazon.fr/Mercy-Thompson-T7-Morsure-Givre/dp/2811211640
-- author: Robin Hobb
-  img: 514VTD9PN0L._SL160_SL150_.jpg
-  price: 7.7
-  title: 'Les Aventuriers de la mer, tome 3 : L...'
-  url: http://www.amazon.fr/Les-Aventuriers-mer-Conqu%C3%AAte-libert%C3%A9/dp/2290337064
-- author: Terry PRATCHETT
-  img: 51zz9LvnRvL._SL160_SL150_.jpg
-  price: 8.4
-  title: Jeu de nains
-  url: http://www.amazon.fr/Jeu-nains-Terry-PRATCHETT/dp/2266246909
-- author: Anne Fakhouri
-  img: 51p791ONIgL._SL160_SL150_.jpg
-  price: 23.0
-  title: American Fays
-  url: http://www.amazon.fr/American-Fays-Anne-Fakhouri/dp/B00LFAQ27O
-- author: Margaret Stohl
-  img: 41MRnstkcnL._SL160_SL150_.jpg
-  price: 8.9
-  title: "Saga Sublimes cr\xE9atures - Tome 1 - 16..."
-  url: http://www.amazon.fr/Saga-Sublimes-cr%C3%A9atures-Tome-Lunes/dp/2013230060
-- author: Roxane Dambre
-  img: 41dtf0H5pIL._SL160_SL150_.jpg
-  price: 7.1
-  title: La Trace du coyote (animae tome2)
-  url: http://www.amazon.fr/La-Trace-coyote-animae-tome2/dp/2253195138
-- author: James Barclay
-  img: 51k2K7FTcTL._SL160_SL150_.jpg
-  price: 9.2
-  title: 'Ravens, Tome 7 : Ameraven'
-  url: http://www.amazon.fr/Ravens-Tome-Ameraven-James-Barclay/dp/2811212973
-- author: Kresley Cole
-  img: 51Gbn1%2BsuOL._SL160_SL150_.jpg
-  price: 7.4
-  title: 'Les ombres de la nuit, Tome 11 : MacR...'
-  url: http://www.amazon.fr/Les-ombres-nuit-Tome-11/dp/2290089788
-- author: Max Brooks
-  img: 51YnMo5m95L._SL160_SL150_.jpg
-  price: 7.1
-  title: Guide de survie en territoire zombie
-  url: http://www.amazon.fr/Guide-survie-en-territoire-zombie/dp/2253134643
-- author: Daniel Ichbiah
-  img: 51XV7Wf38eL._SL160_SL150_.jpg
-  price: 0.89
-  title: Les Banquiers du Temps
-  url: http://www.amazon.fr/Les-Banquiers-Temps-Daniel-Ichbiah-ebook/dp/B007BJT7M0
-- author: Michael SCOTT
-  img: 51MKzAzUNTL._SL160_SL150_.jpg
-  price: 7.7
-  title: 2. Les secrets de l'immortel Nicolas...
-  url: http://www.amazon.fr/Les-secrets-limmortel-Nicolas-Flamel/dp/2266217267
-- author: J.R.R. TOLKIEN
-  img: 518AcPBLUcL._SL160_SL150_.jpg
-  price: 17.9
-  title: "Le Seigneur des Anneaux / Int\xE9grale"
-  url: http://www.amazon.fr/Seigneur-Anneaux-Int%C3%A9grale-J-R-R-TOLKIEN/dp/2266232991
-- author: Philip K. Dick
-  img: 51UIhk3ry6L._SL160_SL150_.jpg
-  price: 7.6
-  title: "Le ma\xEEtre du haut ch\xE2teau"
-  url: http://www.amazon.fr/Le-ma%C3%AEtre-du-haut-ch%C3%A2teau/dp/2290082325
-- author: Andrzej Sapkowski
-  img: 51K9y4hpCHL._SL160_PIsitb-sticker-arrow-dp,TopRight,12,-18_SH30_OU08_SL150_.jpg
-  price: 7.1
-  title: 'Sorceleur, tome 1 : Le dernier voeu'
-  url: http://www.amazon.fr/Sorceleur-1-Le-dernier-voeu/dp/2811205063
-- author: Sylvia Day
-  img: 41KPv3mbIhL._SL160_SL150_.jpg
-  price: 8.0
-  title: "Les anges ren\xE9gats, Tome 1 : Une note..."
-  url: http://www.amazon.fr/Les-anges-ren%C3%A9gats-Tome-pourpre/dp/2290094188
-- author: Salvatore R.A.
-  img: 51sDLVUkqwL._SL160_SL150_.jpg
-  price: 8.2
-  title: 'Neverwinter 4 : le Dernier Seuil'
-  url: http://www.amazon.fr/Neverwinter-Dernier-Seuil-Salvatore-R-A/dp/2811213619
-- author: J.R.R. Tolkien
-  img: 51CB1q94B9L._SL160_SL150_.jpg
-  price: 4.7
-  title: "Contes et l\xE9gendes inachev\xE9es, tome 1..."
-  url: http://www.amazon.fr/Contes-l%C3%A9gendes-inachev%C3%A9es-Premier-Age/dp/2266117300
-- author: Terry Goodkind
-  img: 51StFBA%2BChL._SL160_PIsitb-sticker-arrow-dp,TopRight,12,-18_SH30_OU08_SL150_.jpg
-  price: 25.0
-  title: "L'\xC9p\xE9e de v\xE9rit\xE9, tome 11 : L'ombre d..."
-  url: http://www.amazon.fr/L%C3%89p%C3%A9e-v%C3%A9rit%C3%A9-11-Lombre-inquisitrice/dp/2352944619
-- author: James Frey
-  img: 51XWpCULegL._SL160_SL150_.jpg
-  price: 13.99
-  title: Endgame (Tome 1) - L'appel
-  url: http://www.amazon.fr/Endgame-Tome-Lappel-James-Frey-ebook/dp/B00NWS6WVI
-- author: Delaney Joseph
-  img: 51SdXDaf4IL._SL160_PIsitb-sticker-arrow-dp,TopRight,12,-18_SH30_OU08_SL150_.jpg
-  price: 14.9
-  title: Destin de l'Epouvanteur T8
-  url: http://www.amazon.fr/Destin-lEpouvanteur-T8-Delaney-Joseph/dp/2747037010
-- author: Robin Hobb
-  img: 51zlrFDfYKL._SL160_SL150_.jpg
-  price: 8.1
-  title: 'L''Assassin royal, Tome 12 : L''homme noir'
-  url: http://www.amazon.fr/LAssassin-royal-Tome-12-Lhomme/dp/2290353078
-- author: "Fran\xE7ois Descraques"
-  img: 51y9C1o1qSL._SL160_SL150_.jpg
-  price: 1.99
-  title: "Les Petits B\xE2tards - Le Visiteur du f..."
-  url: http://www.amazon.fr/Les-Petits-B%C3%A2tards-Visiteur-%C3%89pisode-ebook/dp/B00P86AL7S
-- author: Stephen King
-  img: 51CMG6TNJZL._SL160_SL150_.jpg
-  price: 6.6
-  title: "Ecriture : M\xE9moires d'un m\xE9tier"
-  url: http://www.amazon.fr/Ecriture-M%C3%A9moires-m%C3%A9tier-Stephen-King/dp/2253151459
-- author: Robin Hobb
-  img: 51ZyC-dK-hL._SL160_SL150_.jpg
-  price: 7.2
-  title: 'Le Vaisseau magique, tome 1 : Les ave...'
-  url: http://www.amazon.fr/Le-Vaisseau-magique-Les-aventuriers/dp/2290325716
-- author: Terry Pratchett
-  img: 51XhIb1J8CL._SL160_SL150_.jpg
-  price: 21.0
-  title: La science du disque-monde, Tome 3 :...
-  url: http://www.amazon.fr/La-science-disque-monde-Tome-Lhorloge/dp/2841726681
-- author: Bernard WERBER
-  img: 51kbr9kOi0L._SL160_PIsitb-sticker-arrow-dp,TopRight,12,-18_SH30_OU08_SL150_.jpg
-  price: 22.9
-  title: "Troisi\xE8me Humanit\xE9"
-  url: http://www.amazon.fr/Troisi%C3%A8me-Humanit%C3%A9-Bernard-WERBER/dp/2226244220
-- author: Robin Hobb
-  img: 513%2B20K09UL._SL160_SL150_.jpg
-  price: 7.7
-  title: 'Les Aventuriers de la mer, tome 2 : L...'
-  url: http://www.amazon.fr/Les-Aventuriers-mer-navire-esclaves/dp/2290337056
-- author: Rachel Caine
-  img: 51Tw%2BbCH31L._SL160_SL150_.jpg
-  price: 8.9
-  title: "Fun\xE8bres, Tome 2 : Sans pr\xE9avis"
-  url: http://www.amazon.fr/Fun%C3%A8bres-Tome-2-Sans-pr%C3%A9avis/dp/2290058130
-- author: Patricia Briggs
-  img: 51AO72SSJ%2BL._SL160_PIsitb-sticker-arrow-dp,TopRight,12,-18_SH30_OU08_SL150_.jpg
-  price: 7.1
-  title: 'Mercy Thompson, tome 1 : L''Appel de l...'
-  url: http://www.amazon.fr/Mercy-Thompson-1-LAppel-Lune/dp/281120041X
-- author: John Lang
-  img: 5118E83JN0L._SL160_SL150_.jpg
-  price: 13.95
-  title: 'Le Donjon de Naheulbeuk, tome 2 : Pre...'
-  url: http://www.amazon.fr/Le-Donjon-Naheulbeuk-Premi%C3%A8re-saison/dp/2913714811
+- by: Superdrag
+  entryId: 67913
+  genre: [Rock, Punk]
+  img: Superdrag-Stereo_360_Sound.jpg
+  parent: Superdrag
+  releaseYear: 1998
+  title: Stereo 360 Sound
+- by: 16 Horsepower
+  entryId: 10575
+  genre: [Alternative country, neofolk]
+  img: 220px-Folklore_hp.jpg
+  parent: 16 Horsepower
+  releaseYear: 2002
+  title: Folklore
+- by: Ryan Adams
+  entryId: 10637
+  genre: [Alternative country, country]
+  img: 220px-RyanAdamsHeartbreaker.jpg
+  parent: Ryan Adams
+  releaseYear: 2000
+  title: Heartbreaker
+- by: Ryan Adams
+  entryId: 10644
+  genre: [Rock, alternative country, pop rock]
+  img: 220px-Ryanadamsselftitled.jpg
+  parent: Ryan Adams
+  releaseYear: 2014
+  title: Ryan Adams
+- by: Whiskeytown
+  entryId: 10660
+  genre: [Alternative country]
+  img: 220px-WhiskeytownPneumonia.jpg
+  parent: Ryan Adams
+  releaseYear: 2001
+  title: Pneumonia
+- by: Jesse Malin
+  entryId: 10668
+  genre: []
+  img: The_Fine_Art_of_Self_Destruction.jpg
+  parent: Ryan Adams
+  releaseYear: 2002
+  title: The Fine Art of Self Destruction
+- by: The Finger
+  entryId: 10669
+  genre: []
+  img: null
+  parent: Ryan Adams
+  releaseYear: 2003
+  title: We Are Fuck You
+- by: Ryan Adams
+  entryId: 10675
+  genre: [Alternative country]
+  img: 220px-Love_Is_Hell.jpg
+  parent: Ryan Adams
+  releaseYear: 2004
+  title: Love Is Hell
+- by: Joan Baez
+  entryId: 10679
+  genre: [Folk]
+  img: 220px-DarkChords.jpg
+  parent: Ryan Adams
+  releaseYear: 2003
+  title: Dark Chords on a Big Guitar
+- by: Willie Nelson
+  entryId: 10697
+  genre: [Alternative country]
+  img: 220px-Songbird_Willie_Nelson.jpg
+  parent: Ryan Adams
+  releaseYear: 2006
+  title: Songbird
+- by: Cowboy Junkies
+  entryId: 10707
+  genre: [Country rock, Alternative country]
+  img: 220px-Trinityrevisited.jpg
+  parent: Ryan Adams
+  releaseYear: 2007
+  title: Trinity Revisited
+- by: Ryan Adams
+  entryId: 10714
+  genre: [Heavy metal, hard rock]
+  img: 220px-Ryan-adams-orion.jpg
+  parent: Ryan Adams
+  releaseYear: 2010
+  title: Orion
+- by: Whiskeytown
+  entryId: 10770
+  genre: [Alternative country]
+  img: null
+  parent: Ryan Adams
+  releaseYear: 0
+  title: Forever Valentine
+- by: Alabama Shakes
+  entryId: 10809
+  genre: [Blues rock, roots rock, soul, Southern rock, garage rock, Americana]
+  img: 220px-Alabama_Shakes_-_Sound_%26_Color_album_cover.jpg
+  parent: Alabama Shakes
+  releaseYear: 2015
+  title: Sound & Color
+- by: Terry Allen
+  entryId: 10890
+  genre: [Country]
+  img: Terry_Allen_Lubbock%28on_everything%29.jpg
+  parent: Terry Allen (country singer)
+  releaseYear: 1979
+  title: Lubbock
+- by: Terry Allen
+  entryId: 10893
+  genre: [Country]
+  img: TerryAllen_Juarez.jpg
+  parent: Terry Allen (country singer)
+  releaseYear: 1975
+  title: Juarez
+- by: Terry Allen
+  entryId: 10895
+  genre: [Country]
+  img: Terry_Allen_Pedal_Steal.jpg
+  parent: Terry Allen (country singer)
+  releaseYear: 1985
+  title: Pedal Steal
+- by: Terry Allen
+  entryId: 10899
+  genre: [Country]
+  img: Terry_Allen_Human_Remains.jpg
+  parent: Terry Allen (country singer)
+  releaseYear: 1996
+  title: Human Remains
+- by: X
+  entryId: 10913
+  genre: [Alternative rock, alternative country]
+  img: XSeeHowWeAre.jpg
+  parent: Dave Alvin
+  releaseYear: 1987
+  title: See How We Are
+- by: Dave Alvin
+  entryId: 10919
+  genre: [Folk rock, country rock]
+  img: null
+  parent: Dave Alvin
+  releaseYear: 2011
+  title: Eleven Eleven
+- by: The Blasters
+  entryId: 10932
+  genre: [Rock and roll, rockabilly, roots rock]
+  img: null
+  parent: Dave Alvin
+  releaseYear: 1980
+  title: American Music
+- by: The Blasters
+  entryId: 10933
+  genre: [Rock and roll, rockabilly, roots rock]
+  img: The_Blasters_%28album%29.jpg
+  parent: Dave Alvin
+  releaseYear: 1981
+  title: The Blasters
+- by: X
+  entryId: 10947
+  genre: [Punk rock]
+  img: 220px-XLosAngeles.jpg
+  parent: Dave Alvin
+  releaseYear: 1980
+  title: Los Angeles
+- by: X
+  entryId: 10948
+  genre: [Punk rock]
+  img: 220px-XWildGift.jpg
+  parent: Dave Alvin
+  releaseYear: 1981
+  title: Wild Gift
+- by: X
+  entryId: 10950
+  genre: [Punk rock]
+  img: XMoreFunInTheNewWorld.jpg
+  parent: Dave Alvin
+  releaseYear: 1983
+  title: More Fun in the New World
+- by: X
+  entryId: 10952
+  genre: [Alternative rock]
+  img: 220px-XHeyZeus.jpg
+  parent: Dave Alvin
+  releaseYear: 1993
+  title: Hey Zeus!
+- by: Andrew Jackson Jihad
+  entryId: 10984
+  genre: [Indie rock, folk punk, indie folk]
+  img: 220px-Cant_Maintain.jpg
+  parent: Andrew Jackson Jihad
+  releaseYear: 2009
+  title: Can't Maintain
+- by: Angels of Light
+  entryId: 11003
+  genre: [Experimental rock, indie folk, post-rock]
+  img: 220px-The_Angels_of_Light_Sing_%27Other_People%27.jpeg
+  parent: The Angels of Light
+  releaseYear: 2005
+  title: The Angels of Light Sing 'Other People'
+- by: Angels of Light
+  entryId: 11005
+  genre: [Experimental rock, folk rock, alternative country]
+  img: 220px-Angels-wearehim.jpg
+  parent: The Angels of Light
+  releaseYear: 2007
+  title: We Are Him
+- by: Asylum Street Spankers
+  entryId: 11030
+  genre: [Children's, comedy rock, country, folk, jazz, blues, ragtime]
+  img: 220px-Mommy_Says_No_cover.jpg
+  parent: The Asylum Street Spankers
+  releaseYear: 2007
+  title: Mommy Says No!
+- by: The Audreys
+  entryId: 11038
+  genre: [Blues & Roots]
+  img: 220px-Between_Last_Night_and_Us.jpg
+  parent: The Audreys
+  releaseYear: 2006
+  title: Between Last Night And Us
+- by: The Audreys
+  entryId: 11042
+  genre: [Blues & Roots]
+  img: null
+  parent: The Audreys
+  releaseYear: 2008
+  title: When the Flood Comes
+- by: The Avett Brothers
+  entryId: 11072
+  genre: [Folk]
+  img: 220px-Carolinajubilee.jpg
+  parent: The Avett Brothers
+  releaseYear: 2003
+  title: A Carolina Jubilee
+- by: The Boggs
+  entryId: 12316
+  genre: [Rock]
+  img: 220px-Stitches.jpg
+  parent: The Boggs
+  releaseYear: 2003
+  title: Stitches
+- by: 16 Horsepower
+  entryId: 10555
+  genre: [Alternative country]
+  img: 220px-Sackclothandashes.jpg
+  parent: 16 Horsepower
+  releaseYear: 1996
+  title: Sackcloth 'n' Ashes
+- by: DevilDriver
+  entryId: 10558
+  genre: [Groove metal, melodic death metal]
+  img: 220px-BEAST_%28Devil_Driver_album%29.jpg
+  parent: 16 Horsepower
+  releaseYear: 2011
+  title: Beast
+- by: Sarah McLeod
+  entryId: 67927
+  genre: [Rock]
+  img: 220px-Beauty_Was_a_Tiger.jpg
+  parent: The Superjesus
+  releaseYear: 2005
+  title: Beauty Was a Tiger
+- by: Band of Horses
+  entryId: 11152
+  genre: [Alternative rock]
+  img: 220px-Mirage_Rock.jpg
+  parent: Band of Horses
+  releaseYear: 2012
+  title: Mirage Rock
+- by: Band of Horses
+  entryId: 11156
+  genre: [Indie rock]
+  img: 220px-Ceasetobegin.jpg
+  parent: Band of Horses
+  releaseYear: 2007
+  title: Cease to Begin
+- by: Bill Frisell
+  entryId: 11235
+  genre: [Folk jazz, New Acoustic, Progressive bluegrass, Americana]
+  img: The_Willies.jpg
+  parent: Danny Barnes
+  releaseYear: 2002
+  title: The Willies
+- by: Elliott Smith
+  entryId: 11250
+  genre: [Indie folk, lo-fi]
+  img: 220px-Elliottsmithromancandle.jpeg
+  parent: Danny Barnes
+  releaseYear: 1994
+  title: Roman Candle
+- by: Tim Barry
+  entryId: 11263
+  genre: [Folk]
+  img: Laurel_street_demo.jpg
+  parent: Tim Barry
+  releaseYear: 2006
+  title: Laurel Street Demo 2005
+- by: Tim Barry
+  entryId: 11264
+  genre: [Folk]
+  img: 220px-Rivanna-junction.jpg
+  parent: Tim Barry
+  releaseYear: 2006
+  title: Rivanna Junction
+- by: Avail
+  entryId: 11268
+  genre: [Hardcore punk]
+  img: 220px-Avail-Dixie-cover.jpg
+  parent: Tim Barry
+  releaseYear: 1994
+  title: Dixie
+- by: Avail
+  entryId: 11269
+  genre: [Hardcore punk]
+  img: 220px-Avail-4amfriday.jpg
+  parent: Tim Barry
+  releaseYear: 1996
+  title: 4am Friday
+- by: Avail
+  entryId: 11271
+  genre: [Hardcore punk]
+  img: 220px-Avail-ow.jpg
+  parent: Tim Barry
+  releaseYear: 2000
+  title: One Wrench
+- by: The Be Good Tanyas
+  entryId: 11305
+  genre: [Folk, Bluegrass]
+  img: 220px-Chinatown_be_good_tanyas.jpg
+  parent: The Be Good Tanyas
+  releaseYear: 2003
+  title: Chinatown
+- by: Frazey Ford
+  entryId: 11315
+  genre: [Folk]
+  img: 220px-Obadiah_album.jpg
+  parent: The Be Good Tanyas
+  releaseYear: 2010
+  title: Obadiah
+- by: GG Allin
+  entryId: 11362
+  genre: [Punk rock, Hardcore punk]
+  img: 220px-GGBBFA.jpg
+  parent: Beachwood Sparks
+  releaseYear: 1993
+  title: Brutality and Bloodshed for All
+- by: Thee Michelle Gun Elephant
+  entryId: 11364
+  genre: [Garage rock]
+  img: null
+  parent: Beachwood Sparks
+  releaseYear: 2001
+  title: Collection
+- by: Two Gallants
+  entryId: 11367
+  genre: [Indie rock, Lo-fi]
+  img: 220px-Throes.jpg
+  parent: Beachwood Sparks
+  releaseYear: 2004
+  title: The Throes
+- by: Buffalo Killers
+  entryId: 11369
+  genre: [Blues rock]
+  img: 220px-Buffalo_Killers_-_Buffalo_Killers.jpg
+  parent: Beachwood Sparks
+  releaseYear: 2006
+  title: Buffalo Killers
+- by: Black Diamond Heavies
+  entryId: 11372
+  genre: [Blues rock]
+  img: null
+  parent: Beachwood Sparks
+  releaseYear: 2007
+  title: Every Damn Time
+- by: Black Diamond Heavies
+  entryId: 11373
+  genre: [Blues rock]
+  img: null
+  parent: Beachwood Sparks
+  releaseYear: 2008
+  title: A Touch of Someone Else's Class
+- by: Left Lane Cruiser
+  entryId: 11374
+  genre: [Blues rock]
+  img: 220px-Bring_Yo%27_Ass_to_the_Table.jpg
+  parent: Beachwood Sparks
+  releaseYear: 2008
+  title: Bring Yo' Ass to the Table
+- by: Radio Moscow
+  entryId: 11378
+  genre: [Psychedelic rock, blues rock, garage rock]
+  img: 220px-RadioMoscowTheGreatEscape.jpg
+  parent: Beachwood Sparks
+  releaseYear: 2011
+  title: The Great Escape of Leslie Magnafuzz
+- by: Left Lane Cruiser
+  entryId: 11379
+  genre: [Blues rock]
+  img: null
+  parent: Beachwood Sparks
+  releaseYear: 2011
+  title: Junkyard Speed Ball
+- by: Radio Moscow
+  entryId: 11381
+  genre: [Psychedelic rock, blues rock, garage rock, hard rock]
+  img: 220px-3_%26_3_Quarters.jpg
+  parent: Beachwood Sparks
+  releaseYear: 2012
+  title: 3 & 3 Quarters
+- by: The Cruel Sea
+  entryId: 11404
+  genre: [Indie rock]
+  img: 220px-HoneymoonOver.jpg
+  parent: The Beasts of Bourbon
+  releaseYear: 1993
+  title: The Honeymoon Is Over
+- by: Pixies
+  entryId: 11432
+  genre: [Alternative rock]
+  img: 220px-Pixies-Doolittle.jpg
+  parent: The Beauty Shop
+  releaseYear: 1989
+  title: Gouge Away
+- by: Beck
+  entryId: 11445
+  genre: [Alternative rock, funk rock, R&B]
+  img: 220px-BeckMidniteVultures.jpg
+  parent: Beck
+  releaseYear: 1999
+  title: Midnite Vultures
+- by: Beck
+  entryId: 11447
+  genre: [Alternative rock, alternative hip hop]
+  img: 220px-Guero_cover.jpg
+  parent: Beck
+  releaseYear: 2005
+  title: Guero
+- by: Beck
+  entryId: 11450
+  genre: [Folk rock]
+  img: 220px-Beck_Morning_Phase.jpg
+  parent: Beck
+  releaseYear: 2014
+  title: Morning Phase
+- by: Beastie Boys
+  entryId: 11512
+  genre: [Hip hop]
+  img: 220px-BeastieBoysPaul%27sBoutique.jpg
+  parent: Beck
+  releaseYear: 1989
+  title: Paul's Boutique
+- by: Bob Dylan
+  entryId: 11530
+  genre: [Folk rock]
+  img: 220px-Bob_Dylan_-_Blood_on_the_Tracks.jpg
+  parent: Beck
+  releaseYear: 1975
+  title: Blood on the Tracks
+- by: Skip Spence
+  entryId: 11555
+  genre: [Rock, folk, psychedelic rock]
+  img: 220px-Skip_Spence_-_Oar.jpg
+  parent: Beck
+  releaseYear: 1969
+  title: Oar
+- by: Jamie Lidell
+  entryId: 11558
+  genre: [Soul, folk, blues]
+  img: 220px-Jamie-lidell-compass.jpg
+  parent: Beck
+  releaseYear: 2010
+  title: Compass
+- by: Thurston Moore
+  entryId: 11563
+  genre: [Acoustic rock]
+  img: 220px-Demolished_Thoughts.jpg
+  parent: Beck
+  releaseYear: 2011
+  title: Demolished Thoughts
+- by: Frank Sinatra
+  entryId: 11658
+  genre: [Vocal jazz, Traditional pop music]
+  img: 220px-Come_Dance_With_Me.jpg
+  parent: Beck
+  releaseYear: 1959
+  title: Come Dance with Me!
+- by: The Avett Brothers
+  entryId: 11113
+  genre: [Indie Rock, folk, folk punk, roots rock]
+  img: 220px-The_Carpenter_%28The_Avett_Brothers%29_cover_art.jpg
+  parent: The Avett Brothers
+  releaseYear: 2012
+  title: The Carpenter
+- by: Band of Horses
+  entryId: 11151
+  genre: [Indie rock]
+  img: 220px-Infinitearms.jpg
+  parent: Band of Horses
+  releaseYear: 2010
+  title: Infinite Arms
+- by: Motionless in White
+  entryId: 58744
+  genre: [Metalcore, gothic metal, post-hardcore, electronicore]
+  img: 220px-Motionless_in_white_creatures.jpg
+  parent: Motionless in White
+  releaseYear: 2010
+  title: Creatures
+- by: Simon & Garfunkel
+  entryId: 11676
+  genre: [Folk rock]
+  img: null
+  parent: Beck
+  releaseYear: 1970
+  title: Bridge over Troubled Water
+- by: Carole King
+  entryId: 11677
+  genre: [Folk, pop]
+  img: 220px-Carole_King_-_Tapestry.jpg
+  parent: Beck
+  releaseYear: 1971
+  title: Tapestry
+- by: Paul Simon
+  entryId: 11681
+  genre: [Rock]
+  img: 220px-PaulSimonStillCrazyAfterAllTheseYearsCover.jpg
+  parent: Beck
+  releaseYear: 1975
+  title: Still Crazy After All These Years
+- by: Fleetwood Mac
+  entryId: 11683
+  genre: [Rock, soft rock, pop]
+  img: 220px-FMacRumours.PNG
+  parent: Beck
+  releaseYear: 1977
+  title: Rumours
+- by: John Lennon and Yoko Ono
+  entryId: 11690
+  genre: [Rock]
+  img: 220px-JohnLennon-albums-doublefantasy.jpg
+  parent: Beck
+  releaseYear: 1980
+  title: Double Fantasy
+- by: Toto
+  entryId: 11693
+  genre: [Pop rock]
+  img: 220px-Toto_Toto_IV.jpg
+  parent: Beck
+  releaseYear: 1982
+  title: Toto IV
+- by: Paul Simon
+  entryId: 11701
+  genre: [Worldbeat, pop, rock, folk]
+  img: 220px-Graceland_cover_-_Paul_Simon.jpg
+  parent: Beck
+  releaseYear: 1986
+  title: Graceland
+- by: U2
+  entryId: 11702
+  genre: [Rock]
+  img: 220px-The_Joshua_Tree.png
+  parent: Beck
+  releaseYear: 1987
+  title: The Joshua Tree
+- by: Quincy Jones
+  entryId: 11707
+  genre: [Hip hop, Jazz]
+  img: 220px-Quincy_Jones_-_Back_On_The_Block-front.jpg
+  parent: Beck
+  releaseYear: 1989
+  title: Back on the Block
+- by: Celine Dion
+  entryId: 11718
+  genre: [Pop]
+  img: 220px-FallingIntoYouAlbum.jpg
+  parent: Beck
+  releaseYear: 1996
+  title: Falling into You
+- by: Norah Jones
+  entryId: 11728
+  genre: [Pop, country, blues, jazz, folk]
+  img: 220px-Norah_Jones_-_Come_Away_With_Me.jpg
+  parent: Beck
+  releaseYear: 2002
+  title: Come Away with Me
+- by: OutKast
+  entryId: 11729
+  genre: [Hip hop, funk]
+  img: 220px-Outkast-speakerboxx-lovebelow.jpg
+  parent: Beck
+  releaseYear: 2003
+  title: Speakerboxxx/The Love Below
+- by: Dixie Chicks
+  entryId: 11734
+  genre: [Pop, country rock]
+  img: 220px-TakingtheLongWay.jpg
+  parent: Beck
+  releaseYear: 2006
+  title: Taking the Long Way
+- by: Adele
+  entryId: 11741
+  genre: [Soul, pop, R&B]
+  img: 220px-Adele_-_21.png
+  parent: Beck
+  releaseYear: 2011
+  title: '21'
+- by: Mumford & Sons
+  entryId: 11743
+  genre: [Folk rock, nu-folk, pop]
+  img: 220px-Babelcoverart.jpg
+  parent: Beck
+  releaseYear: 2012
+  title: Babel
+- by: Wilco
+  entryId: 11754
+  genre: [Indie rock, alternative rock]
+  img: 220px-WilcoYankeeHotelFoxtrot.jpg
+  parent: Jay Bennett
+  releaseYear: 2002
+  title: Yankee Hotel Foxtrot
+- by: Wilco
+  entryId: 11778
+  genre: [Alternative country, alternative rock]
+  img: 220px-Wilco.gif
+  parent: Jay Bennett
+  releaseYear: 1995
+  title: A.M.
+- by: Wilco
+  entryId: 11780
+  genre: [Alternative rock, experimental rock]
+  img: 220px-WilcoAGhostIsBorn.jpg
+  parent: Jay Bennett
+  releaseYear: 2004
+  title: A Ghost Is Born
+- by: Wilco
+  entryId: 11782
+  genre: [Alternative rock]
+  img: 220px-Wilco_%28The_Album%29_cover.jpg
+  parent: Jay Bennett
+  releaseYear: 2009
+  title: Wilco
+- by: Wilco
+  entryId: 11783
+  genre: [Alternative rock, indie rock]
+  img: TheWholeLove.JPG
+  parent: Jay Bennett
+  releaseYear: 2011
+  title: The Whole Love
+- by: Wilco
+  entryId: 11790
+  genre: [Alternative rock, psychedelic rock, experimental rock]
+  img: Summerteeth.jpg
+  parent: Jay Bennett
+  releaseYear: 1999
+  title: Can't Stand It
+- by: The Minus 5
+  entryId: 11793
+  genre: [Rock]
+  img: 220px-M5downwithwilco.jpg
+  parent: Jay Bennett
+  releaseYear: 2003
+  title: Down with Wilco
+- by: Willie P. Bennett
+  entryId: 11800
+  genre: [Country Music]
+  img: null
+  parent: Willie P. Bennett
+  releaseYear: 1998
+  title: Heartstrings
+- by: Willie P. Bennett
+  entryId: 11812
+  genre: [Country]
+  img: Blackie_and_the_Rodeo_King.jpg
+  parent: Willie P. Bennett
+  releaseYear: 1979
+  title: Blackie and the Rodeo King
+- by: Willie P. Bennett
+  entryId: 11814
+  genre: [Country Music]
+  img: null
+  parent: Willie P. Bennett
+  releaseYear: 1977
+  title: Hobo's Taunt
+- by: Willie P. Bennett
+  entryId: 11815
+  genre: [Country Music, Rockabilly]
+  img: null
+  parent: Willie P. Bennett
+  releaseYear: 1985
+  title: The Lucky Ones
+- by: Willie P. Bennett
+  entryId: 11817
+  genre: [Country Music]
+  img: null
+  parent: Willie P. Bennett
+  releaseYear: 1993
+  title: Take My Own Advice
+- by: David Wiffen
+  entryId: 11833
+  genre: [Country rock, Folk rock]
+  img: 220px-Coasttocoastfever.jpg
+  parent: Willie P. Bennett
+  releaseYear: 1973
+  title: Coast to Coast Fever
+- by: Pure Prairie League
+  entryId: 11836
+  genre: [Country rock]
+  img: 220px-Pure_Prairie_League_-_Can%27t_Hold_Back.jpg
+  parent: Willie P. Bennett
+  releaseYear: 1979
+  title: Can't Hold Back
+- by: Palace Brothers
+  entryId: 11864
+  genre: []
+  img: Thereisnoonewhatwilltakecareofyou_albumcover.jpg
+  parent: Bonnie "Prince" Billy
+  releaseYear: 1993
+  title: There Is No-One What Will Take Care of You
+- by: Palace Brothers
+  entryId: 11865
+  genre: []
+  img: Daysinthewake_albumcover.jpg
+  parent: Bonnie "Prince" Billy
+  releaseYear: 1994
+  title: Days in the Wake
+- by: Will Oldham
+  entryId: 11868
+  genre: [Alt country, Indie]
+  img: 220px-Willoldhamjoya.jpg
+  parent: Bonnie "Prince" Billy
+  releaseYear: 1997
+  title: Joya
+- by: Carla Bozulich
+  entryId: 12349
+  genre: [Country]
+  img: Red_Headed_Stranger_Carla_Bozulich.jpg
+  parent: Carla Bozulich
+  releaseYear: 2003
+  title: The Red Headed Stranger
+- by: Blood, Sweat & Tears
+  entryId: 11675
+  genre: [Rock, Jazz fusion]
+  img: 220px-BS%26T_cover.jpg
+  parent: Beck
+  releaseYear: 1968
+  title: Blood, Sweat & Tears
+- by: Bonnie 'Prince' Billy and The Cairo Gang
+  entryId: 11878
+  genre: [Americana, alternative country]
+  img: 220px-Bonnie_Prince_Billy_-_wonder_show.jpg
+  parent: Bonnie "Prince" Billy
+  releaseYear: 2010
+  title: The Wonder Show of the World
+- by: Bonnie 'Prince' Billy
+  entryId: 11880
+  genre: [Americana, alternative country, folk]
+  img: 220px-Bonnie_Prince_Billy_-_Wolfroy_Goes_to_Town.png
+  parent: Bonnie "Prince" Billy
+  releaseYear: 2011
+  title: Wolfroy Goes to Town
+- by: Bonnie 'Prince' Billy
+  entryId: 11881
+  genre: [Indie folk, alt.country]
+  img: null
+  parent: Bonnie "Prince" Billy
+  releaseYear: 2013
+  title: Bonnie 'Prince' Billy
+- by: Slint
+  entryId: 11911
+  genre: [Post-rock, math rock]
+  img: 220px-Slint_-_Spiderland.jpg
+  parent: Bonnie "Prince" Billy
+  releaseYear: 1991
+  title: Spiderland
+- by: Will Oldham
+  entryId: 11917
+  genre: []
+  img: 220px-Oldham_Ode_Music.jpg
+  parent: Bonnie "Prince" Billy
+  releaseYear: 2000
+  title: Ode Music
+- by: Trembling Bells and Bonnie 'Prince' Billy
+  entryId: 11920
+  genre: []
+  img: null
+  parent: Bonnie "Prince" Billy
+  releaseYear: 2012
+  title: The Marble Downs
+- by: Dawn McCarthy and Bonnie 'Prince' Billy
+  entryId: 11921
+  genre: []
+  img: null
+  parent: Bonnie "Prince" Billy
+  releaseYear: 2013
+  title: What the Brothers Sang
+- by: Ryan Bingham
+  entryId: 11950
+  genre: [Americana]
+  img: 220px-RB_Junky_Star.jpg
+  parent: Ryan Bingham
+  releaseYear: 2010
+  title: Junky Star
+- by: Ryan Bingham
+  entryId: 11953
+  genre: [Americana]
+  img: null
+  parent: Ryan Bingham
+  releaseYear: 2015
+  title: Fear and Saturday Night
+- by: Andrew Bird
+  entryId: 12084
+  genre: []
+  img: Music-of-hair-CD.png
+  parent: Andrew Bird
+  releaseYear: 1996
+  title: Music of Hair
+- by: Squirrel Nut Zippers
+  entryId: 12086
+  genre: [Jazz and swing]
+  img: 220px-Soldoutsnz.jpg
+  parent: Andrew Bird
+  releaseYear: 1997
+  title: Sold Out
+- by: Andrew Bird's Bowl of Fire
+  entryId: 12089
+  genre: [Indie rock, Swing Music]
+  img: 220px-OhTheGrandeur.jpg
+  parent: Andrew Bird
+  releaseYear: 1999
+  title: Oh! The Grandeur
+- by: Andrew Bird
+  entryId: 12096
+  genre: [Indie Folk, Chamber Pop]
+  img: 220px-MysteriousProductionOfEggs.jpg
+  parent: Andrew Bird
+  releaseYear: 2005
+  title: The Mysterious Production of Eggs
+- by: Dosh
+  entryId: 12104
+  genre: [Electronic]
+  img: 220px-Puretrash.jpg
+  parent: Andrew Bird
+  releaseYear: 2004
+  title: Pure Trash
+- by: Dosh
+  entryId: 12105
+  genre: [Electronic]
+  img: 220px-Losttake.jpg
+  parent: Andrew Bird
+  releaseYear: 2006
+  title: The Lost Take
+- by: Andrew Bird
+  entryId: 12124
+  genre: [Indie rock, baroque pop]
+  img: 220px-Breakityourself.jpg
+  parent: Andrew Bird
+  releaseYear: 2012
+  title: Break it Yourself
+- by: Andrew Bird
+  entryId: 12132
+  genre: [Baroque pop]
+  img: 220px-Andrewbird_noblebeast.jpg
+  parent: Andrew Bird
+  releaseYear: 2009
+  title: Useless Creatures
+- by: The Verve Pipe
+  entryId: 12140
+  genre: [Alternative rock]
+  img: Underneath_album.jpg
+  parent: Andrew Bird
+  releaseYear: 2001
+  title: Underneath
+- by: The Autumn Defense
+  entryId: 12143
+  genre: [Indie rock, Indie pop]
+  img: 220px-Circles.jpeg
+  parent: Andrew Bird
+  releaseYear: 2003
+  title: Circles
+- by: My Morning Jacket
+  entryId: 12146
+  genre: [Psychedelic rock, art rock, indie rock]
+  img: 220px-My_Morning_Jacket_-_Z.jpg
+  parent: Andrew Bird
+  releaseYear: 2005
+  title: Z
+- by: Loretta Lynn
+  entryId: 12221
+  genre: [Country, Americana]
+  img: 220px-Loretta-Lynn-Van-Lear-Rose-album.jpg
+  parent: Blanche (band)
+  releaseYear: 2004
+  title: Van Lear Rose
+- by: Blitzen Trapper
+  entryId: 12228
+  genre: [Folk, Rock, Country]
+  img: Blitzen_Trapper_%28album%29.jpg
+  parent: Blitzen Trapper
+  releaseYear: 2003
+  title: Blitzen Trapper
+- by: Blitzen Trapper
+  entryId: 12229
+  genre: [Alternative country]
+  img: 220px-Fieldrexxx.jpg
+  parent: Blitzen Trapper
+  releaseYear: 2004
+  title: Field Rexx
+- by: Blitzen Trapper
+  entryId: 12233
+  genre: [Alternative country, country rap]
+  img: null
+  parent: Blitzen Trapper
+  releaseYear: 2013
+  title: VII
+- by: Blitzen Trapper
+  entryId: 12237
+  genre: [Alternative country]
+  img: 220px-Wild_mountain.jpg
+  parent: Blitzen Trapper
+  releaseYear: 2007
+  title: Wild Mountain Nation
+- by: Blue Mountain
+  entryId: 12248
+  genre: [Alt.country, Country rock, Roots rock, Southern rock]
+  img: Blue_mountain_tales.jpg
+  parent: Blue Mountain (band)
+  releaseYear: 1999
+  title: Tales of a Traveler
+- by: Blue Mountain
+  entryId: 12249
+  genre: [Americana, alt.country, country rock, folk rock, southern rock]
+  img: Blue_mountain_roots.jpg
+  parent: Blue Mountain (band)
+  releaseYear: 2001
+  title: Roots
+- by: Blue Rodeo
+  entryId: 12258
+  genre: [Country rock]
+  img: Br-outskirts.jpg
+  parent: Blue Rodeo
+  releaseYear: 1987
+  title: Outskirts
+- by: Blue Rodeo
+  entryId: 12285
+  genre: [Country rock]
+  img: Br-casino.jpg
+  parent: Blue Rodeo
+  releaseYear: 1990
+  title: Casino
+- by: Blue Rodeo
+  entryId: 12286
+  genre: [Country rock]
+  img: Br-lost.jpg
+  parent: Blue Rodeo
+  releaseYear: 1992
+  title: Lost Together
+- by: Blue Rodeo
+  entryId: 12288
+  genre: [Country rock]
+  img: Br-nowhere.jpg
+  parent: Blue Rodeo
+  releaseYear: 1995
+  title: Nowhere to Here
+- by: Blue Rodeo
+  entryId: 12289
+  genre: [Country rock]
+  img: Br-tremolo.jpg
+  parent: Blue Rodeo
+  releaseYear: 1997
+  title: Tremolo
+- by: Blue Rodeo
+  entryId: 12294
+  genre: [Country rock]
+  img: 220px-TheThingsWeLeftBehind.jpg
+  parent: Blue Rodeo
+  releaseYear: 2009
+  title: The Things We Left Behind
+- by: Blue Rodeo
+  entryId: 12295
+  genre: [Country rock]
+  img: 220px-InOurNature.jpg
+  parent: Blue Rodeo
+  releaseYear: 2013
+  title: In Our Nature
+- by: Tortoise and Bonnie 'Prince' Billy
+  entryId: 11874
+  genre: []
+  img: 220px-Braveandthebold_albumcover.jpg
+  parent: Bonnie "Prince" Billy
+  releaseYear: 2006
+  title: The Brave and the Bold
+- by: Bonnie 'Prince' Billy
+  entryId: 11875
+  genre: [Alt-Country, folk rock]
+  img: 220px-Thelettinggo.jpg
+  parent: Bonnie "Prince" Billy
+  releaseYear: 2006
+  title: The Letting Go
+- by: Bob Mould
+  entryId: 58762
+  genre: [Alternative]
+  img: 220px-Bob_Mould_-_Black_Sheets_Of_Rain_%281990%29.jpg
+  parent: Bob Mould
+  releaseYear: 1990
+  title: Black Sheets of Rain
+- by: Brother Henry
+  entryId: 12425
+  genre: [Rock]
+  img: null
+  parent: Brother Henry
+  releaseYear: 2007
+  title: Love Survives
