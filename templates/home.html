@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block main %}
+<h1> {{ title }} </h1>
+  <div class="sample">
+    {% for x in books %}
+    <a href="{{ x.url }}"> <img src="{{ url_for('static', filename='images/'+x.img)}}"/> </a>
+    {% endfor %}
+  </div>
+{% endblock %}

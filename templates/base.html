@@ -1,0 +1,56 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block styles %}
+{{ super () }}
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}"/>
+{% endblock %}
+{% block navbar %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+     <div class="container">
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="#">Liste Livres</a>
+       </div>
+       <div id="navbar" class="navbar-collapse collapse">
+         <ul class="nav navbar-nav">
+           <li class="active"><a href="#">Auteurs</a></li>
+           <li><a href="#about">Préface</a></li>
+           <li><a href="#contact">Couverture</a></li>
+           <li class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catégorie <span class="caret"></span></a>
+             <ul class="dropdown-menu">
+               <li><a href="#">Roman</a></li>
+               <li><a href="#">Nouvelles</a></li>
+               <li><a href="#">Fables</a></li>
+               <li role="separator" class="divider"></li>
+               <li class="dropdown-header">Genres</li>
+               <li><a href="#">Polar</a></li>
+               <li><a href="#">SF</a></li>
+             </ul>
+           </li>
+         </ul>
+         <ul class="nav navbar-nav navbar-right">
+           {% if current_user.is_authenticated %}
+           <li><a>{{ current_user.username }}</a></li>
+           <li>
+               <a href="{{ url_for('logout') }}">
+               <span class="glyphicon glyphicon-log-out" title="Logout"></span>
+           </a>
+           </li>
+           {% endif %}
+         </ul>
+       </div>  
+       </div><!--/.nav-collapse -->
+     </div>
+</nav>
+{% endblock %}
+{% block content %}
+<div id="main" class="container theme-showcase" role="main">
+  {% block main %}{% endblock %}
+</div>
+{% endblock %}
