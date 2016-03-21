@@ -1,0 +1,9 @@
+virtualenv -p python3 venv
+source venv/bin/activate
+pip install flask
+pip install flask-script
+pip install pyyaml
+pip install flask-bootstrap
+pip install flask-sqlalchemy
+pip install flask-wtf
+pip install flask-login
