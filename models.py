@@ -1,6 +1,7 @@
 from .app import db, login_manager
 from flask.ext.login import UserMixin
 
+#Création de la table Artist
 class Artist(db.Model):
     id          = db.Column(db.Integer, primary_key=True)
     name        = db.Column(db.String(100))
@@ -18,6 +19,7 @@ class Artist(db.Model):
     def get_compositor(self):
         return self.compositor
 
+#Création de la table Ablum
 class Album(db.Model):
     id          = db.Column(db.Integer, primary_key=True)
     title       = db.Column(db.Float)
@@ -41,6 +43,7 @@ class Album(db.Model):
     def get_img(self):
         return self.img
 
+#Création de la table Genre
 class Genre(db.Model):
     id          = db.Column(db.Integer, primary_key=True)
     nom_g       = db.Column(db.String(100))
@@ -54,6 +57,13 @@ class Genre(db.Model):
     def get_nom_g(self):
         return self.nom_g
 
+#Création de la table belong entre album et Genre
+belong = Table('Belong',
+    Column('Album_id', Integer, ForeignKey('Album.id')),
+    Column('Genre_id', Integer, ForeignKey('Genre.id'))
+)
+
+#Création de la table User
 class User(db.Model, UserMixin):
     username    = db.Column(db.String(50), primary_key=True)
     password    = db.Column(db.String(64))
@@ -61,6 +71,7 @@ class User(db.Model, UserMixin):
     def get_id(self):
         return self.username
 
+#Création des getters
 def get_artist(id):
     return Artist.query.get(id)
 
