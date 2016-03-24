@@ -1,6 +1,6 @@
 from .app import app, db
 from flask import render_template, url_for, redirect, request
-from .models import get_sample, get_author, Author, User
+from .models import Artist, Album, Genre, get_artist, get_album, get_genre, get_sample
 from flask.ext.wtf import Form
 from wtforms import StringField, HiddenField, PasswordField
 from wtforms.validators import DataRequired
@@ -11,50 +11,51 @@ from flask.ext.login import login_user, current_user, logout_user, login_require
 def home():
 	return render_template(
 	"home.html",
-	title="Tiny Amazon",
-	books=get_sample()
+	title="Le site de l'amour <3",
+	albums=get_sample()
 	)
 
-class AuthorForm(Form):
-	id		= HiddenField('id')
-	name	= StringField('Nom', validators=[DataRequired()])
+class ArtistForm(Form):
+	id			= HiddenField('id')
+	name		= StringField('Nom', validators=[DataRequired()])
+	compositor  = StringField('Compositeur')
 
-@app.route("/edit/author/")
-@app.route("/edit/author/<int:id>")
+@app.route("/edit/artist/")
+@app.route("/edit/artist/<int:id>")
 @login_required
-def edit_author(id=None):
+def edit_artist(id=None):
 	if id is not None:
-		a = get_author(id)
+		a = get_artist(id)
 	else:
-		a = Author(name="")
+		a = Artist(name="")
 		db.session.add(a)
 		db.session.commit()
 		id = a.id
-	f = AuthorForm(id=id, name=a.name)
-	return render_template("edit-author.html", author=a, form=f)
+	f = ArtistForm(id=id, name=a.name)
+	return render_template("edit-artist.html", artist=a, form=f)
 
-@app.route("/author/<int:id>")
-def one_author(id):
-	a = get_author(id)
-	livres = a.books
+@app.route("/artist/<int:id>")
+def one_artist(id):
+	a = get_artist(id)
+	albums = a.albums
 	return render_template(
 		"home.html",
-		title="Little Amazon",
-		books=livres
+		title="Le site de l'amour <3",
+		albums=albums
 	)
 
-@app.route("/save/author/", methods=("POST",))
+@app.route("/save/artist/", methods=("POST",))
 def save_author():
 	a = None
-	f = AuthorForm()
+	f = ArtistForm()
 	if f.validate_on_submit():
 		id = int(f.id.data)
-		a = get_author(id)
+		a = get_artist(id)
 		a.name = f.name.data
 		db.session.commit()
-		return redirect(url_for('one_author', id=a.id))
-	a = get_author(int(f.id.data))
-	return render_template("edit-author.html", author=a, form=f)
+		return redirect(url_for('one_artist', id=a.id))
+	a = get_artist(int(f.id.data))
+	return render_template("edit-artist.html", author=a, form=f)
 
 class LoginForm(Form):
 	username = StringField('Username')
