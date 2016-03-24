@@ -43,25 +43,25 @@ class Album(db.Model):
     def get_img(self):
         return self.img
 
-#Création de la table Genre
-class Genre(db.Model):
-    id          = db.Column(db.Integer, primary_key=True)
-    nom_g       = db.Column(db.String(100))
-
-    def __repr__(self):
-        return "<Genre (%d) %s>" % (self.id, self.nom_g)
-
-    def get_id_g(self):
-        return self.id
-
-    def get_nom_g(self):
-        return self.nom_g
-
-#Création de la table belong entre album et Genre
-belong = Table('Belong',
-    Column('Album_id', Integer, ForeignKey('Album.id')),
-    Column('Genre_id', Integer, ForeignKey('Genre.id'))
-)
+# #Création de la table Genre
+# class Genre(db.Model):
+#     id          = db.Column(db.Integer, primary_key=True)
+#     nom_g       = db.Column(db.String(100))
+#
+#     def __repr__(self):
+#         return "<Genre (%d) %s>" % (self.id, self.nom_g)
+#
+#     def get_id_g(self):
+#         return self.id
+#
+#     def get_nom_g(self):
+#         return self.nom_g
+#
+# #Création de la table belong entre album et Genre
+# belong = Table('Belong',
+#     Column('Album_id', Integer, ForeignKey('Album.id')),
+#     Column('Genre_id', Integer, ForeignKey('Genre.id'))
+# )
 
 #Création de la table User
 class User(db.Model, UserMixin):

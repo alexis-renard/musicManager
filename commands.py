@@ -9,31 +9,34 @@ def loaddb(filename):
 
     #chargement de notre jeu de données
     import yaml
-    books = yaml.load(open(filename))
+    albums = yaml.load(open(filename))
 
     #import des modèles
-    from .models import Author, Book
+    from .models import Artist, Album
 
     #premiere pass : creation de tous les auteurs
-    authors = {}
-    for b in books:
-        a = b["author"]
-        if a not in authors:
-            o = Author(name=a)
+    artists = {}
+    for b in artists:
+        a = b["artists"]
+        if a not in artists:
+            o = Artist(name=a)
             db.session.add(o)
-            authors[a] = o
+            artists[a] = o
     db.session.commit()
 
     #deuxieme pass : creation de tous les livres
-    for b in books:
-        a = authors[b["author"]]
-        o = Book(price      = b["price"],
-                 title      = b["title"],
-                 url        = b["url"]  ,
-                 img        = b["img"]  ,
-                 author_id  = a.id)
+    for b in artists:
+        a = artists[b["artists"]]
+        o = Album(title         = b["price"],
+                  releaseYear   = b["title"],
+                  img           = b["img"],
+                  artist_id     = a.id)
         db.session.add(o)
     db.session.commit()
+
+    # #troisième pass : creation de tous les genres
+    # for b in albums:
+
 
 @manager.command
 def syncdb():

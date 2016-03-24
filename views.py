@@ -1,6 +1,6 @@
 from .app import app, db
 from flask import render_template, url_for, redirect, request
-from .models import Artist, Album, Genre, get_artist, get_album, get_genre, get_sample
+from .models import Artist, Album, get_artist, get_album, get_sample
 from flask.ext.wtf import Form
 from wtforms import StringField, HiddenField, PasswordField
 from wtforms.validators import DataRequired
