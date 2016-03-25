@@ -12,9 +12,9 @@ def loaddb(filename):
     albums = yaml.load(open(filename))
 
     #import des modèles
-    from .models import Artist, Album
+    from .models import Artist, Album, Genre, get_genre
 
-    #premiere pass : creation de tous les auteurs
+    #creation de tous les auteurs
     artists = {}
     for b in albums:
         a = b["by"]
@@ -24,19 +24,38 @@ def loaddb(filename):
             artists[a] = o
     db.session.commit()
 
-    #deuxieme pass : creation de tous les livres
+    #creation de tous les genres
+    genres=set()
+    for b in albums:
+        liste_genre = b["genre"]
+        for g in liste_genre:
+            if g not in genres:
+                o = Genre(name_g=g)
+                db.session.add(o)
+                genres.add(g)
+    db.session.commit()
+
+    #creation de tous les albums
     for b in albums:
         a = artists[b["by"]]
         o = Album(id            = b["entryId"],
                   title         = b["title"],
                   releaseYear   = b["releaseYear"],
                   img           = b["img"],
-                  artist_id     = a.id)
+                  compositor    = b["parent"],
+                  artist_id     = a.id
+        )
+        genres = b["genre"]
+        for genre in genres:
+            g= Genre(name_g=g)
+            o.genre.append(g)
         db.session.add(o)
     db.session.commit()
 
-    #troisième pass : creation de tous les genres
-    # for b in albums:
+# for genre in genres:
+#   g = Genre(name_g=genre)
+
+
 
 
 @manager.command
