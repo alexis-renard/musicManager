@@ -16,8 +16,8 @@ def loaddb(filename):
 
     #premiere pass : creation de tous les auteurs
     artists = {}
-    for b in artists:
-        a = b["artists"]
+    for b in albums:
+        a = b["by"]
         if a not in artists:
             o = Artist(name=a)
             db.session.add(o)
@@ -25,16 +25,17 @@ def loaddb(filename):
     db.session.commit()
 
     #deuxieme pass : creation de tous les livres
-    for b in artists:
-        a = artists[b["artists"]]
-        o = Album(title         = b["price"],
-                  releaseYear   = b["title"],
+    for b in albums:
+        a = artists[b["by"]]
+        o = Album(id            = b["entryId"],
+                  title         = b["title"],
+                  releaseYear   = b["releaseYear"],
                   img           = b["img"],
                   artist_id     = a.id)
         db.session.add(o)
     db.session.commit()
 
-    # #troisième pass : creation de tous les genres
+    #troisième pass : creation de tous les genres
     # for b in albums:
 
 
