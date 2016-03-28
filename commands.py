@@ -43,20 +43,14 @@ def loaddb(filename):
                   releaseYear   = b["releaseYear"],
                   img           = b["img"],
                   compositor    = b["parent"],
-                  artist_id     = a.id
+                  artist_id     = a.id,
         )
         genres = b["genre"]
         for genre in genres:
-            g= Genre(name_g=g)
+            g= Genre(name_g=genre)
             o.genre.append(g)
         db.session.add(o)
     db.session.commit()
-
-# for genre in genres:
-#   g = Genre(name_g=genre)
-
-
-
 
 @manager.command
 def syncdb():
