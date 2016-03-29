@@ -52,12 +52,6 @@ def loaddb(filename):
         db.session.add(o)
     db.session.commit()
 
-# for genre in genres:
-#   g = Genre(name_g=genre)
-
-
-
-
 @manager.command
 def syncdb():
     ''' Creates all missing tables. '''
