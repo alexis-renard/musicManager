@@ -47,7 +47,7 @@ def loaddb(filename):
         )
         genres = b["genre"]
         for genre in genres:
-            g= Genre(name_g=g)
+            g = Genre(name_g=genre)
             o.genre.append(g)
         db.session.add(o)
     db.session.commit()
