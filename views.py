@@ -1,6 +1,6 @@
 from .app import app, db
 from flask import render_template, url_for, redirect, request
-from .models import User, Artist, Album, get_artist, get_album, get_sample, get_all_albums
+from .models import User, Artist, Album, get_artist, get_album, get_sample, get_albums_artist
 from flask.ext.wtf import Form
 from wtforms import StringField, HiddenField, PasswordField, validators
 from wtforms.validators import DataRequired, Required, EqualTo, Length
@@ -47,10 +47,9 @@ def one_artist(id):
 	a = get_artist(id)
 	name = a.name
 	return render_template(
-		"home.html",
-		title="Le sith de l'amour <3",
-		albums="salut",#a ajouter la query qui nous donne tous les albums qu'a fait l'artiste
-		name=name
+		"artist.html",
+		title=name,
+		albums=get_albums_artist(id),
 	)
 
 @app.route("/save/artist/", methods=("POST",))

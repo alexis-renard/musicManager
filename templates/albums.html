@@ -7,6 +7,7 @@
             <li>{{ x.title }}</li>
             <li>{{ x.releaseYear }}</li>
             <li>{{ x.compositor }}</li>
+<<<<<<< HEAD
             <li>{{ x.title }}</li>
             <li>{% for g in x.genre %}
                     {{ g.name_g + " "}}
@@ -17,6 +18,16 @@
                 <img src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
                 {% else %}
                 <img src="{{ url_for('static', filename='images/404.jpg')}}">
+=======
+            <li>
+                {% for g in x.genre %}
+                        {{ g.name_g + " "}}
+                {% endfor %}
+                {% if x.img != None %}
+                    <img src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/404.jpg')}}">
+>>>>>>> 8c77b9ef257bab838bf6e5ca5ce5bd01783eda4d
                 {% endif %}
             </li>
         </ul>
