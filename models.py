@@ -31,7 +31,7 @@ class Genre(db.Model):
     name_g       = db.Column(db.String(100))
 
     def __repr__(self):
-        return "<Genre (%d) %s>" % (self.id, self.nom_g)
+        return "<Genre (%d) %s>" % (self.id, self.name_g)
 
     def get_id_g(self):
         return self.id
@@ -54,10 +54,10 @@ class Album(db.Model):
     def __repr__(self):
         return "<Album (%d) %s>" % (self.id, self.title)
 
-    def get_id_al(id_al):
+    def get_id(self):
         return self.id
 
-    def get_title(title):
+    def get_title(self):
         return self.title
 
     def get_releaseYear(self):
@@ -81,14 +81,17 @@ def get_artist(id):
 def get_album(id):
     return Album.query.get(id)
 
+def get_all_albums():
+    return Album.query.all()
+
 def get_albums_artist(idartist):
     pass #a faire
 
-def get_genre(name_g):
-    return Genre.query.get(name_g)
+def get_genre(id):
+    return Genre.query.get(id)
 
 def get_sample():
-    return Album.query.limit(5).all()
+    return Album.query.limit(10).all()
 
 @login_manager.user_loader
 def load_user(username):

@@ -1,6 +1,6 @@
 from .app import app, db
 from flask import render_template, url_for, redirect, request
-from .models import User, Artist, Album, get_artist, get_album, get_sample
+from .models import User, Artist, Album, get_artist, get_album, get_sample, get_all_albums
 from flask.ext.wtf import Form
 from wtforms import StringField, HiddenField, PasswordField, validators
 from wtforms.validators import DataRequired, Required, EqualTo, Length
@@ -19,6 +19,14 @@ class ArtistForm(Form):
 	id			= HiddenField('id')
 	name		= StringField('Nom', validators=[DataRequired()])
 	compositor  = StringField('Compositeur')
+
+@app.route("/albums/")
+def albums():
+	return render_template(
+	"albums.html",
+	title="Albums List",
+	albums=get_sample()
+	)
 
 @app.route("/edit/artist/")
 @app.route("/edit/artist/<int:id>")
