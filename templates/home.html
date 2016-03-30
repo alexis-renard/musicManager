@@ -4,15 +4,9 @@
 <div class="sample">
     {% for x in albums %}
         {% if x.img != None %}
-<<<<<<< HEAD
             <img src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
         {% else %}
             <img src="{{ url_for('static', filename='images/404.jpg')}}">
-=======
-            <img src="{{ url_for('static', filename='img/'+x.img)}}"/>
-        {% else %}
-            <img src="{{ url_for('static', filename='images/404.jpg')}}"/>
->>>>>>> 8c77b9ef257bab838bf6e5ca5ce5bd01783eda4d
         {% endif %}
     {% endfor %}
 </div>
