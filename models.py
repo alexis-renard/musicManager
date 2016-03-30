@@ -48,7 +48,6 @@ class Album(db.Model):
     img         = db.Column(db.String(100))
     compositor  = db.Column(db.String(100))
     artist_id   = db.Column(db.Integer, db.ForeignKey("artist.id"))
-    genre_id    = db.Column(db.Integer, db.ForeignKey("genre.id"))
     artist      = db.relationship("Artist", backref = db.backref("album", lazy="dynamic"))
     genre       = db.relationship("Genre", secondary=belong, backref = db.backref("album", lazy="dynamic"))
 
@@ -81,6 +80,9 @@ def get_artist(id):
 
 def get_album(id):
     return Album.query.get(id)
+
+def get_albums_artist(idartist):
+    pass #a faire
 
 def get_genre(name_g):
     return Genre.query.get(name_g)

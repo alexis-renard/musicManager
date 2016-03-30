@@ -11,7 +11,7 @@ from flask.ext.login import login_user, current_user, logout_user, login_require
 def home():
 	return render_template(
 	"home.html",
-	title="Le site de l'amour <3",
+	title="Le sith de l'amour <3",
 	albums=get_sample()
 	)
 
@@ -59,7 +59,7 @@ def save_author():
 	return render_template("edit-artist.html", artist=a, form=f)
 
 class LoginForm(Form):
-	username = StringField('Username')
+	username = StringField('Username') #ce qui est entre simple quote correspond au label du champs
 	password = PasswordField('Password')
 	next = HiddenField()
 
@@ -71,6 +71,12 @@ class LoginForm(Form):
 		m.update(self.password.data.encode())
 		passwd = m.hexdigest()
 		return user if passwd == user.password else None
+
+
+class RegisterForm(Form):
+	username = StringField('Username')
+	password = PasswordField('Password')
+	next = HiddenField() #à quoi sert exactement le next ?
 
 @app.route("/login/", methods=("GET","POST",))
 def login():
@@ -84,6 +90,19 @@ def login():
 			next = f.next.data or url_for("home")
 			return redirect(next)
 	return render_template("login.html",form = f)
+
+@app.route("/register/", methods=("GET","POST",))
+def register():
+	f = RegisterForm()
+	if not f.is_submitted():
+		f.next.data = request.args.get("next")
+	elif f.validate_on_submit():
+	    m = sha256()
+	    m.update(password.encode())
+	    u = User(username=username, password=m.hexdigest())
+	    db.session.add(u)
+	    db.session.commit()
+	return render_template("register.html",form = f)
 
 @app.route("/logout/")
 def logout():
