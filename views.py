@@ -2,8 +2,8 @@ from .app import app, db
 from flask import render_template, url_for, redirect, request
 from .models import User, Artist, Album, get_artist, get_album, get_sample
 from flask.ext.wtf import Form
-from wtforms import StringField, HiddenField, PasswordField
-from wtforms.validators import DataRequired
+from wtforms import StringField, HiddenField, PasswordField, validators
+from wtforms.validators import DataRequired, Required, EqualTo, Length
 from hashlib import sha256
 from flask.ext.login import login_user, current_user, logout_user, login_required
 
@@ -75,7 +75,12 @@ class LoginForm(Form):
 
 class RegisterForm(Form):
 	username = StringField('Username')
-	password = PasswordField('Password')
+	password = PasswordField('Password', [
+		validators.Required(),
+		validators.EqualTo('confirm', message='Passwords must match'),
+        validators.Length(min=4)
+	])
+	confirm = PasswordField('Repeat Password')
 	next = HiddenField() #à quoi sert exactement le next ?
 
 @app.route("/login/", methods=("GET","POST",))
@@ -97,11 +102,14 @@ def register():
 	if not f.is_submitted():
 		f.next.data = request.args.get("next")
 	elif f.validate_on_submit():
-	    m = sha256()
-	    m.update(password.encode())
-	    u = User(username=username, password=m.hexdigest())
-	    db.session.add(u)
-	    db.session.commit()
+		m = sha256()
+		m.update(f.password.data.encode())
+		u = User(username=f.username.data, password=m.hexdigest())
+		db.session.add(u)
+		db.session.commit()
+		login_user(u)
+		next = f.next.data or url_for("home")
+		return redirect(next)
 	return render_template("register.html",form = f)
 
 @app.route("/logout/")

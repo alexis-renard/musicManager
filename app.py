@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
 app.debug = True
@@ -24,3 +25,6 @@ from flask.ext.login import LoginManager
 login_manager = LoginManager(app)
 
 login_manager.login_view = "login"
+
+toolbar = DebugToolbarExtension(app)
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
