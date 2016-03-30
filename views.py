@@ -46,7 +46,7 @@ def one_artist(id):
 	)
 
 @app.route("/save/artist/", methods=("POST",))
-def save_author():
+def save_artist():
 	a = None
 	f = ArtistForm()
 	if f.validate_on_submit():
