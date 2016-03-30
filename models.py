@@ -2,7 +2,7 @@ from .app import db, login_manager
 from flask.ext.login import UserMixin
 
 #Création de la table belong entre album et Genre
-belong = db.Table('Belong',
+belong = db.Table('belong',
     db.Column('album_id', db.Integer, db.ForeignKey('album.id'), nullable=False),
     db.Column('genre_id', db.Integer, db.ForeignKey('genre.id'), nullable=False),
     db.PrimaryKeyConstraint('album_id', 'genre_id')
@@ -86,7 +86,7 @@ def get_genre(name_g):
     return Genre.query.get(name_g)
 
 def get_sample():
-    return Album.query.limit(100).all()
+    return Album.query.limit(5).all()
 
 @login_manager.user_loader
 def load_user(username):

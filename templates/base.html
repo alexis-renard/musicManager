@@ -14,7 +14,7 @@
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="#">Liste Livres</a>
+         <a class="navbar-brand" href="{{ url_for('home') }}">Music</a>
        </div>
        <div id="navbar" class="navbar-collapse collapse">
          <ul class="nav navbar-nav">
@@ -42,9 +42,16 @@
                <span class="glyphicon glyphicon-log-out" title="Logout"></span>
            </a>
            </li>
+           {% else %}
+           <li>
+               <a href="{{ url_for('login') }}">
+               <span class="glyphicon glyphicon-log-in" title="Login"></span>
+           </a>
+           </li>
            {% endif %}
+
          </ul>
-       </div>  
+       </div>
        </div><!--/.nav-collapse -->
      </div>
 </nav>

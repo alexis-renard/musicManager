@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block main %}
 {% if current_user.is_authenticated %}
-<a href = "{{ url_for('edit_author', id=author.id) }}">Edit</a>
+<a href = "{{ url_for('edit_artist', id=artist.id) }}">Edit</a>
 {% endif %}
-<h1>Edit author : {{ author.name }}</h1>
-<form role="form" method="POST" action="{{ url_for('save_author') }}">
+<h1>Edit artist : {{ artist.name }}</h1>
+<form role="form" method="POST" action="{{ url_for('save_artist') }}">
     {{ form.hidden_tag() }}
     <div class=
         {% if form.name.errors %}

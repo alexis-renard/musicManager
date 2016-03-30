@@ -1,6 +1,6 @@
 from .app import app, db
 from flask import render_template, url_for, redirect, request
-from .models import Artist, Album, get_artist, get_album, get_sample
+from .models import User, Artist, Album, get_artist, get_album, get_sample
 from flask.ext.wtf import Form
 from wtforms import StringField, HiddenField, PasswordField
 from wtforms.validators import DataRequired
@@ -37,11 +37,12 @@ def edit_artist(id=None):
 @app.route("/artist/<int:id>")
 def one_artist(id):
 	a = get_artist(id)
-	albums = a.albums
+	name = a.name
 	return render_template(
 		"home.html",
-		title="Le site de l'amour <3",
-		albums=albums
+		title="Le sith de l'amour <3",
+		albums="salut",#a ajouter la query qui nous donne tous les albums qu'a fait l'artiste
+		name=name
 	)
 
 @app.route("/save/artist/", methods=("POST",))
@@ -55,7 +56,7 @@ def save_author():
 		db.session.commit()
 		return redirect(url_for('one_artist', id=a.id))
 	a = get_artist(int(f.id.data))
-	return render_template("edit-artist.html", author=a, form=f)
+	return render_template("edit-artist.html", artist=a, form=f)
 
 class LoginForm(Form):
 	username = StringField('Username')
