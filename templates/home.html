@@ -3,7 +3,11 @@
 <h1> {{ title }} </h1>
 <div class="sample">
     {% for x in albums %}
-        <img src="{{ url_for('static', filename='img/'+x.img)}}"/>
+        {% if x.img != None %}
+            <img src="{{ url_for('static', filename='img/'+x.img)}}"/>
+        {% else %}
+            <img src="{{ url_for('static', filename='images/404.jpg')}}"/>
+        {% endif %}
     {% endfor %}
 </div>
 {% endblock %}

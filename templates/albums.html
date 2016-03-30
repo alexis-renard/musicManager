@@ -4,18 +4,18 @@
 <div class="list_albums">
     {% for x in albums %}
         <ul>
-            <li>{{ x.title }}
-            {{ x.releaseYear }}
-            {{ x.compositor }}
-            {{ x.title }}
-            {% for g in x.genre %}
-                    {{ g.name_g + " "}}
-            {% endfor %}
-            {% if x.img != None %}
-                <img src="{{ url_for('static', filename='img/'+x.img)}}"/>
-            {% else %}
-                <img src="{{ url_for('static', filename='images/404.jpg')}}"/>
-            {% endif %}
+            <li>{{ x.title }}</li>
+            <li>{{ x.releaseYear }}</li>
+            <li>{{ x.compositor }}</li>
+            <li>
+                {% for g in x.genre %}
+                        {{ g.name_g + " "}}
+                {% endfor %}
+                {% if x.img != None %}
+                    <img src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/404.jpg')}}">
+                {% endif %}
             </li>
         </ul>
     {% endfor %}
