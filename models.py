@@ -87,8 +87,12 @@ def get_albums_artist(idartist):
 def get_genre(name_g):
     return Genre.query.get(name_g)
 
-def get_sample():
+def get_sample_albums():
     return Album.query.limit(5).all()
+
+
+def get_sample_artists():
+    return Artist.query.limit(5).all()
 
 @login_manager.user_loader
 def load_user(username):
