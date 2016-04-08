@@ -11,7 +11,7 @@ from flask.ext.login import login_user, current_user, logout_user, login_require
 def home():
 	return render_template(
 	"home.html",
-	title="Le sith de l'amour <3",
+	title="Musique / Playlist",
 	albums=get_sample()
 	)
 
