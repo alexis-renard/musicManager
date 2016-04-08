@@ -1,0 +1,4 @@
+
+chercher dans albums.html avec la foreign key id_artist pour retrouver le nom de l'artiste qui a produit l'album (avec une fonction)
+puis appeler cette fonction dans la boucle for qui affiche les informations relatives à l'album. Comme ça on peut créer un lien vers l'artiste
+directement depuis l'album, et c'est plus confortable de le faire avec le nom de l'artiste qu'avec uniquement l'id.

@@ -7,7 +7,7 @@
             <li>{{ x.title }}</li>
             <li>{{ x.releaseYear }}</li>
             <li>{{ x.compositor }}</li>
-            <li>{{ x.title }}</li>
+            <li><a href="{{ url_for('one_artist', id=x.artist_id) }}">Lien vers l'artiste</a></li>
             <li>{% for g in x.genre %}
                     {{ g.name_g + " "}}
                 {% endfor %}
