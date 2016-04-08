@@ -36,8 +36,8 @@ class Genre(db.Model):
     def get_id_g(self):
         return self.id
 
-    def get_nom_g(self):
-        return self.nom_g
+    def get_name_g(self):
+        return self.name_g
 
 
 #Création de la table Ablum
@@ -66,6 +66,9 @@ class Album(db.Model):
     def get_img(self):
         return self.img
 
+    def get_artist_id(self):
+        return self.artist_id
+
 #Création de la table User
 class User(db.Model, UserMixin):
     username    = db.Column(db.String(50), primary_key=True)
@@ -74,15 +77,23 @@ class User(db.Model, UserMixin):
     def get_id(self):
         return self.username
 
-#Création des getters
 def get_artist(id):
     return Artist.query.get(id)
 
 def get_album(id):
     return Album.query.get(id)
 
+def get_genre(id):
+    return Album.query.get(id)
+
 def get_albums_artist(idartist):
     return Album.query.filter(Album.artist_id==idartist).all()
+
+def get_albums_genre(idgenre):
+    return Album.query.filter(Album.genre.any(id=idgenre)).all()
+
+def get_artists_genre(idgenre):
+    return Artist.query.filter(Genre.id==idgenre).all()
 
 def get_genre(name_g):
     return Genre.query.get(name_g)
@@ -90,6 +101,8 @@ def get_genre(name_g):
 def get_sample_albums():
     return Album.query.limit(5).all()
 
+def get_sample_genre():
+    return Genre.query.limit(5).all()
 
 def get_sample_artists():
     return Artist.query.limit(5).all()

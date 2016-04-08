@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block main %}
+<h1> {{ title }} </h1>
+<div class="list_genre">
+    {% for x in genres %}
+        <ul>
+            <li><a href="{{ url_for('one_genre', id=x.id) }}">{{ x.name_g }}</a></li>
+        </ul>
+    {% endfor %}
+    <div class="coucou"></div>
+</div>
+{% endblock %}

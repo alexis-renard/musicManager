@@ -1,6 +1,6 @@
 from .app import app, db
 from flask import render_template, url_for, redirect, request
-from .models import User, Artist, Album, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist
+from .models import User, Artist, Album, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre, get_artists_genre
 from flask.ext.wtf import Form
 from wtforms import StringField, HiddenField, PasswordField, validators
 from wtforms.validators import DataRequired, Required, EqualTo, Length
@@ -12,7 +12,7 @@ def home():
 	return render_template(
 	"home.html",
 	title="Musique / Playlist",
-	albums=get_sample()
+	albums=get_sample_albums()
 	)
 
 class ArtistForm(Form):
@@ -24,7 +24,7 @@ class ArtistForm(Form):
 def albums():
 	return render_template(
 	"albums.html",
-	title="Albums List",
+	title="Albums Sample",
 	albums=get_sample_albums()
 	)
 
@@ -33,7 +33,7 @@ def albums():
 def one_artist(id=None):
 	if id is not None:
 		a = get_artist(id)
-		name = a.name
+		name = a.get_name()
 		return render_template(
 			"artist.html",
 			title=name,
@@ -42,7 +42,7 @@ def one_artist(id=None):
 	else:
 		return render_template(
 			"artists.html",
-			title="Artists List",
+			title="Artists Sample",
 			artists=get_sample_artists()
 		)
 
@@ -60,7 +60,24 @@ def edit_artist(id=None):
 	f = ArtistForm(id=id, name=a.name)
 	return render_template("edit-artist.html", artist=a, form=f)
 
-
+@app.route("/genre/")
+@app.route("/genre/<int:id>")
+def one_genre(id=None):
+	if id is not None:
+		g = get_genre(id)
+		name_g = g.get_name_g()
+		return render_template(
+			"genre.html",
+			title=name_g,
+			albums=get_albums_genre(id),
+			artists=get_artists_genre(id)
+		)
+	else:
+		return render_template(
+			"genres.html",
+			title="Genre Sample",
+			genres=get_sample_genre()
+		)
 
 @app.route("/save/artist/", methods=("POST",))
 def save_artist():

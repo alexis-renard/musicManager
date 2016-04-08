@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block main %}
+<h1> {{ title }} </h1>
+<div class="list_genre">
+    <div class="coucou"></div>
+    {% if albums==[] %}
+    <div class="pasdalbum"></div>
+    {% endif %}
+    {% for a in albums %}
+        <div class="coucou"></div>
+        <ul>
+            <li>{{ a.title }}</li>
+            <li>{{ a.releaseYear }}</li>
+            <li>{{ a.compositor }}</li>
+            <li><a href="{{ url_for('one_artist', id=a.artist_id) }}">Lien vers l'artiste</a></li>
+            <li>{% for g in a.genre %}
+                    {{ g.name_g + " "}}
+                {% endfor %}
+            </li>
+            <li>
+                {% for g in a.genre %}
+                    {{ g.name_g + " "}}
+                {% endfor %}
+                {% if a.img != None %}
+                <img src="{{ url_for('static', filename='img/'+a.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
+                {% else %}
+                <img src="{{ url_for('static', filename='images/404.jpg')}}">
+                {% endif %}
+            </li>
+        </ul>
+    {% endfor %}
+    {% for art in artists %}
+
+    {% endfor %}
+</div>
+{% endblock %}
