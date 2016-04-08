@@ -90,9 +90,11 @@ def get_genre(name_g):
 def get_sample_albums():
     return Album.query.limit(5).all()
 
-
 def get_sample_artists():
     return Artist.query.limit(5).all()
+
+def get_date_albums(releaseY):
+    return Album.query.filter(Album.releaseYear==releaseY).all()
 
 @login_manager.user_loader
 def load_user(username):
