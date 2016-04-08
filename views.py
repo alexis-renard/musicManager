@@ -1,6 +1,6 @@
 from .app import app, db
 from flask import render_template, url_for, redirect, request
-from .models import User, Artist, Album, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre, get_artists_genre
+from .models import User, Artist, Album, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre, get_artists_genre, get_date_album
 from flask.ext.wtf import Form
 from wtforms import StringField, HiddenField, PasswordField, validators
 from wtforms.validators import DataRequired, Required, EqualTo, Length
@@ -27,6 +27,16 @@ def albums():
 	title="Albums Sample",
 	albums=get_sample_albums()
 	)
+
+@app.route("/date/")
+@app.route("/date/<int:releaseY>")
+def date(releaseY):
+	return render_template(
+	"date.html",
+	title="Release Year",
+	albums=get_date_albums(releaseY)
+	)
+
 
 @app.route("/artist/")
 @app.route("/artist/<int:id>")
