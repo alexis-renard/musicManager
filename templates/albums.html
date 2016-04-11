@@ -5,7 +5,7 @@
     {% for x in albums %}
         <ul>
             <li>{{ x.title }}</li>
-            <li><a href="{{ url_for('date', releaseY=x.releaseYear) }}">{{ x.releaseYear }}</a></li>
+            <li><a href="{{ url_for('one_date', releaseY=x.releaseYear) }}">{{ x.releaseYear }}</a></li>
             <li>{{ x.compositor }}</li>
             <li><a href="{{ url_for('one_artist', id=x.artist_id) }}">Lien vers l'artiste</a></li>
             <li>{% for g in x.genre %}

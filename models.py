@@ -13,6 +13,9 @@ class Artist(db.Model):
     id          = db.Column(db.Integer, primary_key=True)
     name        = db.Column(db.String(100))
 
+#many to many avec genre ? Comme ça on pourrait récupérer tous les artists d'un genre
+#ça implique que l'on doit creer une secondary table également
+
     def __repr__(self):
         return "<Artist (%d) %s>" % (self.id, self.name)
 
@@ -31,7 +34,7 @@ class Genre(db.Model):
     name_g       = db.Column(db.String(100))
 
     def __repr__(self):
-        return "<Genre (%d) %s>" % (self.id, self.nom_g)
+        return "<Genre (%d) %s>" % (self.id, self.name_g)
 
     def get_id_g(self):
         return self.id
@@ -48,16 +51,16 @@ class Album(db.Model):
     img         = db.Column(db.String(100))
     compositor  = db.Column(db.String(100))
     artist_id   = db.Column(db.Integer, db.ForeignKey("artist.id"))
-    artist      = db.relationship("Artist", backref = db.backref("album", lazy="dynamic"))
-    genre       = db.relationship("Genre", secondary=belong, backref = db.backref("album", lazy="dynamic"))
+    artists      = db.relationship("Artist", backref = db.backref("albums", lazy="dynamic"))
+    genres       = db.relationship("Genre", secondary=belong, backref = db.backref("albums", lazy="dynamic"))
 
     def __repr__(self):
         return "<Album (%d) %s>" % (self.id, self.title)
 
-    def get_id_al(id_al):
+    def get_id_al(self):
         return self.id
 
-    def get_title(title):
+    def get_title(self):
         return self.title
 
     def get_releaseYear(self):
@@ -90,10 +93,13 @@ def get_albums_artist(idartist):
     return Album.query.filter(Album.artist_id==idartist).all()
 
 def get_albums_genre(idgenre):
-    return Album.query.filter(Album.genre.any(id=idgenre)).all()
+    #return Album.query.filter(Album.genres.contains(get_genre(idgenre))).all()
+    #return Genre.query.filter(Genre.id=).all()
+    #return Genre.query.filter(Album.genres.any(id=idgenre))
+    return Genre.albums
 
 def get_artists_genre(idgenre):
-    return Artist.query.filter(Genre.id==idgenre).all()
+    return Artist.query.filter(Album.genres.any(id=idgenre)).all()
 
 def get_genre(name_g):
     return Genre.query.get(name_g)
