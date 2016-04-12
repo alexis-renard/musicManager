@@ -21,16 +21,25 @@ class ArtistForm(Form):
 	compositor  = StringField('Compositeur')
 
 @app.route("/albums/")
-def albums():
-	return render_template(
-	"albums.html",
-	title="Albums Sample",
-	albums=get_sample_albums()
-	)
-
+@app.route("/albums/<int:id>")
+def one_album(id=None):
+	if id is not None:
+		a = get_album(id)
+		title = a.get_title()
+		return render_template(
+			"album.html",
+			title=title,
+			album=a
+		)
+	else:
+		return render_template(
+			"albums.html",
+			title="Albums Sample",
+			albums=get_sample_albums()
+		)
 @app.route("/date/")
 @app.route("/date/<int:releaseY>")
-def date(releaseY):
+def one_date(releaseY):
 	return render_template(
 	"date.html",
 	title="Release Year",
@@ -70,6 +79,11 @@ def edit_artist(id=None):
 	f = ArtistForm(id=id, name=a.name)
 	return render_template("edit-artist.html", artist=a, form=f)
 
+@app.route("/test_api")
+def api():
+	g=get_genre(1)
+	return
+
 @app.route("/genre/")
 @app.route("/genre/<int:id>")
 def one_genre(id=None):
@@ -79,7 +93,7 @@ def one_genre(id=None):
 		return render_template(
 			"genre.html",
 			title=name_g,
-			albums=get_albums_genre(id),
+			genre=g,
 			artists=get_artists_genre(id)
 		)
 	else:
