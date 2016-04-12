@@ -35,14 +35,10 @@
            </li>
          </ul>
          <ul class="nav navbar-nav navbar-right">
-           {% if current_user.is_authenticated %}
-           <li><a>{{ current_user.username }}</a></li>
-           <li>
-               <a href="{{ url_for('logout') }}">
-               <span class="glyphicon glyphicon-log-out" title="Logout"></span>
-           </a>
-           </li>
-           {% else %}
+             {% if g.user.is_authenticated %}
+                <form style="display: inline;" action="{{ url_for('search') }}" method="post" name="search">{{ g.search_form.hidden_tag() }}{{ g.search_form.search(size=20) }}<input type="submit" value="Search"></form>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
            <li>
                <a href="{{ url_for('login') }}">
                <span class="glyphicon glyphicon-log-in" title="Login"></span>

@@ -1,11 +1,41 @@
-from .app import app, db
-from flask import render_template, url_for, redirect, request
-from .models import User, Artist, Album, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre, get_artists_genre, get_date_albums
+from .app import app, db, MAX_SEARCH_RESULTS
+from flask import render_template, url_for, redirect, request, g
+from datetime import datetime
+from .models import User, Artist, Album, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre, get_artists_genre, get_date_albums, SearchForm
 from flask.ext.wtf import Form
 from wtforms import StringField, HiddenField, PasswordField, validators
 from wtforms.validators import DataRequired, Required, EqualTo, Length
 from hashlib import sha256
 from flask.ext.login import login_user, current_user, logout_user, login_required
+
+@app.before_request
+def before_request():
+    g.user = current_user
+    if g.user.is_authenticated:
+        g.user.last_seen = datetime.utcnow()
+        db.session.add(g.user)
+        db.session.commit()
+        g.search_form = SearchForm()
+
+@app.route('/search', methods=['POST'])
+@login_required
+def search():
+    if not g.search_form.validate_on_submit():
+        return redirect(url_for('home'))
+    return redirect(url_for('search_results', query=g.search_form.search.data))
+#	return redirect(url_for('search_results', query=g.search_form.search.data, classe=g.search_form.classe.data))
+
+@app.route('/search/<query>')
+@login_required
+def search_results(query):
+#def search_results(classe,query=None):
+    results = classe.query.whoosh_search(query, MAX_SEARCH_RESULTS).all()
+    return render_template(
+			'search.html',
+	    	query		= query,
+	    	results		= results
+	)
+
 
 @app.route("/")
 def home():
@@ -37,6 +67,7 @@ def one_album(id=None):
 			title="Albums Sample",
 			albums=get_sample_albums()
 		)
+
 @app.route("/date/")
 @app.route("/date/<int:releaseY>")
 def one_date(releaseY):

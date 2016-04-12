@@ -1,5 +1,15 @@
 from .app import db, login_manager
 from flask.ext.login import UserMixin
+from wtforms import Form, StringField
+from wtforms.validators import DataRequired
+
+import sys #sys correspond à la version de python, si la version est inférieur à python3
+#on importera whooshalchemy qui gère les searchbar avec les versions antérieur à python3
+if sys.version_info >= (3, 0):
+    enable_search = False
+else:
+    enable_search = True
+    import flask.ext.whooshalchemy as whooshalchemy
 
 #Création de la table belong entre album et Genre
 belong = db.Table('belong',
@@ -10,6 +20,8 @@ belong = db.Table('belong',
 
 #Création de la table Artist
 class Artist(db.Model):
+    __searchable__ = ['name']
+
     id          = db.Column(db.Integer, primary_key=True)
     name        = db.Column(db.String(100))
 
@@ -30,6 +42,8 @@ class Artist(db.Model):
 
 #Création de la table Genre
 class Genre(db.Model):
+    __searchable__ = ['name_g']
+
     id           = db.Column(db.Integer, primary_key=True)
     name_g       = db.Column(db.String(100))
 
@@ -45,6 +59,8 @@ class Genre(db.Model):
 
 #Création de la table Ablum
 class Album(db.Model):
+    __searchable__ = ['title','releaseYear','compositor']
+
     id          = db.Column(db.Integer, primary_key=True)
     title       = db.Column(db.String(100))
     releaseYear = db.Column(db.String(100))
@@ -80,6 +96,10 @@ class User(db.Model, UserMixin):
     def get_id(self):
         return self.username
 
+class SearchForm(Form):
+    search = StringField('search', validators=[DataRequired()])
+    classe = StringField('classe', validators=[DataRequired()])
+
 def get_artist(id):
     return Artist.query.get(id)
 
@@ -109,11 +129,15 @@ def get_sample_albums():
 
 def get_sample_genre():
     return Genre.query.limit(5).all()
+
 def get_sample_artists():
     return Artist.query.limit(5).all()
 
 def get_date_albums(releaseY):
     return Album.query.filter(Album.releaseYear==releaseY).all()
+
+if enable_search:
+    whooshalchemy.whoosh_index(app, Artist)
 
 @login_manager.user_loader
 def load_user(username):
