@@ -1,4 +1,4 @@
-from .app import db, login_manager
+from .app import db, login_manager, app
 from flask.ext.login import UserMixin
 
 #Création de la table belong entre album et Genre
@@ -87,7 +87,7 @@ def get_album(id):
     return Album.query.get(id)
 
 def get_genre(id):
-    return Album.query.get(id)
+    return Genre.query.get(id)
 
 def get_albums_artist(idartist):
     return Album.query.filter(Album.artist_id==idartist).all()
@@ -109,6 +109,7 @@ def get_sample_albums():
 
 def get_sample_genre():
     return Genre.query.limit(5).all()
+
 def get_sample_artists():
     return Artist.query.limit(5).all()
 
@@ -118,3 +119,9 @@ def get_date_albums(releaseY):
 @login_manager.user_loader
 def load_user(username):
     return User.query.get(username)
+
+@app.context_processor
+def utility_processor():
+    def get_name_artist_context(idartist):
+        return get_artist(idartist).get_name()
+    return dict(get_name_artist_context=get_name_artist_context)

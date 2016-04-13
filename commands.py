@@ -14,7 +14,6 @@ def loaddb(filename):
     #import des modèles
     from .models import Artist, Album, Genre, get_genre
 
-    #creation de tous les auteurs
     dict_artists = {}
     dict_genres={}
     for b in albums:
@@ -27,8 +26,7 @@ def loaddb(filename):
             db.session.add(o)
             #il faut commit ici pour qu'on puisse récupérer le champ id de l'instance d'Artist lors de la création de l'album ci dessous
             db.session.commit()
-        album = Album(id            = b["entryId"],
-                      title         = b["title"],
+        album = Album(title         = b["title"],
                       releaseYear   = b["releaseYear"],
                       img           = b["img"],
                       compositor    = b["parent"],
@@ -48,10 +46,6 @@ def loaddb(filename):
         #on peut désormais ajouter l'album complet à la db
         db.session.add(album)
     db.session.commit()
-
-    #creation de tous les genres
-
-    #creation de tous les albums
 
 @manager.command
 def syncdb():

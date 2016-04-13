@@ -20,16 +20,21 @@ class ArtistForm(Form):
 	name		= StringField('Nom', validators=[DataRequired()])
 	compositor  = StringField('Compositeur')
 
-@app.route("/albums/")
-@app.route("/albums/<int:id>")
+@app.route("/album/")
+@app.route("/album/<int:id>")
 def one_album(id=None):
 	if id is not None:
 		a = get_album(id)
+		id_artist=a.get_artist_id()
+		artist=get_artist(id_artist)
+		artist_name=artist.get_name()
+		#artist = get_artist(a.get_artist_id()).get_name()
 		title = a.get_title()
 		return render_template(
 			"album.html",
 			title=title,
-			album=a
+			album=a,
+			artist=artist_name
 		)
 	else:
 		return render_template(
