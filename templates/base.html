@@ -35,19 +35,26 @@
            </li>
          </ul>
          <ul class="nav navbar-nav navbar-right">
-             {% if g.user.is_authenticated %}
-                <form style="display: inline;" action="{{ url_for('search') }}" method="post" name="search">{{ g.search_form.hidden_tag() }}{{ g.search_form.search(size=20) }}<input type="submit" value="Search"></form>
-                <a href="{{ url_for('logout') }}">Logout</a>
-            {% else %}
-           <li>
-               <a href="{{ url_for('login') }}">
-               <span class="glyphicon glyphicon-log-in" title="Login"></span>
-               </a>
-           </li>
-           <li>
-               <a href="{{ url_for('register') }}">Register</a>
-           </li>
-           {% endif %}
+            {% if current_user.is_authenticated %}
+                <li><a>{{ current_user.username }}</a></li>
+                    <li>
+                        <a href="{{ url_for('logout') }}">
+                            <span class="glyphicon glyphicon-log-out" title="Logout"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <form style="display: inline;" action="{{ url_for('search') }}" method="POST" name="search">{{ g.search_form.hidden_tag() }}{{ g.search_form.search(size=10) }}<input type="submit" value="Search"></form>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ url_for('login') }}">
+                            <span class="glyphicon glyphicon-log-in" title="Login"></span>
+                        </a>
+                    </li>
+                    <li>
+                <a href="{{ url_for('register') }}">Register</a>
+                </li>
+            {% endif %}
          </ul>
        </div>
        </div><!--/.nav-collapse -->

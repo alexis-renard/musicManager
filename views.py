@@ -1,7 +1,7 @@
 from .app import app, db, MAX_SEARCH_RESULTS
 from flask import render_template, url_for, redirect, request, g
 from datetime import datetime
-from .models import User, Artist, Album, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre, get_artists_genre, get_date_albums, SearchForm
+from .models import User, Artist, Album, Genre, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre, get_artists_genre, get_date_albums, SearchForm, ArtistForm
 from flask.ext.wtf import Form
 from wtforms import StringField, HiddenField, PasswordField, validators
 from wtforms.validators import DataRequired, Required, EqualTo, Length
@@ -23,17 +23,20 @@ def search():
     if not g.search_form.validate_on_submit():
         return redirect(url_for('home'))
     return redirect(url_for('search_results', query=g.search_form.search.data))
-#	return redirect(url_for('search_results', query=g.search_form.search.data, classe=g.search_form.classe.data))
 
 @app.route('/search/<query>')
 @login_required
 def search_results(query):
 #def search_results(classe,query=None):
-    results = classe.query.whoosh_search(query, MAX_SEARCH_RESULTS).all()
+    album_results = Album.query.whoosh_search(query, MAX_SEARCH_RESULTS).all()
+    artist_results = Artist.query.whoosh_search(query, MAX_SEARCH_RESULTS).all()
+    genre_results = Genre.query.whoosh_search(query, MAX_SEARCH_RESULTS).all()
     return render_template(
 			'search.html',
-	    	query		= query,
-	    	results		= results
+	    	query		       = query,
+	    	album_results	   = album_results,
+            artist_results     = artist_results,
+            genre_results      = genre_results
 	)
 
 
@@ -45,10 +48,7 @@ def home():
 	albums=get_sample_albums()
 	)
 
-class ArtistForm(Form):
-	id			= HiddenField('id')
-	name		= StringField('Nom', validators=[DataRequired()])
-	compositor  = StringField('Compositeur')
+
 
 @app.route("/albums/")
 @app.route("/albums/<int:id>")
