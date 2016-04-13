@@ -1,11 +1,44 @@
-from .app import app, db
-from flask import render_template, url_for, redirect, request
-from .models import User, Artist, Album, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre, get_artists_genre, get_date_albums
+from .app import app, db, MAX_SEARCH_RESULTS
+from flask import render_template, url_for, redirect, request, g
+from datetime import datetime
+from .models import User, Artist, Album, Genre, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre, get_artists_genre, get_date_albums, SearchForm, ArtistForm
 from flask.ext.wtf import Form
 from wtforms import StringField, HiddenField, PasswordField, validators
 from wtforms.validators import DataRequired, Required, EqualTo, Length
 from hashlib import sha256
 from flask.ext.login import login_user, current_user, logout_user, login_required
+
+@app.before_request
+def before_request():
+    g.user = current_user
+    if g.user.is_authenticated:
+        g.user.last_seen = datetime.utcnow()
+        db.session.add(g.user)
+        db.session.commit()
+        g.search_form = SearchForm()
+
+@app.route('/search', methods=['POST'])
+@login_required
+def search():
+    if not g.search_form.validate_on_submit():
+        return redirect(url_for('home'))
+    return redirect(url_for('search_results', query=g.search_form.search.data))
+
+@app.route('/search/<query>')
+@login_required
+def search_results(query):
+#def search_results(classe,query=None):
+    album_results = Album.query.whoosh_search(query, MAX_SEARCH_RESULTS).all()
+    artist_results = Artist.query.whoosh_search(query, MAX_SEARCH_RESULTS).all()
+    genre_results = Genre.query.whoosh_search(query, MAX_SEARCH_RESULTS).all()
+    return render_template(
+			'search.html',
+	    	query		       = query,
+	    	album_results	   = album_results,
+            artist_results     = artist_results,
+            genre_results      = genre_results
+	)
+
 
 @app.route("/")
 def home():
@@ -15,10 +48,7 @@ def home():
 	albums=get_sample_albums()
 	)
 
-class ArtistForm(Form):
-	id			= HiddenField('id')
-	name		= StringField('Nom', validators=[DataRequired()])
-	compositor  = StringField('Compositeur')
+
 
 @app.route("/album/")
 @app.route("/album/<int:id>")
@@ -42,6 +72,7 @@ def one_album(id=None):
 			title="Albums Sample",
 			albums=get_sample_albums()
 		)
+
 @app.route("/date/")
 @app.route("/date/<int:releaseY>")
 def one_date(releaseY):

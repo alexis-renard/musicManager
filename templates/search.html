@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block main %}
+  <h1>Search results for "{{ query }}":</h1>
+    <h2>Artist results for "{{ query }}"</h2>
+    <div class="list_artist_pour_query">
+        <ul>
+        {% for artist in artist_results %}
+              <li><a href="{{ url_for('one_artist', id=artist.id) }}">{{ artist.name }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+    <h2>Genre results for "{{ query }}"</h2>
+    <div class="list_genre_pour_query">
+        <ul>
+        {% for genre in genre_results %}
+                <li><a href="{{ url_for('one_genre', id=genre.id) }}">{{ genre.name_g }}</a></li>
+        {% endfor %}
+        </ul>
+        <div class="coucou"></div>
+    </div>
+
+  <div class="list_albums_pour_query">
+    <h2>Album results for "{{ query }}"</h2>
+    <ul>
+  {% for album in album_results %}
+
+              <li>{{ album.get_title() }}</li>
+              <li>{{ album.get_releaseYear() }}</li>
+              <li>{{ album.get_compositor() }}</li>
+              <li>
+                  {% for g in album.get_genres() %}
+                      {{ g.name_g + " "}}
+                  {% endfor %}
+                  {% if album.get_img() != None %}
+                      <img src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
+                  {% else %}
+                      <img src="{{ url_for('static', filename='images/404.jpg')}}">
+                  {% endif %}
+              </li>
+
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}

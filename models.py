@@ -1,5 +1,17 @@
 from .app import db, login_manager, app
 from flask.ext.login import UserMixin
+from wtforms import StringField, HiddenField, PasswordField, validators
+from wtforms.validators import DataRequired
+from flask.ext.wtf import Form
+import flask.ext.whooshalchemy as whooshalchemy
+
+import sys #sys correspond à la version de python, si la version est inférieur à python3
+#on importera whooshalchemy qui gère les searchbar avec les versions antérieur à python3
+if sys.version_info >= (3, 0):
+    enable_search = False
+else:
+    enable_search = True
+    import flask.ext.whooshalchemy as whooshalchemy
 
 #Création de la table belong entre album et Genre
 belong = db.Table('belong',
@@ -10,6 +22,8 @@ belong = db.Table('belong',
 
 #Création de la table Artist
 class Artist(db.Model):
+    __searchable__ = ['name']
+
     id          = db.Column(db.Integer, primary_key=True)
     name        = db.Column(db.String(100))
 
@@ -30,6 +44,8 @@ class Artist(db.Model):
 
 #Création de la table Genre
 class Genre(db.Model):
+    __searchable__ = ['name_g']
+
     id           = db.Column(db.Integer, primary_key=True)
     name_g       = db.Column(db.String(100))
 
@@ -45,14 +61,16 @@ class Genre(db.Model):
 
 #Création de la table Ablum
 class Album(db.Model):
+    __searchable__ = ['title','releaseYear','compositor']
+
     id          = db.Column(db.Integer, primary_key=True)
     title       = db.Column(db.String(100))
     releaseYear = db.Column(db.String(100))
     img         = db.Column(db.String(100))
     compositor  = db.Column(db.String(100))
     artist_id   = db.Column(db.Integer, db.ForeignKey("artist.id"))
-    artists      = db.relationship("Artist", backref = db.backref("albums", lazy="dynamic"))
-    genres       = db.relationship("Genre", secondary=belong, backref = db.backref("albums", lazy="dynamic"))
+    artists     = db.relationship("Artist", backref = db.backref("albums", lazy="dynamic"))
+    genres      = db.relationship("Genre", secondary=belong, backref = db.backref("albums", lazy="dynamic"))
 
     def __repr__(self):
         return "<Album (%d) %s>" % (self.id, self.title)
@@ -63,6 +81,9 @@ class Album(db.Model):
     def get_title(self):
         return self.title
 
+    def get_compositor(self):
+        return self.compositor
+
     def get_releaseYear(self):
         return self.releaseYear
 
@@ -72,6 +93,9 @@ class Album(db.Model):
     def get_artist_id(self):
         return self.artist_id
 
+    def get_genres(self):
+        return self.genres
+
 #Création de la table User
 class User(db.Model, UserMixin):
     username    = db.Column(db.String(50), primary_key=True)
@@ -79,6 +103,18 @@ class User(db.Model, UserMixin):
 
     def get_id(self):
         return self.username
+
+class SearchForm(Form):
+    search = StringField('search', validators=[DataRequired()])
+
+class ArtistForm(Form):
+	id			= HiddenField('id')
+	name		= StringField('Nom', validators=[DataRequired()])
+	compositor  = StringField('Compositeur')
+
+whooshalchemy.whoosh_index(app, Album)
+whooshalchemy.whoosh_index(app, Artist)
+whooshalchemy.whoosh_index(app, Genre)
 
 def get_artist(id):
     return Artist.query.get(id)
