@@ -4,18 +4,15 @@
 <div class="list_albums">
     {% for x in albums %}
         <ul>
-            <li><a href="{{ url_for('one_album', id=x.id) }}">{{ x.title }}</li>
+            <li><a href="{{ url_for('one_album', id=x.id) }}">{{ x.title }}</a></li>
             <li><a href="{{ url_for('one_date', releaseY=x.releaseYear) }}">{{ x.releaseYear }}</a></li>
             <li>{{ x.compositor }}</li>
             <li><a href="{{ url_for('one_artist', id=x.artist_id) }}">{{ get_name_artist_context(x.artist_id) }}</a></li>
-            <li>{% for g in x.genre %}
+            <li>{% for g in x.genres %}
                     {{ g.name_g + " "}}
                 {% endfor %}
             </li>
             <li>
-                {% for g in x.genre %}
-                    {{ g.name_g + " "}}
-                {% endfor %}
                 {% if x.img != None %}
                 <img src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
                 {% else %}
