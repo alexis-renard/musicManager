@@ -22,8 +22,7 @@
   <div class="list_albums_pour_query">
     <h2>Album results for "{{ query }}"</h2>
     <ul>
-  {% for album in album_results %}
-
+        {% for album in album_results %}
               <li>{{ album.get_title() }}</li>
               <li>{{ album.get_releaseYear() }}</li>
               <li>{{ album.get_compositor() }}</li>
@@ -37,7 +36,6 @@
                       <img src="{{ url_for('static', filename='images/404.jpg')}}">
                   {% endif %}
               </li>
-
   {% endfor %}
   </ul>
 </div>

@@ -6,10 +6,6 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager
 import os.path
 
-WHOOSH_BASE = os.path.join('../myapp.db', 'search.db')
-
-MAX_SEARCH_RESULTS = 50
-
 app = Flask(__name__)
 app.debug = True
 
