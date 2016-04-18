@@ -1,7 +1,7 @@
 from .app import app, db
 from flask import render_template, url_for, redirect, request, g
 from datetime import datetime
-from .models import User, Artist, Album, Genre, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre, get_artists_genre, get_date_albums, SearchForm, ArtistForm,get_artist_search, get_genre_search, get_album_search_title, get_album_search_compositor, get_album_search_releaseYear
+from .models import User, Artist, Album, Genre, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre, get_artists_genre, get_date_albums, SearchForm, ArtistForm,get_artist_search, get_genre_search, get_album_search_title, get_album_search_compositor, get_album_search_releaseYear, get_all_artist, get_all_albums, get_all_genre
 from flask.ext.wtf import Form
 from wtforms import StringField, HiddenField, PasswordField, validators
 from wtforms.validators import DataRequired, Required, EqualTo, Length
@@ -72,7 +72,7 @@ def one_album(id=None):
 		return render_template(
 			"albums.html",
 			title="Albums Sample",
-			albums=get_sample_albums()
+			albums=get_all_albums()
 		)
 
 @app.route("/date/")
@@ -99,8 +99,8 @@ def one_artist(id=None):
 	else:
 		return render_template(
 			"artists.html",
-			title="Artists Sample",
-			artists=get_sample_artists()
+			title="All Artists",
+			artists=get_all_artist()
 		)
 
 @app.route("/edit/artist/")
@@ -138,7 +138,7 @@ def one_genre(id=None):
 		return render_template(
 			"genres.html",
 			title="Genre Sample",
-			genres=get_sample_genre()
+			genres=get_all_genre()
 		)
 
 @app.route("/save/artist/", methods=("POST",))

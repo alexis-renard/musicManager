@@ -97,6 +97,14 @@ class ArtistForm(Form):
 	name		= StringField('Nom', validators=[DataRequired()])
 	compositor  = StringField('Compositeur')
 
+def get_all_artist():
+    return Artist.query.all()
+
+def get_all_albums():
+    return Album.query.all()
+
+def get_all_genre():
+    return Genre.query.all()
 
 def get_artist(id):
     return Artist.query.get(id)
@@ -126,7 +134,7 @@ def get_sample_albums():
     return Album.query.limit(5).all()
 
 def get_sample_genre():
-    return Genre.query.limit(5).all()
+    return Genre.query.limit(3).all()
 
 def get_sample_artists():
     return Artist.query.limit(5).all()

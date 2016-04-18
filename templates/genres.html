@@ -1,12 +1,22 @@
 {% extends "base.html" %}
 {% block main %}
 <h1> {{ title }} </h1>
-<div class="list_genre">
+<div class="container">
     {% for x in genres %}
-        <ul>
-            <li><a href="{{ url_for('one_genre', id=x.id) }}">{{ x.name_g }}</a></li>
-        </ul>
+        <div class="row">
+            <div class="col-md-3">
+                <p><a href="{{ url_for('one_genre', id=x.id) }}">{{ x.name_g }}</a></p>
+            </div>
+            {% for album in x.albums %}
+                <div class="col-md-3">
+                    {% if album.img != None %}
+                        <img src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
+                        {% else %}
+                        <img src="{{ url_for('static', filename='images/404.jpg')}}">
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
     {% endfor %}
-    <div class="coucou"></div>
 </div>
 {% endblock %}
