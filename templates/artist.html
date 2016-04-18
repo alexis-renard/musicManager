@@ -2,10 +2,26 @@
 {% block main %}
 <h1> {{ title }} </h1>
 <div class="list_albums_pour_artist">
-    <ul>
-    {% for x in artists %}
-            <li><a href="{{ url_for('one_artist', id=x.id) }}">{{ x.name }}</a></li>
+    {% for x in albums %}
+        <ul>
+            <li>{{ x.title }}</li>
+            {% if x.releaseYear!="0" %}
+            <li>{{ x.releaseYear }}</li>
+            {% else %}
+            <li class="italique">Non daté</li>
+            {% endif %}
+            <li>{{ x.compositor }}</li>
+            <li>
+                {% for g in x.genre %}
+                    {{ g.name_g + " "}}
+                {% endfor %}
+                {% if x.img != None %}
+                    <img src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/404.jpg')}}">
+                {% endif %}
+            </li>
+        </ul>
     {% endfor %}
-    </ul>
 </div>
 {% endblock %}

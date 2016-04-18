@@ -92,13 +92,13 @@ def one_artist(id=None):
 		a = get_artist(id)
 		name = a.get_name()
 		return render_template(
-			"artists.html",
+			"artist.html",
 			title=name,
 			albums=get_albums_artist(id)
 		)
 	else:
 		return render_template(
-			"artist.html",
+			"artists.html",
 			title="Artists Sample",
 			artists=get_sample_artists()
 		)
