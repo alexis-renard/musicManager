@@ -45,17 +45,29 @@ class Genre(db.Model):
     def get_name_g(self):
         return self.name_g
 
+class Compositor(db.Model):
+    id          = db.Column(db.Integer, primary_key=True)
+    name        = db.Column(db.String(100))
+
+    def __repr__(self):
+        return "<Artist (%d) %s>" % (self.id, self.name)
+
+    def get_id(self):
+        return self.id
+
+    def get_name(self):
+        return self.name
 
 #Création de la table Ablum
 class Album(db.Model):
-    id          = db.Column(db.Integer, primary_key=True)
-    title       = db.Column(db.String(100))
-    releaseYear = db.Column(db.String(100))
-    img         = db.Column(db.String(100))
-    compositor  = db.Column(db.String(100))
-    artist_id   = db.Column(db.Integer, db.ForeignKey("artist.id"))
-    artists     = db.relationship("Artist", backref = db.backref("albums", lazy="dynamic"))
-    genres      = db.relationship("Genre", secondary=belong, backref = db.backref("albums", lazy="dynamic"))
+    id              = db.Column(db.Integer, primary_key=True)
+    title           = db.Column(db.String(100))
+    releaseYear     = db.Column(db.String(100))
+    img             = db.Column(db.String(100))
+    compositor_id   = db.Column(db.Integer, db.ForeignKey("compositor.id"))
+    artist_id       = db.Column(db.Integer, db.ForeignKey("artist.id"))
+    artists         = db.relationship("Artist", backref = db.backref("albums", lazy="dynamic"))
+    genres          = db.relationship("Genre", secondary=belong, backref = db.backref("albums", lazy="dynamic"))
 
     def __repr__(self):
         return "<Album (%d) %s>" % (self.id, self.title)
