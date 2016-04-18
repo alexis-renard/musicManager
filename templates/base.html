@@ -43,7 +43,10 @@
                         </a>
                     </li>
                     <li>
-                        <form style="display: inline;" action="{{ url_for('search') }}" method="POST" name="search">{{ g.search_form.hidden_tag() }}{{ g.search_form.search(size=10) }}<input type="submit" value="Search"></form>
+                        <form style="display: inline;" action="{{ url_for('search') }}" method="POST" name="search">
+                            {{ g.search_form.hidden_tag() }}{{ g.search_form.search(size=10) }}
+                            <input type="submit" value="Search">
+                        </form>
                     </li>
                 {% else %}
                     <li>

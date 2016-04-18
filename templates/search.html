@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block main %}
   <h1>Search results for "{{ query }}":</h1>
+    {% if artist_results!=[] %}
     <h2>Artist results for "{{ query }}"</h2>
     <div class="list_artist_pour_query">
         <ul>
@@ -9,6 +10,8 @@
         {% endfor %}
         </ul>
     </div>
+    {% endif %}
+    {% if genre_results!=[] %}
     <h2>Genre results for "{{ query }}"</h2>
     <div class="list_genre_pour_query">
         <ul>
@@ -18,25 +21,67 @@
         </ul>
         <div class="coucou"></div>
     </div>
+    {% endif %}
 
   <div class="list_albums_pour_query">
     <h2>Album results for "{{ query }}"</h2>
+    <h3>Resultats dans les titres d'albums</h3>
     <ul>
-        {% for album in album_results %}
-              <li>{{ album.get_title() }}</li>
-              <li>{{ album.get_releaseYear() }}</li>
-              <li>{{ album.get_compositor() }}</li>
-              <li>
-                  {% for g in album.get_genres() %}
-                      {{ g.name_g + " "}}
-                  {% endfor %}
-                  {% if album.get_img() != None %}
-                      <img src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
-                  {% else %}
-                      <img src="{{ url_for('static', filename='images/404.jpg')}}">
-                  {% endif %}
-              </li>
-  {% endfor %}
+    {% for album in album_results_title %}
+        <li>{{ album.get_title() }}</li>
+        <li>{{ album.get_releaseYear() }}</li>
+        <li>{{ album.get_compositor() }}</li>
+        <li>
+            {% for g in album.get_genres() %}
+              {{ g.name_g + " "}}
+            {% endfor %}
+            {% if album.get_img() != None %}
+              <img src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
+            {% else %}
+              <img src="{{ url_for('static', filename='images/404.jpg')}}">
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+
+    <h3>Resultats dans les compostieurs d'albums</h3>
+    <ul>
+    {% for album in album_results_compositor %}
+
+            <li>{{ album.get_title() }}</li>
+            <li>{{ album.get_releaseYear() }}</li>
+            <li>{{ album.get_compositor() }}</li>
+            <li>
+                {% for g in album.get_genres() %}
+                    {{ g.name_g + " "}}
+                {% endfor %}
+                {% if album.get_img() != None %}
+                    <img src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/404.jpg')}}">
+                {% endif %}
+            </li>
+    {% endfor %}
+    </ul>
+
+    <h3>Resultats dans les années de création d'albums</h3>
+    <ul>
+    {% for album in album_results_releaseYear %}
+
+          <li>{{ album.get_title() }}</li>
+          <li>{{ album.get_releaseYear() }}</li>
+          <li>{{ album.get_compositor() }}</li>
+          <li>
+              {% for g in album.get_genres() %}
+                  {{ g.name_g + " "}}
+              {% endfor %}
+              {% if album.get_img() != None %}
+                  <img src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
+              {% else %}
+                  <img src="{{ url_for('static', filename='images/404.jpg')}}">
+              {% endif %}
+          </li>
+    {% endfor %}
   </ul>
 </div>
 {% endblock %}

@@ -33,14 +33,13 @@ def search_results(query):
     album_results_releaseYear = get_album_search_releaseYear(query)
     artist_results = get_artist_search(query)
     genre_results = get_genre_search(query)
+    album_result = [album_results_title, album_results_compositor, album_results_releaseYear]
     return render_template(
 			'search.html',
 	    	query		                = query,
             artist_results              = artist_results,
             genre_results               = genre_results,
-            album_results_title         = album_results_title,
-            album_results_compositor    = album_results_compositor,
-            album_results_releaseYear   = album_results_releaseYear
+            album_result                = album_result
 	)
 
 @app.route("/")
@@ -93,13 +92,13 @@ def one_artist(id=None):
 		a = get_artist(id)
 		name = a.get_name()
 		return render_template(
-			"artist.html",
+			"artists.html",
 			title=name,
 			albums=get_albums_artist(id)
 		)
 	else:
 		return render_template(
-			"artists.html",
+			"artist.html",
 			title="Artists Sample",
 			artists=get_sample_artists()
 		)
