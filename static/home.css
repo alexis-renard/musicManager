@@ -15,3 +15,7 @@ div.sample{
 body {
   font-family:sans-serif;
 }
+
+.italique{
+  font-style:italic;
+}

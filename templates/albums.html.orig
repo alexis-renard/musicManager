@@ -4,8 +4,12 @@
 <div class="list_albums">
     {% for x in albums %}
         <ul>
-            <li><a href="{{ url_for('one_album', id=x.id) }}">{{ x.title }}</a></li>
+<<<<<<< HEAD
+            <li><a href="{{ url_for('one_album', id=x.id) }}">{{ x.title }}</li>
             {% if x.releaseYear!=0 %}
+=======
+            <li><a href="{{ url_for('one_album', id=x.id) }}">{{ x.title }}</a></li>
+>>>>>>> ba66eec8d166b7af7dc775dcaa9c79401b7a4755
             <li><a href="{{ url_for('one_date', releaseY=x.releaseYear) }}">{{ x.releaseYear }}</a></li>
             {% endif %}
             <li>{{ x.compositor }}</li>

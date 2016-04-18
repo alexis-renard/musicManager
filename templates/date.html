@@ -5,7 +5,7 @@
     {% if albums != [] %}
         {% for x in albums %}
             <ul>
-                <li>{{ x.title }}</li>
+                <li><a href="{{ url_for('one_album', id=x.id) }}">{{ x.title }}</a></li>
                 <li>{{ x.compositor }}</li>
                 <li>
                     {% for g in x.genre %}

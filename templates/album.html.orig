@@ -3,7 +3,11 @@
 <h1> {{ title }} </h1>
 <div class="album">
     <ul>
+<<<<<<< HEAD
+        <li>{{ album.title }}</li>
         {% if album.releaseYear!=0 %}
+=======
+>>>>>>> ba66eec8d166b7af7dc775dcaa9c79401b7a4755
         <li><a href="{{ url_for('one_date', releaseY=album.releaseYear) }}">{{ album.releaseYear }}</a></li>
         {% endif %}
         <li>{{ album.compositor }}</li>

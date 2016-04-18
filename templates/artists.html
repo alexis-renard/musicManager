@@ -4,7 +4,11 @@
 <div class="list_albums_pour_artist">
     <ul>
     {% for x in artists %}
+<<<<<<< HEAD
             <li><a href="{{ url_for('one_artist', id=x.id) }}">{{ x.name }}</a></li>
+=======
+        <li><a href="{{ url_for('one_artist', id=x.id) }}">{{ x.name }}</a></li>
+>>>>>>> ba66eec8d166b7af7dc775dcaa9c79401b7a4755
     {% endfor %}
     </ul>
 </div>

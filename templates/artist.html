@@ -4,12 +4,17 @@
 <div class="list_albums_pour_artist">
     {% for x in albums %}
         <ul>
+<<<<<<< HEAD
             <li>{{ x.title }}</li>
             {% if x.releaseYear!="0" %}
             <li>{{ x.releaseYear }}</li>
             {% else %}
             <li class="italique">Non daté</li>
             {% endif %}
+=======
+            <li><a href="{{ url_for('one_album', id=x.id) }}">{{ x.title }}</a></li>
+            <li><a href="{{ url_for('one_date', releaseY=x.releaseYear) }}">{{ x.releaseYear }}</a></li>
+>>>>>>> ba66eec8d166b7af7dc775dcaa9c79401b7a4755
             <li>{{ x.compositor }}</li>
             <li>
                 {% for g in x.genre %}
