@@ -1,7 +1,7 @@
 from .app import app, db
 from flask import render_template, url_for, redirect, request, g
 from datetime import datetime
-from .models import User, Artist, Album, Genre, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre, get_artists_genre, get_date_albums, SearchForm, ArtistForm,get_artist_search, get_genre_search, get_album_search_title, get_album_search_compositor, get_album_search_releaseYear, get_all_artist, get_all_albums, get_all_genre
+from .models import User, Artist, Album, Genre, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre, get_artists_genre, get_date_albums, SearchForm, ArtistForm,get_artist_search, get_genre_search, get_album_search_title, get_album_search_compositor, get_album_search_releaseYear, get_all_artist, get_all_albums, get_all_genre, GenreForm, AlbumForm
 from flask.ext.wtf import Form
 from wtforms import StringField, HiddenField, PasswordField, validators
 from wtforms.validators import DataRequired, Required, EqualTo, Length
@@ -50,8 +50,6 @@ def home():
 	albums=get_sample_albums()
 	)
 
-
-
 @app.route("/album/")
 @app.route("/album/<int:id>")
 def one_album(id=None):
@@ -75,6 +73,36 @@ def one_album(id=None):
 			albums=get_all_albums()
 		)
 
+@app.route("/edit/album/")
+@app.route("/edit/album/<int:id>")
+@login_required
+def edit_album(id=None):
+	if id is not None:
+		a = get_album(id)
+	else:
+		a = Album(title="")
+		db.session.add(a)
+		db.session.commit()
+		id = a.id
+	f = AlbumForm(id=id, title=a.title, releaseYear=a.releaseYear)
+	return render_template("edit-album.html", album=a, form=f)
+
+@app.route("/save/album/", methods=("POST",))
+def save_album():
+    a = None
+    f = AlbumForm()
+    if f.validate_on_submit():
+        id = int(f.id.data)
+        a = get_album(id)
+        if f.title.data != "":
+            a.title = f.title.data
+        if f.releaseYear.data !="":
+            a.releaseYear = f.releaseYear.data
+        db.session.commit()
+        return redirect(url_for('one_album', id=a.id))
+    a = get_album(int(f.id.data))
+    return render_template("edit-album.html", album=a, form=f)
+
 @app.route("/date/")
 @app.route("/date/<int:releaseY>")
 def one_date(releaseY):
@@ -83,7 +111,6 @@ def one_date(releaseY):
 	title="Release Year",
 	albums=get_date_albums(releaseY)
 	)
-
 
 @app.route("/artist/")
 @app.route("/artist/<int:id>")
@@ -117,6 +144,19 @@ def edit_artist(id=None):
 	f = ArtistForm(id=id, name=a.name)
 	return render_template("edit-artist.html", artist=a, form=f)
 
+@app.route("/save/artist/", methods=("POST",))
+def save_artist():
+	a = None
+	f = ArtistForm()
+	if f.validate_on_submit():
+		id = int(f.id.data)
+		a = get_artist(id)
+		a.name = f.name.data
+		db.session.commit()
+		return redirect(url_for('one_artist', id=a.id))
+	a = get_artist(int(f.id.data))
+	return render_template("edit-artist.html", artist=a, form=f)
+
 @app.route("/test_api")
 def api():
 	g=get_genre(1)
@@ -141,18 +181,32 @@ def one_genre(id=None):
 			genres=get_all_genre()
 		)
 
-@app.route("/save/artist/", methods=("POST",))
-def save_artist():
+@app.route("/edit/genre/")
+@app.route("/edit/genre/<int:id>")
+@login_required
+def edit_genre(id=None):
+	if id is not None:
+		a = get_genre(id)
+	else:
+		a = Genre(name_g="")
+		db.session.add(a)
+		db.session.commit()
+		id = a.id
+	f = GenreForm(id=id, name_g=a.name_g)
+	return render_template("edit-genre.html", genre=a, form=f)
+
+@app.route("/save/genre/", methods=("POST",))
+def save_genre():
 	a = None
-	f = ArtistForm()
+	f = GenreForm()
 	if f.validate_on_submit():
 		id = int(f.id.data)
-		a = get_artist(id)
-		a.name = f.name.data
+		a = get_genre(id)
+		a.name_g = f.name_g.data
 		db.session.commit()
-		return redirect(url_for('one_artist', id=a.id))
-	a = get_artist(int(f.id.data))
-	return render_template("edit-artist.html", artist=a, form=f)
+		return redirect(url_for('one_genre', id=a.id))
+	a = get_genre(int(f.id.data))
+	return render_template("edit-genre.html", genre=a, form=f)
 
 class LoginForm(Form):
 	username = StringField('Username') #ce qui est entre simple quote correspond au label du champs

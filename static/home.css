@@ -29,11 +29,16 @@ img{
     text-align : center;
 }
 
-.col-centered {
+.col-centered{
     display:inline-block;
     float:none;
     /* reset the text-align */
     text-align:left;
     /* inline-block space fix */
     margin-right:-4px;
+}
+
+.infoalbum{
+    padding-top : 5.5%;
+    padding-bottom: 5.5%;
 }

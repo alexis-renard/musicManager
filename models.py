@@ -123,7 +123,15 @@ class SearchForm(Form):
 class ArtistForm(Form):
 	id			= HiddenField('id')
 	name		= StringField('Nom', validators=[DataRequired()])
-	compositor  = StringField('Compositeur')
+
+class GenreForm(Form):
+	id			= HiddenField('id')
+	name_g		= StringField('Nom Genre', validators=[DataRequired()])
+
+class AlbumForm(Form):
+    id			= HiddenField('id')
+    title		= StringField('Titre Album')
+    releaseYear	= StringField('Année de sortie')
 
 def get_all_artist():
     return Artist.query.all()
