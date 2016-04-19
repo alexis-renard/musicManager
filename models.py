@@ -166,6 +166,9 @@ def get_artists_genre(idgenre):
 def get_genre(name_g):
     return Genre.query.get(name_g)
 
+def get_compositor(id):
+    return Compositor.query.get(id)
+
 def get_sample_albums():
     return Album.query.limit(5).all()
 
@@ -181,8 +184,8 @@ def get_artist_search(search):
 def get_album_search_title(search):
     return Album.query.filter(Album.title.like("%"+search+"%")).all()
 
-def get_album_search_compositor(search):
-    return Album.query.filter(Album.compositor.like("%"+search+"%")).all()
+def get_compositor_search(search):
+    return Compositor.query.filter(Compositor.name.like("%"+search+"%")).all()
 
 def get_album_search_releaseYear(search):
     return Album.query.filter(Album.releaseYear.like("%"+search+"%")).all()

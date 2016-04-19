@@ -1,7 +1,11 @@
 from .app import app, db
 from flask import render_template, url_for, redirect, request, g
 from datetime import datetime
-from .models import User, Artist, Album, Genre, get_artist, get_album, get_sample_albums, get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre, get_artists_genre, get_date_albums, SearchForm, ArtistForm,get_artist_search, get_genre_search, get_album_search_title, get_album_search_compositor, get_album_search_releaseYear, get_all_artist, get_all_albums, get_all_genre, GenreForm, AlbumForm
+from .models import User, Artist, Album, Genre, Compositor, Playlist, get_artist, get_album, get_sample_albums
+from .models import get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre
+from .models import get_artists_genre, get_date_albums, SearchForm, ArtistForm,get_artist_search, get_genre_search
+from .models import get_album_search_title, get_compositor_search, get_album_search_releaseYear, get_all_artist
+from .models import get_all_albums, get_all_genre, GenreForm, AlbumForm
 from flask.ext.wtf import Form
 from wtforms import StringField, HiddenField, PasswordField, validators
 from wtforms.validators import DataRequired, Required, EqualTo, Length
@@ -29,17 +33,18 @@ def search():
 def search_results(query):
 #def search_results(classe,query=None):
     album_results_title = get_album_search_title(query)
-    album_results_compositor = get_album_search_compositor(query)
     album_results_releaseYear = get_album_search_releaseYear(query)
     artist_results = get_artist_search(query)
     genre_results = get_genre_search(query)
-    album_result = [album_results_title, album_results_compositor, album_results_releaseYear]
+    album_result = [album_results_title, album_results_releaseYear]
+    compositor_results = get_compositor_search(query)
     return render_template(
 			'search.html',
 	    	query		                = query,
             artist_results              = artist_results,
             genre_results               = genre_results,
-            album_result                = album_result
+            album_result                = album_result,
+            compositor_results          = compositor_results
 	)
 
 @app.route("/")
