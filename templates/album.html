@@ -1,24 +1,30 @@
 {% extends "base.html" %}
 {% block main %}
 <h1> {{ title }} </h1>
-<div class="album">
-    <ul>
-        {% if album.releaseYear!=0 %}
-        <li><a href="{{ url_for('one_date', releaseY=album.releaseYear) }}">{{ album.releaseYear }}</a></li>
-        {% endif %}
-        <li>{{ album.compositor }}</li>
-        <li><a href="{{ url_for('one_artist', id=album.artist_id) }}">{{ artist }}</a></li>
-        <li>{% for g in album.genres %}
-                {{ g.name_g + " "}}
-            {% endfor %}
-        </li>
-        <li>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
             {% if album.img != None %}
             <img src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
             {% else %}
             <img src="{{ url_for('static', filename='images/404.jpg')}}">
             {% endif %}
-        </li>
-    </ul>
+        </div>
+        <div class="col-md-3">
+            {% if album.releaseYear!=0 %}
+            <div class="row infoalbum">
+                <a href="{{ url_for('one_date', releaseY=album.releaseYear) }}">{{ album.releaseYear }}</a>
+            </div>
+            {% endif %}
+            <div class ="row infoalbum">{{ album.compositor }}</div>
+            <div class ="row infoalbum"><a href="{{ url_for('one_artist', id=album.artist_id) }}">{{ artist }}</a></div>
+            <div class ="row infoalbum">
+                {% for g in album.genres %}
+                    {{ g.name_g + " "}}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
 </div>
 {% endblock %}
