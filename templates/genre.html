@@ -1,12 +1,27 @@
 {% extends "base.html" %}
 {% block main %}
 <h1> {{ title }} </h1>
-<div class="list_genre">
-    <div class="coucou"></div>
-    <ul>
-        {% for a in genre.albums %}
-        <li><a href="{{ url_for('one_album', id=a.id) }}">{{ a.title }}</a></li>
+<div class="container">
+        {% for x in genre.albums %}
+            <div class="col-md-3 col-centered col-fixed">
+                <div class="row row-centered">
+                    {% if x.img != None %}
+                        <img src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
+                        {% else %}
+                        <img src="{{ url_for('static', filename='images/404.jpg')}}">
+                    {% endif %}
+                </div>
+                <div class="row text-center">
+                    <a href="{{ url_for('one_album', id=x.id) }}">{{ x.title }}</a>
+                </div>
+                <div class="row text-center">
+                    {% if x.releaseYear!="0" %}
+                    <a href="{{ url_for('one_date', releaseY=x.releaseYear) }}">{{ x.releaseYear }}</a>
+                    {% else %}
+                    <p class="italique">Non daté</p>
+                    {% endif %}
+                </div>
+            </div>
         {% endfor %}
-    </ul>
 </div>
 {% endblock %}

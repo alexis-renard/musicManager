@@ -8,3 +8,5 @@ pip install flask-sqlalchemy
 pip install flask-wtf
 pip install flask-login
 pip install flask_debugtoolbar
+pip install git+git://github.com/miguelgrinberg/flask-whooshalchemy.git
+
