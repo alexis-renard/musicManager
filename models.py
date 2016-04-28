@@ -1,8 +1,11 @@
 from .app import db, login_manager, app
 from flask.ext.login import UserMixin
 from wtforms import StringField, HiddenField, PasswordField, validators
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Required, EqualTo, Length
 from flask.ext.wtf import Form
+from hashlib import sha256
+from flask.ext.login import login_user, current_user, logout_user, login_required
+
 
 #Création de la table belong entre album et Genre
 belong = db.Table('belong',
@@ -110,7 +113,7 @@ class User(db.Model, UserMixin):
     username        = db.Column(db.String(50), primary_key=True)
     password        = db.Column(db.String(64))
 
-    def get_username(self):
+    def get_id(self):
         return self.username
 
 class SearchForm(Form):
@@ -134,30 +137,6 @@ class PlaylistForm(Form):
     id			= HiddenField('id', validators=[DataRequired()])
     name        = StringField('Nom de la playlist', validators=[DataRequired()])
 
-
-class LoginForm(Form):
-	username = StringField('Username', validators=[DataRequired()]) #ce qui est entre simple quote correspond au label du champs
-	password = PasswordField('Password', validators=[DataRequired()])
-	next = HiddenField()
-
-	def get_authenticated_user(self):
-		user = User.query.get(self.username.data)
-		if user is None:
-			return None
-		m = sha256()
-		m.update(self.password.data.encode())
-		passwd = m.hexdigest()
-		return user if passwd == user.password else None
-
-class RegisterForm(Form):
-	username = StringField('Username')
-	password = PasswordField('Password', [
-		validators.Required(),
-		validators.EqualTo('confirm', message='Passwords must match'),
-        validators.Length(min=4)
-	])
-	confirm = PasswordField('Repeat Password')
-	next = HiddenField() #à quoi sert exactement le next ?
 
 
 def get_all_artist():
