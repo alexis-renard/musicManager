@@ -59,7 +59,7 @@ def one_album(id=None):
 		id_artist=a.get_artist_id()
 		artist=get_artist(id_artist)
 		artist_name=artist.get_name()
-		compositor = get_compositor(album.get_compositor())
+		compositor = get_compositor(a.get_compositor())
 		title = a.get_title()
 		return render_template(
 			"album.html",
@@ -235,29 +235,70 @@ def save_genre():
 	a = get_genre(int(f.id.data))
 	return render_template("edit-genre.html", genre=a, form=f)
 
-class LoginForm(Form):
-	username = StringField('Username') #ce qui est entre simple quote correspond au label du champs
-	password = PasswordField('Password')
-	next = HiddenField()
 
-	def get_authenticated_user(self):
-		user = User.query.get(self.username.data)
-		if user is None:
-			return None
-		m = sha256()
-		m.update(self.password.data.encode())
-		passwd = m.hexdigest()
-		return user if passwd == user.password else None
 
-class RegisterForm(Form):
-	username = StringField('Username')
-	password = PasswordField('Password', [
-		validators.Required(),
-		validators.EqualTo('confirm', message='Passwords must match'),
-        validators.Length(min=4)
-	])
-	confirm = PasswordField('Repeat Password')
-	next = HiddenField() #à quoi sert exactement le next ?
+####PLAYLISTS
+
+@app.route("/playlist/")
+@app.route("/playlist/<int:id>")
+def one_playlist(id=None):
+	if id is not None:
+		a = get_playlist(id)
+		name = a.get_name()
+		return render_template(
+			"playlist.html",
+			title=name,
+			albums=get_albums_playlist(id)
+		)
+	else:
+		return render_template(
+			"playlists.html",
+			title="All Playlists",
+			playlists=get_all_playlist()
+		)
+
+@app.route("/edit/playlist/")
+@app.route("/edit/playlist/<int:id>")
+@login_required
+def edit_playlist(id=None):
+	if id is not None:
+		p = get_playlist(id)
+	else:
+		p = Playlist(name="")
+		db.session.add(p)
+		db.session.commit()
+		id = p.id
+	f = PlaylistForm(id=id, name=p.name)
+	return render_template("edit-playlist.html", playlist=p, form=f)
+
+@app.route("/save/playlist/", methods=("POST",))
+def save_playlist():
+	a = None
+	f = PlaylistForm()
+	if f.validate_on_submit():
+		id = int(f.id.data)
+		a = get_playlist(id)
+		a.name = f.name.data
+		db.session.add(a)
+		db.session.commit()
+		return redirect(url_for('one_playlist', id=a.id))
+	a = get_playlist(int(f.id.data))
+	return render_template("edit-playlist.html", playlist=a, form=f)
+
+@app.route("/delete/playlist/")
+@app.route("/delete/playlist/<int:id>")
+@login_required
+def delete_playlist(id):
+    if id == None:
+        return redirect(url_for('one_playlist'))
+    else:
+        a = get_playlist(id)
+        db.session.delete(a)
+        db.session.commit()
+    return redirect(url_for('one_playlist'))
+
+#### FIN PLAYLISTS
+
 
 @app.route("/login/", methods=("GET","POST",))
 def login():

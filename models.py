@@ -110,7 +110,7 @@ class User(db.Model, UserMixin):
     username        = db.Column(db.String(50), primary_key=True)
     password        = db.Column(db.String(64))
 
-    def get_id(self):
+    def get_username(self):
         return self.username
 
 
@@ -127,9 +127,40 @@ class GenreForm(Form):
 	name_g		= StringField('Nom Genre', validators=[DataRequired()])
 
 class AlbumForm(Form):
-    id			= HiddenField('id')
-    title		= StringField('Titre Album')
-    releaseYear	= StringField('Année de sortie')
+    id			= HiddenField('id', validators=[DataRequired()])
+    title		= StringField('Titre Album', validators=[DataRequired()])
+    releaseYear	= StringField('Année de sortie', validators=[DataRequired()])
+
+
+class PlaylistForm(Form):
+    id			= HiddenField('id', validators=[DataRequired()])
+    name        = StringField('Nom de la playlist', validators=[DataRequired()])
+
+
+class LoginForm(Form):
+	username = StringField('Username', validators=[DataRequired()]) #ce qui est entre simple quote correspond au label du champs
+	password = PasswordField('Password', validators=[DataRequired()])
+	next = HiddenField()
+
+	def get_authenticated_user(self):
+		user = User.query.get(self.username.data)
+		if user is None:
+			return None
+		m = sha256()
+		m.update(self.password.data.encode())
+		passwd = m.hexdigest()
+		return user if passwd == user.password else None
+
+class RegisterForm(Form):
+	username = StringField('Username')
+	password = PasswordField('Password', [
+		validators.Required(),
+		validators.EqualTo('confirm', message='Passwords must match'),
+        validators.Length(min=4)
+	])
+	confirm = PasswordField('Repeat Password')
+	next = HiddenField() #à quoi sert exactement le next ?
+
 
 def get_all_artist():
     return Artist.query.all()
@@ -140,6 +171,9 @@ def get_all_albums():
 def get_all_genre():
     return Genre.query.all()
 
+def get_all_playlist():
+    return Playlist.query.all()
+
 def get_artist(id):
     return Artist.query.get(id)
 
@@ -149,8 +183,14 @@ def get_album(id):
 def get_genre(id):
     return Genre.query.get(id)
 
+def get_playlist(id):
+    return Playlist.query.get(id)
+
 def get_albums_artist(idartist):
     return Album.query.filter(Album.artist_id==idartist).all()
+
+def get_albums_playlist(idplaylist):
+    return Album.query.filter(Playlist.albums.any(id=idplaylist)).all()
 
 def get_albums_genre(idgenre):
     return Genre.albums

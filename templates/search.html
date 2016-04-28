@@ -57,7 +57,7 @@
 
           <li>{{ album.get_title() }}</li>
           <li>{{ album.get_releaseYear() }}</li>
-          <li>{{ get_compositor(album.get_compositor()).get_name() }}</li>
+          <li>{{ get_name_compositor_context(album.get_compositor()) }}</li>
           <li>
               {% for g in album.get_genres() %}
                   {{ g.name_g + " "}}
