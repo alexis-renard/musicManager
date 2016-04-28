@@ -1,11 +1,7 @@
 from .app import app, db
 from flask import render_template, url_for, redirect, request, g
 from datetime import datetime
-from .models import User, Artist, Album, Genre, Compositor, Playlist, get_artist, get_album, get_sample_albums
-from .models import get_sample_artists, get_albums_artist, get_albums_genre, get_sample_genre, get_genre
-from .models import get_artists_genre, get_date_albums, SearchForm, ArtistForm,get_artist_search, get_genre_search
-from .models import get_album_search_title, get_compositor_search, get_album_search_releaseYear, get_all_artist
-from .models import get_all_albums, get_all_genre, GenreForm, AlbumForm
+from .models import *
 from flask.ext.wtf import Form
 from wtforms import StringField, HiddenField, PasswordField, validators
 from wtforms.validators import DataRequired, Required, EqualTo, Length
@@ -31,7 +27,6 @@ def search():
 @app.route('/search/<query>')
 @login_required
 def search_results(query):
-#def search_results(classe,query=None):
     album_results_title = get_album_search_title(query)
     album_results_releaseYear = get_album_search_releaseYear(query)
     artist_results = get_artist_search(query)

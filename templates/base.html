@@ -3,6 +3,7 @@
 {% block styles %}
 {{ super () }}
 <link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}"/>
+<link rel="stylesheet" type="text/css" href="/static/js/slick-1.5.9/slick/slick.css"/>
 {% endblock %}
 {% block navbar %}
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -69,3 +70,9 @@
   {% block main %}{% endblock %}
 </div>
 {% endblock %}
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript" src="/static/js/init-slick.js"></script>
+<script type="text/javascript" src="/static/js/slick-1.5.9/slick/slick.min.js"></script>
+<!-- ce script sert à créer un carrousel grâce à slick importé dans les ressources statiques js. -->
+{% endblock scripts %}

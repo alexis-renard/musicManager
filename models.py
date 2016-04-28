@@ -31,8 +31,6 @@ class Artist(db.Model):
     def get_name(self):
         return self.name
 
-    def get_compositor(self):
-        return self.compositor
 
 #Création de la table Genre
 class Genre(db.Model):
@@ -93,7 +91,7 @@ class Album(db.Model):
         return self.title
 
     def get_compositor(self):
-        return self.compositor
+        return self.compositor_id
 
     def get_releaseYear(self):
         return self.releaseYear
@@ -155,9 +153,6 @@ def get_albums_artist(idartist):
     return Album.query.filter(Album.artist_id==idartist).all()
 
 def get_albums_genre(idgenre):
-    #return Album.query.filter(Album.genres.contains(get_genre(idgenre))).all()
-    #return Genre.query.filter(Genre.id=).all()
-    #return Genre.query.filter(Album.genres.any(id=idgenre))
     return Genre.albums
 
 def get_artists_genre(idgenre):
@@ -202,6 +197,8 @@ def load_user(username):
 
 @app.context_processor
 def utility_processor():
+    def get_name_compositor_context(idcompositor):
+        return get_compositor(idcompositor).get_name()
     def get_name_artist_context(idartist):
         return get_artist(idartist).get_name()
-    return dict(get_name_artist_context=get_name_artist_context)
+    return dict(get_name_compositor_context=get_name_compositor_context,get_name_artist_context=get_name_artist_context)

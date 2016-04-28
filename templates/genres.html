@@ -7,6 +7,7 @@
             <div class="col-md-3">
                 <p><a href="{{ url_for('one_genre', id=x.id) }}">{{ x.name_g }}</a></p>
             </div>
+            <div class="carrousel_albums_genres">
             {% for album in x.albums %}
                 <div class="col-md-3">
                     {% if album.img != None %}
@@ -14,8 +15,9 @@
                         {% else %}
                         <img src="{{ url_for('static', filename='images/404.jpg')}}">
                     {% endif %}
-                </div>
+                  </div>
             {% endfor %}
+          </div>
         </div>
     {% endfor %}
 </div>
