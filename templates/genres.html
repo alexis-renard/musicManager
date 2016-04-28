@@ -5,13 +5,13 @@
     {% for x in genres %}
         <div class="row">
             <div class="col-md-3">
-                <p><a href="{{ url_for('one_genre', id=x.id) }}">{{ x.name_g }}</a></p>
+                <a href="{{ url_for('one_genre', id=x.id) }}">{{ x.name_g }}</a>
             </div>
             <div class="carrousel_albums_genres">
             {% for album in x.albums %}
-                <div class="col-md-3">
+                <div>
                     {% if album.img != None %}
-                        <img src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
+                        <a href="{{ url_for('one_album', id=album.id) }}"><img src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}"></a>
                         {% else %}
                         <img src="{{ url_for('static', filename='images/404.jpg')}}">
                     {% endif %}

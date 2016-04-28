@@ -90,6 +90,23 @@
         {% endif %}
     </div>
 
+<<<<<<< HEAD
+          <li>{{ album.get_title() }}</li>
+          <li>{{ album.get_releaseYear() }}</li>
+          <li>{{ get_name_compositor_context(album.get_compositor()) }}</li>
+          <li>
+              {% for g in album.get_genres() %}
+                  {{ g.name_g + " "}}
+              {% endfor %}
+              {% if album.get_img() != None %}
+                  <img src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
+              {% else %}
+                  <img src="{{ url_for('static', filename='images/404.jpg')}}">
+              {% endif %}
+          </li>
+    {% endfor %}
+  </ul>
+=======
     <div class = "row">
         <div class="resultat_vide_search">
             <h3>Aucun résultat n'a été trouvé dans les catégories suivantes :</h3>
@@ -112,6 +129,7 @@
                 </ul>
         </div>
     </div>
+>>>>>>> 74d291b1f5390fccdc0cf0eb2b219e013f4fb497
 </div>
     {% else %}
         <h1>Introuvable dans notre base de données</h1>

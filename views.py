@@ -1,5 +1,5 @@
 from .app import app, db
-from flask import render_template, url_for, redirect, request, g
+from flask import Flask, render_template, url_for, redirect, request, g, flash
 from datetime import datetime
 from .models import *
 from flask.ext.wtf import Form
@@ -148,6 +148,7 @@ def one_artist(id=None):
 		return render_template(
 			"artist.html",
 			title=name,
+            artist=a,
 			albums=get_albums_artist(id)
 		)
 	else:
@@ -302,32 +303,40 @@ def delete_playlist(id):
 
 @app.route("/login/", methods=("GET","POST",))
 def login():
-	f = LoginForm()
-	if not f.is_submitted():
-		f.next.data = request.args.get("next")
-	elif f.validate_on_submit():
-		user = f.get_authenticated_user()
-		if user:
-			login_user(user)
-			next = f.next.data or url_for("home")
-			return redirect(next)
-	return render_template("login.html",form = f)
+    error = None
+    f = LoginForm()
+    if not f.is_submitted():
+        f.next.data = request.args.get("next")
+    elif f.validate_on_submit():
+        user = f.get_authenticated_user()
+        if user:
+            login_user(user)
+            next = f.next.data or url_for("home")
+            return redirect(next)
+        else:
+            error = "Login ou mot de passe incorrect"
+    return render_template("login.html",form = f, error=error)
 
 @app.route("/register/", methods=("GET","POST",))
 def register():
-	f = RegisterForm()
-	if not f.is_submitted():
-		f.next.data = request.args.get("next")
-	elif f.validate_on_submit():
-		m = sha256()
-		m.update(f.password.data.encode())
-		u = User(username=f.username.data, password=m.hexdigest())
-		db.session.add(u)
-		db.session.commit()
-		login_user(u)
-		next = f.next.data or url_for("home")
-		return redirect(next)
-	return render_template("register.html",form = f)
+    error = None
+    f = RegisterForm()
+    if not f.is_submitted():
+        f.next.data = request.args.get("next")
+    elif f.validate_on_submit():
+        users = get_user(f.username.data) #récupération des users dans la base de donné pour les tester par rapport au user entré
+        if users == None:
+            m = sha256()
+            m.update(f.password.data.encode())
+            u = User(username=f.username.data, password=m.hexdigest())
+            db.session.add(u)
+            db.session.commit()
+            login_user(u)
+            next = f.next.data or url_for("home")
+            return redirect(next)
+        else:
+            error = "Un user existe déjà avec ce username"
+    return render_template("register.html",form = f, error = error)
 
 @app.route("/logout/")
 def logout():

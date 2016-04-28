@@ -181,10 +181,13 @@ def get_album(id):
 def get_genre(id):
     return Genre.query.get(id)
 
+<<<<<<< HEAD
 def get_playlist(id):
     return Playlist.query.get(id)
+=======
 def get_user(username):
     return User.query.get(username)
+>>>>>>> 74d291b1f5390fccdc0cf0eb2b219e013f4fb497
 
 def get_albums_artist(idartist):
     return Album.query.filter(Album.artist_id==idartist).all()
