@@ -2,6 +2,7 @@
 {% block main %}
 <h1> {{ title }} </h1>
 <div class="container">
+    
         {% for x in genre.albums %}
             <div class="col-md-3 col-centered col-fixed">
                 <div class="row row-centered">
@@ -23,5 +24,6 @@
                 </div>
             </div>
         {% endfor %}
+
 </div>
 {% endblock %}

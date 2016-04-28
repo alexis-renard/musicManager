@@ -2,24 +2,27 @@
 {% block main %}
 {% if current_user.is_authenticated %}
 <h1>Edit artist : {{ artist.name }}</h1>
-<form role="form" method="POST" action="{{ url_for('save_artist') }}">
-    {{ form.hidden_tag() }}
-    <div class={% if form.name.errors %}
-        "form-group has-error"
-        {% else %}
-        "form-group"
-        {% endif %}
-        >
-        {{ form.name.label }} {{ form.name(size=50, class_="form-control") }}
+<div class = "row">
+    <div class="col-md-9">
+        <form role="form" method="POST" action="{{ url_for('save_artist') }}">
+            {{ form.hidden_tag() }}
+            <div class={% if form.name.errors %}
+                "form-group has-error"
+                {% else %}
+                "form-group"
+                {% endif %}
+                >
+                {{ form.name.label }} {{ form.name(size=50, class_="form-control") }}
+            </div>
+            {% if form.name.errors %}
+            <ul class="list-group">
+                {% for e in form.name.errors %}
+                <li class="list-group-item list-group-item-danger">{{ e }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <input class="btn btn-default" type ="submit" value="Enregistrer">
+        </form>
     </div>
-    {% if form.name.errors %}
-    <ul class="list-group">
-        {% for e in form.name.errors %}
-        <li class="list-group-item list-group-item-danger">{{ e }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    <input class="btn btn-default" type ="submit" value="Enregistrer">
-</form>
 {% endif %}
 {% endblock %}
