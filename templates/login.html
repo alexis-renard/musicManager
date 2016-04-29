@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 {% block main %}
-<div class = "erreur">
-{% if error %}
-    <span class=error>Error : {{ error }} </span>
-{% endif %}
-</div>
+
 <form class="form-horizontal" role="form" method="POST" action="{{ url_for('login') }}">
     {{ form.hidden_tag() }}
         {% if form.username.errors %}
@@ -60,5 +56,16 @@
             <button type="submit" class="btn btn-default">Sign in</button>
         </div>
     </div>
+
+    {% if error %}
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-danger">{{ error }}</li>
+            </ul>
+        </div>
+    {% endif %}
+
 </form>
+
+
 {% endblock %}
