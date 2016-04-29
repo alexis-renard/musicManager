@@ -113,10 +113,8 @@ class User(db.Model, UserMixin):
     def get_id(self):
         return self.username
 
-
 class SearchForm(Form):
     search = StringField('search', validators=[DataRequired()])
-
 
 class ArtistForm(Form):
 	id			= HiddenField('id')
@@ -149,6 +147,9 @@ def get_album(id):
 def get_genre(id):
     return Genre.query.get(id)
 
+def get_user(username):
+    return User.query.get(username)
+
 def get_albums_artist(idartist):
     return Album.query.filter(Album.artist_id==idartist).all()
 
@@ -165,7 +166,7 @@ def get_compositor(id):
     return Compositor.query.get(id)
 
 def get_sample_albums():
-    return Album.query.limit(5).all()
+    return Album.query.limit(8).all()
 
 def get_sample_genre():
     return Genre.query.limit(3).all()

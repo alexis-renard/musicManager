@@ -43,10 +43,12 @@
                             <span class="glyphicon glyphicon-log-out" title="Logout"></span>
                         </a>
                     </li>
-                    <li>
-                        <form style="display: inline;" action="{{ url_for('search') }}" method="POST" name="search">
+                    <li id="search-li">
+                        <form id="search-form" style="display: inline;" action="{{ url_for('search') }}" method="POST" name="search">
                             {{ g.search_form.hidden_tag() }}{{ g.search_form.search(size=10) }}
-                            <input type="submit" value="Search">
+                            <button type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
                         </form>
                     </li>
                 {% else %}
