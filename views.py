@@ -244,11 +244,12 @@ def save_genre():
 @app.route("/playlist/<int:id>")
 def one_playlist(id=None):
 	if id is not None:
-		a = get_playlist(id)
-		name = a.get_name()
+		p = get_playlist(id)
+		name = p.get_name()
 		return render_template(
 			"playlist.html",
 			title=name,
+            playlist=p,
 			albums=get_albums_playlist(id)
 		)
 	else:
@@ -262,15 +263,17 @@ def one_playlist(id=None):
 @app.route("/edit/playlist/<int:id>")
 @login_required
 def edit_playlist(id=None):
-	if id is not None:
-		p = get_playlist(id)
-	else:
-		p = Playlist(name="")
-		db.session.add(p)
-		db.session.commit()
-		id = p.id
-	f = PlaylistForm(id=id, name=p.name)
-	return render_template("edit-playlist.html", playlist=p, form=f)
+    if id is not None:
+        p = get_playlist(id)
+    else:
+        # user = current_user.username
+        p = Playlist(name="")
+        db.session.add(p)
+        db.session.commit()
+        id = p.id
+    f = PlaylistForm(id=id, name=p.name)
+    albums = get_albums_playlist(id)
+    return render_template("edit-playlist.html", playlist=p, form=f, albums=albums)
 
 @app.route("/save/playlist/", methods=("POST",))
 def save_playlist():
@@ -278,13 +281,41 @@ def save_playlist():
 	f = PlaylistForm()
 	if f.validate_on_submit():
 		id = int(f.id.data)
-		a = get_playlist(id)
-		a.name = f.name.data
-		db.session.add(a)
+		p = get_playlist(id)
+		p.name = f.name.data
+		db.session.add(p)
 		db.session.commit()
-		return redirect(url_for('one_playlist', id=a.id))
-	a = get_playlist(int(f.id.data))
-	return render_template("edit-playlist.html", playlist=a, form=f)
+		return redirect(url_for('one_playlist', id=p.id))
+	p = get_playlist(int(f.id.data))
+	return render_template("edit-playlist.html", playlist=p, form=f)
+
+@app.route("/ajoute/playlist/")
+@app.route("/ajoute/playlist/<int:idplaylist>/<int:idalbum>")
+@login_required
+def ajoute_playlist(idplaylist,idalbum):
+    if (idplaylist == None and idalbum == None) or (idplaylist == None):
+        return redirect(url_for ('one_playlist'))
+    elif idalbum == None:
+        return redirect(url_for('one_playlist', id=idplaylist))
+    else:
+        p = get_playlist(idplaylist)
+        a = get_album(idalbum)
+        p.albums.append(a)
+        db.session.commit()
+    return redirect(url_for('one_playlist', id=idplaylist))
+
+@app.route("/delete/playlist/album/")
+@app.route("/delete/playlist/album/<int:idplaylist>/<int:idalbum>")
+@login_required
+def delete_album_playlist(idplaylist,idalbum):
+    if id == None:
+        return redirect(url_for('one_playlist'))
+    else:
+        p = get_playlist(idplaylist)
+        a = get_album(idalbum)
+        p.albums.remove(a)
+        db.session.commit()
+    return redirect(url_for('one_playlist', id=idplaylist))
 
 @app.route("/delete/playlist/")
 @app.route("/delete/playlist/<int:id>")
@@ -299,31 +330,6 @@ def delete_playlist(id):
     return redirect(url_for('one_playlist'))
 
 #### FIN PLAYLISTS
-
-
-class LoginForm(Form):
-	username = StringField('Username', validators=[DataRequired()]) #ce qui est entre simple quote correspond au label du champs
-	password = PasswordField('Password', validators=[DataRequired()])
-	next = HiddenField()
-
-	def get_authenticated_user(self):
-		user = User.query.get(self.username.data)
-		if user is None:
-			return None
-		m = sha256()
-		m.update(self.password.data.encode())
-		passwd = m.hexdigest()
-		return user if passwd == user.password else None
-
-class RegisterForm(Form):
-	username = StringField('Username')
-	password = PasswordField('Password', [
-		validators.Required(),
-		validators.EqualTo('confirm', message='Passwords must match'),
-        validators.Length(min=4)
-	])
-	confirm = PasswordField('Repeat Password')
-	next = HiddenField() #à quoi sert exactement le next ?
 
 
 @app.route("/login/", methods=("GET","POST",))

@@ -138,6 +138,32 @@ class PlaylistForm(Form):
     name        = StringField('Nom de la playlist', validators=[DataRequired()])
 
 
+class LoginForm(Form):
+	username = StringField('Username', validators=[DataRequired()]) #ce qui est entre simple quote correspond au label du champs
+	password = PasswordField('Password', validators=[DataRequired()])
+	next = HiddenField()
+
+	def get_authenticated_user(self):
+		user = User.query.get(self.username.data)
+		if user is None:
+			return None
+		m = sha256()
+		m.update(self.password.data.encode())
+		passwd = m.hexdigest()
+		return user if passwd == user.password else None
+
+class RegisterForm(Form):
+	username = StringField('Username')
+	password = PasswordField('Password', [
+		validators.Required(),
+		validators.EqualTo('confirm', message='Passwords must match'),
+        validators.Length(min=4)
+	])
+	confirm = PasswordField('Repeat Password')
+	next = HiddenField() #à quoi sert exactement le next ?
+
+
+
 
 def get_all_artist():
     return Artist.query.all()
@@ -162,14 +188,16 @@ def get_genre(id):
 
 def get_playlist(id):
     return Playlist.query.get(id)
+
 def get_user(username):
     return User.query.get(username)
 
 def get_albums_artist(idartist):
-    return Album.query.filter(Album.artist_id==idartist).all()
+    # return Album.query.filter(Album.artist_id==idartist).all()
+    return Artist.query.get(idartist).albums
 
 def get_albums_playlist(idplaylist):
-    return Album.query.filter(Playlist.albums.any(id=idplaylist)).all()
+    return Playlist.query.get(idplaylist).albums
 
 def get_albums_genre(idgenre):
     return Genre.albums

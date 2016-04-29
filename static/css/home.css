@@ -43,9 +43,9 @@ img{
     padding-bottom: 5.5%;
 }
 
-.modifier, .supprimer {
-    padding-top: 55%;
-    padding-bottom: 55%;
+.button_modifier, .button_supprimer, .button_ajouter {
+    padding-top: 11.5%;
+    padding-bottom: 11.5%;
 }
 
 .home-margin{
