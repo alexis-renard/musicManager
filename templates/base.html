@@ -2,7 +2,7 @@
 {% block title %}{{ title }}{% endblock %}
 {% block styles %}
 {{ super () }}
-<link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}"/>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}"/>
 <link rel="stylesheet" type="text/css" href="/static/js/slick-1.5.9/slick/slick.css"/>
 {% endblock %}
 {% block navbar %}
@@ -22,6 +22,7 @@
            <li><a href="/artist/">Artists</a></li>
            <li><a href="/album/">Albums</a></li>
            <li><a href="/genre/">Genres</a></li>
+           <li><a href="/playlist/">Playlist</a></li>
            <li class="dropdown">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catégorie <span class="caret"></span></a>
              <ul class="dropdown-menu">
@@ -76,5 +77,7 @@
 {{ super() }}
 <script type="text/javascript" src="/static/js/init-slick.js"></script>
 <script type="text/javascript" src="/static/js/slick-1.5.9/slick/slick.min.js"></script>
+<script type="text/javascript" src="/static/js/fonction.js"></script>
+
 <!-- ce script sert à créer un carrousel grâce à slick importé dans les ressources statiques js. -->
 {% endblock scripts %}

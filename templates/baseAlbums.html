@@ -11,23 +11,25 @@
     </div>
         <div class="row row-lefted">
         {% for x in albums %}
-            <div class="col-md-3 col-centered col-fixed">
+            <div class="col-md-3 iconesAlbum">
                 <div class="row row-centered">
                     {% if x.img != None %}
-                        <a href="{{ url_for('one_album', id=x.id) }}"><img src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}"></a>
+                        <a href="{{ url_for('one_album', id=x.id) }}"><img class = "img" src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}"></a>
                         {% else %}
-                        <img src="{{ url_for('static', filename='images/404.jpg')}}">
+                        <img class = "img" src="{{ url_for('static', filename='images/404.jpg')}}">
                     {% endif %}
                 </div>
-                <div class="row text-center">
-                    <a href="{{ url_for('one_album', id=x.id) }}">{{ x.title }}</a>
-                </div>
-                <div class="row text-center">
-                    {% if x.releaseYear!="0" %}
-                    <a href="{{ url_for('one_date', releaseY=x.releaseYear) }}">{{ x.releaseYear }}</a>
-                    {% else %}
-                    <p class="italique">Non daté</p>
-                    {% endif %}
+                <div class = "row row-centered text-center fond-gris">
+                    <div class="row text-center setWidthImage">
+                        <a class="blanc" href="{{ url_for('one_album', id=x.id) }}">{{ x.title }}</a>
+                    </div>
+                    <div class="row text-center">
+                        {% if x.releaseYear!="0" %}
+                        <a class="dateGris" href="{{ url_for('one_date', releaseY=x.releaseYear) }}">{{ x.releaseYear }}</a>
+                        {% else %}
+                        <span class="italique dateGris">Non daté</span>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         {% endfor %}
