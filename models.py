@@ -203,6 +203,9 @@ def get_albums_genre(idgenre):
 def get_artists_genre(idgenre):
     return Artist.query.filter(Album.genres.any(id=idgenre)).all()
 
+def get_playlistByName(name):
+    return Playlist.query.filter(Playlist.name == name).all()
+
 def get_genre(name_g):
     return Genre.query.get(name_g)
 

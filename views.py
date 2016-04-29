@@ -278,17 +278,22 @@ def edit_playlist(id=None):
 
 @app.route("/save/playlist/", methods=("POST",))
 def save_playlist():
-	a = None
-	f = PlaylistForm()
-	if f.validate_on_submit():
-		id = int(f.id.data)
-		p = get_playlist(id)
-		p.name = f.name.data
-		db.session.add(p)
-		db.session.commit()
-		return redirect(url_for('one_playlist', id=p.id))
-	p = get_playlist(int(f.id.data))
-	return render_template("edit-playlist.html", playlist=p, form=f)
+    error = None
+    a = None
+    f = PlaylistForm()
+    if f.validate_on_submit():
+        id = int(f.id.data)
+        p = get_playlist(id)
+        playlists = get_playlistByName(p.name)
+        if playlists == None:
+            p.name = f.name.data
+            db.session.add(p)
+            db.session.commit()
+            return redirect(url_for('one_playlist',id=p.id))
+        else:
+            error = "Une playlist existe déjà avec ce nom"
+    p = get_playlist(int(f.id.data))
+    return render_template("edit-playlist.html", playlist=p, form=f, error=error)
 
 @app.route("/ajoute/playlist/")
 @app.route("/ajoute/playlist/<int:idplaylist>/<int:idalbum>")

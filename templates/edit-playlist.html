@@ -22,6 +22,17 @@
             </ul>
             {% endif %}
             <input class="btn btn-default" type ="submit" value="Enregistrer">
+
+        </br>
+        </br>
+        
+            {% if error %}
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-danger">{{ error }}</li>
+                    </ul>
+                </div>
+            {% endif %}
         </form>
     </div>
 {% endif %}
