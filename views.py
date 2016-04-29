@@ -11,6 +11,7 @@ from wtforms import StringField, HiddenField, PasswordField, validators
 from wtforms.validators import DataRequired, Required, EqualTo, Length
 from hashlib import sha256
 from flask.ext.login import login_user, current_user, logout_user, login_required
+import copy #Importation de copy pour gérer les pointeurs lors de la suppression d'albums
 
 @app.before_request
 def before_request():
@@ -107,6 +108,31 @@ def save_album():
         return redirect(url_for('one_album', id=a.id))
     a = get_album(int(f.id.data))
     return render_template("edit-album.html", album=a, form=f)
+
+@app.route("/delete/album/")
+@app.route("/delete/album/<int:id>")
+@login_required
+def delete_album(id):
+    if id == None:
+        return redirect(url_for('one_album'))
+    else:
+        a = get_album(id)
+        artist = get_artist(a.get_artist_id())
+        genres = a.get_genres()
+        db.session.delete(a)
+        i = 0
+        for album in artist.albums:
+            i+=1
+        if i == 0:
+            db.session.delete(artist)
+        for genre in genres :
+            j = 0
+            for album in genre.albums:
+                j+=1
+            if j == 0:
+                db.session.delete(genre)
+        db.session.commit()
+    return redirect(url_for('one_album'))
 
 @app.route("/date/")
 @app.route("/date/<int:releaseY>")

@@ -17,10 +17,9 @@
     <div class="list_genre_pour_query">
         <ul>
         {% for genre in genre_results %}
-                <li><a href="{{ url_for('one_genre', id=genre.id) }}">{{ genre.name_g }}</a></li>
+            <li><a href="{{ url_for('one_genre', id=genre.id) }}">{{ genre.name_g }}</a></li>
         {% endfor %}
         </ul>
-        <div class="coucou"></div>
     </div>
     {% endif %}
 
