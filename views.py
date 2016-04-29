@@ -54,26 +54,28 @@ def home():
 @app.route("/album/")
 @app.route("/album/<int:id>")
 def one_album(id=None):
-	if id is not None:
-		a = get_album(id)
-		id_artist=a.get_artist_id()
-		artist=get_artist(id_artist)
-		artist_name=artist.get_name()
-		compositor = get_compositor(a.get_compositor())
-		title = a.get_title()
-		return render_template(
-			"album.html",
-			title=title,
-			album=a,
-			artist=artist_name,
-            compositor=compositor
-		)
-	else:
-		return render_template(
-			"albums.html",
-			title="Albums Sample",
-			albums=get_all_albums()
-		)
+    if id is not None:
+        a = get_album(id)
+        id_artist=a.get_artist_id()
+        artist=get_artist(id_artist)
+        artist_name=artist.get_name()
+        compositor = get_compositor(a.get_compositor()).name
+        playlist_dropdown = get_playlist_sans_doublons(id,current_user.username)
+        title = a.get_title()
+        return render_template(
+            "album.html",
+            title=title,
+            album=a,
+            artist=artist_name,
+            compositor=compositor,
+            playlist_dropdown=playlist_dropdown
+        )
+    else:
+        return render_template(
+            "albums.html",
+            title="Albums Sample",
+            albums=get_all_albums()
+        )
 
 @app.route("/edit/album/")
 @app.route("/edit/album/<int:id>")
@@ -186,11 +188,6 @@ def save_artist():
 	a = get_artist(int(f.id.data))
 	return render_template("edit-artist.html", artist=a, form=f)
 
-@app.route("/test_api")
-def api():
-	g=get_genre(1)
-	return
-
 @app.route("/genre/")
 @app.route("/genre/<int:id>")
 def one_genre(id=None):
@@ -282,17 +279,19 @@ def save_playlist():
     a = None
     f = PlaylistForm()
     if f.validate_on_submit():
-        id = int(f.id.data)
-        p = get_playlist(id)
-        playlists = get_playlistByName(p.name)
-        if playlists == None:
+        playlists = get_playlistByName(f.name.data)
+        if playlists == []:
+            id = int(f.id.data)
+            p = get_playlist(id)
             p.name = f.name.data
-            db.session.add(p)
             db.session.commit()
-            return redirect(url_for('one_playlist',id=p.id))
+            return redirect(url_for('one_playlist', id=p.id))
         else:
             error = "Une playlist existe déjà avec ce nom"
-    p = get_playlist(int(f.id.data))
+            id = int(f.id.data)
+            p = get_playlist(int(f.id.data))
+            db.session.delete(p)
+            db.session.commit()
     return render_template("edit-playlist.html", playlist=p, form=f, error=error)
 
 @app.route("/ajoute/playlist/")

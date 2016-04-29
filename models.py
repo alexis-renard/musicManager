@@ -206,6 +206,19 @@ def get_artists_genre(idgenre):
 def get_playlistByName(name):
     return Playlist.query.filter(Playlist.name == name).all()
 
+def get_playlist_sans_doublons(idalbum,username):
+    playlists = get_playlists_user(username)
+    listePlaylist = set()
+    for playlist in playlists:
+        contenu = False
+        for album in playlist.albums:
+            if album.id==idalbum:
+                contenu = True
+        if not contenu :
+            listePlaylist.add(playlist) #si on n'a pas l'album dans la playlist, alors on peut la choisir pour y ajouter notre album
+    return(listePlaylist)
+
+
 def get_genre(name_g):
     return Genre.query.get(name_g)
 

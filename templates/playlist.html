@@ -43,6 +43,9 @@
           </div>
       </div>
       {% endfor %}
+      <div class="rpw">
+        <div class="col-md-12 centered"><a href="{{ url_for('one_album') }}">Ajouter un autre album</a></div>
+      </div>
     {% else %}
       <div class="col-md-12 centered">Aucun album à afficher, <a href="{{ url_for('one_album') }}">ajoutez en</a> !</div>
     {% endif %}
