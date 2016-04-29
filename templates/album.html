@@ -16,7 +16,7 @@
                 <a href="{{ url_for('one_date', releaseY=album.releaseYear) }}">{{ album.releaseYear }}</a>
             </div>
             {% endif %}
-            <div class ="row infoalbum">{{ album.compositor }}</div>
+            <div class ="row infoalbum">{{ compositor.get_name() }}</div>
             <div class ="row infoalbum"><a href="{{ url_for('one_artist', id=album.artist_id) }}">{{ artist }}</a></div>
             <div class ="row infoalbum">
                 {% for g in album.genres %}

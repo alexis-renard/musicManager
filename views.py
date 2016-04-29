@@ -64,13 +64,14 @@ def one_album(id=None):
 		id_artist=a.get_artist_id()
 		artist=get_artist(id_artist)
 		artist_name=artist.get_name()
-		#artist = get_artist(a.get_artist_id()).get_name()
+		compositor = get_compositor(album.get_compositor())
 		title = a.get_title()
 		return render_template(
 			"album.html",
 			title=title,
 			album=a,
-			artist=artist_name
+			artist=artist_name,
+            compositor=compositor
 		)
 	else:
 		return render_template(
