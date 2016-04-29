@@ -6,6 +6,8 @@ $(function modifyWidth(){
     $(".imgHome").css("border-bottom-right-radius","15px");
     $(".iconesAlbum").css("margin-bottom","20px");
     $(".iconesAlbum").css("margin-top","20px");
+    $(".iconesPlaylists").css("margin-bottom","10px");
+    $(".iconesPlaylists").css("margin-top","10px");
     $(".fond-gris").css("width",imgWidth+"px");
     $(".fond-gris").css("margin","auto");
     $(".fond-gris").css("background","#989898");

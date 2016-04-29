@@ -45,11 +45,22 @@ def search_results(query):
 
 @app.route("/")
 def home():
-	return render_template(
-	"home.html",
-	title="Musique / Playlist",
-	albums=get_sample_albums()
-	)
+    if g.user.is_authenticated:
+        albums_user = get_all_album_playlist_user(g.user.username)
+        return render_template(
+        "home.html",
+        title="Votre Musique",
+        titlePlaylist="Vos Playlists",
+        titleAlbums="Vos Albums",
+        albums_user = albums_user,
+        playlists = get_sample_playlist_user(g.user.username)
+        )
+    else:
+        return render_template(
+        "home.html",
+        title="Musique / Playlist",
+        albums=get_sample_albums()
+        )
 
 @app.route("/album/")
 @app.route("/album/<int:id>")

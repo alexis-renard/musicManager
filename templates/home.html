@@ -1,17 +1,82 @@
 {% extends "base.html" %}
 {% block main %}
+
 <h1> {{ title }} </h1>
-<div class = "container">
-    <div class="row row-centered">
-        {% for x in albums %}
-            <div class = "col-md-3 col-centered col-fixed home-margin">
-                {% if x.img != None %}
-                    <a href="{{ url_for('one_album', id=x.id) }}"><img class="img imgHome" src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}"></a>
-                {% else %}
-                    <img src="{{ url_for('static', filename='images/404.jpg')}}">
-                {% endif %}
+
+    <div class = "container">
+
+
+        {% if current_user.is_authenticated %}
+        <!--Si l'user est authentifié -->
+              <h2>{{ titleAlbums }}</h2>
+              {% if albums_user %}
+                <div class="row carrousel_albums_playlists">
+
+                {% for x in albums_user %}
+                    <div class = "col-md-3 col-centered col-fixed home-margin">
+                        {% if x.img != None %}
+                            <a href="{{ url_for('one_album', id=x.id) }}"><img class="img imgHome" src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}"></a>
+                        {% else %}
+                            <img src="{{ url_for('static', filename='images/404.jpg')}}">
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+                </div>
+              {% else %}
+                <div class="row">
+                  <div class="col-md-12">Aucun album n'est affilié à aucune de vos playlist. <a href ="{{ url_for('one_playlist') }}">Gérer ses playlists</a></div>
+                </div>
+            {% endif %}
+
+            <h2>{{ titlePlaylist }}</h2>
+            {% if playlists %}
+              {% for playlist in playlists %}
+                <div class="row">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <a href="{{ url_for('one_playlist', id=playlist.id) }}">{{ playlist.name }}</a>
+                    </div>
+                  </div>
+                  <!-- Slick carrousel -->
+                  {% if playlist.albums != [] %}
+                    <div class="row carrousel_albums_playlists">
+                    {% for album in playlist.albums %}
+                        <div>
+                          {% if album.img != None %}
+                              <a href="{{ url_for('one_album', id=album.id) }}"><img class = "img imgHome" src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}"></a>
+                              {% else %}
+                              <img src="{{ url_for('static', filename='images/404.jpg')}}">
+                          {% endif %}
+                        </div>
+                    {% endfor %}
+                  {% else %}
+                    <div class="col-md-12 centered">Aucun album à afficher</div>
+                  {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            {% else %}
+                <div class="row">
+                    <div class="col-md-12 centered">Aucune playlist à afficher, n'hésitez pas à en <a href ="{{ url_for('edit_playlist') }}">créer une</a> !</div>
+                </div>
+            {% endif %}
+
+         {% else %}
+          <!--Si l'user n'est pas authentifié -->
+
+            <div class="row row-centered">
+            {% for x in albums %}
+                <div class = "col-md-3 col-centered col-fixed home-margin">
+                    {% if x.img != None %}
+                        <a href="{{ url_for('one_album', id=x.id) }}"><img class="img imgHome" src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}"></a>
+                    {% else %}
+                        <img src="{{ url_for('static', filename='images/404.jpg')}}">
+                    {% endif %}
+                </div>
+            {% endfor %}
             </div>
-        {% endfor %}
+
+        {% endif %}
     </div>
-</div>
 {% endblock %}
