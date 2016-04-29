@@ -257,7 +257,7 @@ def one_playlist(id=None):
 		return render_template(
 			"playlists.html",
 			title="All Playlists",
-			playlists=get_all_playlist()
+			playlists=get_playlists_user(current_user.username)
 		)
 
 @app.route("/edit/playlist/")
@@ -267,8 +267,8 @@ def edit_playlist(id=None):
     if id is not None:
         p = get_playlist(id)
     else:
-        # user = current_user.username
         p = Playlist(name="")
+        p.user_name = current_user.username
         db.session.add(p)
         db.session.commit()
         id = p.id
