@@ -1,23 +1,21 @@
 {% extends "base.html" %}
 {% block main %}
-<h1> {{ title }} </h1>
-<div class="list_albums_par_date">
+<h1> {{ title }} : {{ releaseY }}</h1>
+<div class="list_albums_par_date container">
     {% if albums != [] %}
-        {% for x in albums %}
-            <ul>
-                <li><a href="{{ url_for('one_album', id=x.id) }}">{{ x.title }}</a></li>
-                <li>{{ x.compositor }}</li>
-                <li>
-                    {% for g in x.genre %}
-                        {{ g.name_g + " "}}
-                    {% endfor %}
-                    {% if x.img != None %}
-                        <img src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
-                    {% else %}
+        {% for album in albums %}
+            <div class="col-md-3">
+                <div class="row row-centered">
+                    {% if album.img != None %}
+                        <a href="{{ url_for('one_album', id=album.id) }}"><img class="img" src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}"></a>
+                        {% else %}
                         <img src="{{ url_for('static', filename='images/404.jpg')}}">
                     {% endif %}
-                </li>
-            </ul>
+                </div>
+                <div class="row text-center fond-gris">
+                    <a class="blanc" href="{{ url_for('one_album', id=album.id) }}">{{ album.title }}</a>
+                </div>
+            </div>
         {% endfor %}
     {% else %}
         <h2> Aucun album n'est sortie l'année que vous recherchez.</h2>

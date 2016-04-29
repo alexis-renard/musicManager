@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-3">
             {% if album.img != None %}
-            <img src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
+            <img class="img imgHome"src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
             {% else %}
             <img src="{{ url_for('static', filename='images/404.jpg')}}">
             {% endif %}
@@ -31,7 +31,7 @@
                 <a href ="{{ url_for('ajoute_playlist', idplaylist=1, idalbum=album.id) }}"><button type="button" class = "glyphicon glyphicon-plus"></button></a>
             </div>
             <div class ="row row-centered button_supprimer">
-                <a href ="{{ url_for('delete_album_playlist', id=album.id) }}"><button type="button" class = "glyphicon glyphicon-remove"></button></a>
+                <a href ="{{ url_for('delete_album_playlist', idplaylist=1, id=album.id) }}"><button type="button" class = "glyphicon glyphicon-remove"></button></a>
             </div>
         </div>
     </div>

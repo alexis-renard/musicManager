@@ -43,27 +43,9 @@ img{
     padding-bottom: 5.5%;
 }
 
-.button_modifier, .button_supprimer, .button_ajouter {
-    padding-top: 11.5%;
-    padding-bottom: 11.5%;
-}
-
-#span-titre{
-    margin-bottom: 0.5%;
-}
-
-#search-li{
-    margin-top: 12px;
-
-}
-
-#search-form{
-margin-left: auto;
-margin-right: auto;
-}
-
-.titre_toppage{
-  margin: 50px 20px;
+.modifier, .supprimer {
+    padding-top: 55%;
+    padding-bottom: 55%;
 }
 
 .home-margin{
@@ -79,6 +61,29 @@ margin-right: auto;
     font-size: 36px;
     font-family: inherit;
     font-weight: 500;
+}
+
+#span-titre{
+    margin-bottom: 0.5%;
+}
+
+.error{
+    font-weight: bold;
+}
+
+.erreur{
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+#search-li{
+    margin-top: 12px;
+
+}
+
+#search-form{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 a.blanc, a.blanc:hover{

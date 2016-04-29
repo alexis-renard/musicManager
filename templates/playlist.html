@@ -25,11 +25,11 @@
                   <a href="{{ url_for('one_date', releaseY=album.releaseYear) }}">{{ album.releaseYear }}</a>
               </div>
               {% endif %}
-              <div class ="row infoalbum">{{ album.title }}</div>
+              <div class ="row infoalbum"><a href="{{ url_for('one_album', id=album.id) }}">{{ album.title }}</a></div>
               <div class ="row infoalbum"><a href="{{ url_for('one_artist', id=album.artist_id) }}">{{ artist }}</a></div>
               <div class ="row infoalbum">
                   {% for g in album.genres %}
-                      {{ g.name_g + " "}}
+                      <a href="{{ url_for('one_genre', id=g.id) }}">{{ g.name_g}}</a>
                   {% endfor %}
               </div>
           </div>
@@ -38,13 +38,13 @@
                   <a href ="{{ url_for('edit_album', id=album.id) }}"><button type="button" class = "glyphicon glyphicon-pencil"></button></a>
               </div>
               <div class ="row row-centered supprimer">
-                  <a href ="{{ url_for('delete_album', id=album.id) }}"><button type="button" class = "glyphicon glyphicon-remove"></button></a>
+                  <a href ="{{ url_for('delete_album_playlist', idplaylist=playlist.id, idalbum=album.id) }}"><button type="button" class = "glyphicon glyphicon-remove"></button></a>
               </div>
           </div>
       </div>
       {% endfor %}
     {% else %}
-      <div class="col-md-12 centered">Aucun album à afficher, ajoutez en !</div>
+      <div class="col-md-12 centered">Aucun album à afficher, <a href="{{ url_for('one_album') }}">ajoutez en</a> !</div>
     {% endif %}
 </div>
 {% endblock %}

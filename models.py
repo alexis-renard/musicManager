@@ -7,6 +7,7 @@ from hashlib import sha256
 from flask.ext.login import login_user, current_user, logout_user, login_required
 
 
+
 #Création de la table belong entre album et Genre
 belong = db.Table('belong',
     db.Column('album_id', db.Integer, db.ForeignKey('album.id'), nullable=False),
@@ -132,25 +133,23 @@ class AlbumForm(Form):
     title		= StringField('Titre Album', validators=[DataRequired()])
     releaseYear	= StringField('Année de sortie', validators=[DataRequired()])
 
+class LoginForm(Form):
+    username = StringField('Username') #ce qui est entre simple quote correspond au label du champs
+    password = PasswordField('Password')
+    next = HiddenField()
+
+    def get_authenticated_user(self):
+        user = User.query.get(self.username.data)
+        if user is None:
+            return None
+        m = sha256()
+        m.update(self.password.data.encode())
+        passwd = m.hexdigest()
+        return user if passwd == user.password else None
 
 class PlaylistForm(Form):
     id			= HiddenField('id', validators=[DataRequired()])
     name        = StringField('Nom de la playlist', validators=[DataRequired()])
-
-
-class LoginForm(Form):
-	username = StringField('Username', validators=[DataRequired()]) #ce qui est entre simple quote correspond au label du champs
-	password = PasswordField('Password', validators=[DataRequired()])
-	next = HiddenField()
-
-	def get_authenticated_user(self):
-		user = User.query.get(self.username.data)
-		if user is None:
-			return None
-		m = sha256()
-		m.update(self.password.data.encode())
-		passwd = m.hexdigest()
-		return user if passwd == user.password else None
 
 class RegisterForm(Form):
 	username = StringField('Username')
@@ -161,9 +160,6 @@ class RegisterForm(Form):
 	])
 	confirm = PasswordField('Repeat Password')
 	next = HiddenField() #à quoi sert exactement le next ?
-
-
-
 
 def get_all_artist():
     return Artist.query.all()

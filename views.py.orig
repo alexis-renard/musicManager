@@ -301,9 +301,8 @@ def ajoute_playlist(idplaylist,idalbum):
     else:
         p = get_playlist(idplaylist)
         a = get_album(idalbum)
-        if a not in p.albums:
-            p.albums.append(a)
-            db.session.commit()
+        p.albums.append(a)
+        db.session.commit()
     return redirect(url_for('one_playlist', id=idplaylist))
 
 @app.route("/delete/playlist/album/")
@@ -333,6 +332,10 @@ def delete_playlist(id):
 
 #### FIN PLAYLISTS
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 38dfefa8c6de132fe066c880c6f54f378382eff8
 @app.route("/login/", methods=("GET","POST",))
 def login():
     error = None
