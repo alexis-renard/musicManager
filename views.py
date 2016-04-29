@@ -227,7 +227,6 @@ class LoginForm(Form):
 		passwd = m.hexdigest()
 		return user if passwd == user.password else None
 
-
 class RegisterForm(Form):
 	username = StringField('Username')
 	password = PasswordField('Password', [
