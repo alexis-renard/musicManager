@@ -1,11 +1,24 @@
 {% extends "base.html" %}
 {% block main %}
 <h1> {{ title }} </h1>
-<div class="list_albums_pour_artist">
-    <ul>
-    {% for x in artists %}
-        <li><a href="{{ url_for('one_artist', id=x.id) }}">{{ x.name }}</a></li>
+<div class="container">
+    {% for artist in artists %}
+        <div class="row">
+            <div class="col-md-3">
+                <a href="{{ url_for('one_artist', id=artist.id) }}">{{ artist.name }}</a>
+            </div>
+            <div class="carrousel_albums_genres iconesAlbum">
+            {% for album in artist.albums %}
+                <div>
+                    {% if album.img != None %}
+                        <a href="{{ url_for('one_album', id=album.id) }}"><img class="img imgHome" src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}"></a>
+                        {% else %}
+                        <img src="{{ url_for('static', filename='images/404.jpg')}}">
+                    {% endif %}
+                  </div>
+            {% endfor %}
+          </div>
+        </div>
     {% endfor %}
-    </ul>
 </div>
 {% endblock %}

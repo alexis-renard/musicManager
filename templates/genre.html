@@ -7,22 +7,22 @@
             <a href ="{{ url_for('edit_genre', id=genre.id) }}"><button type="button" class = "glyphicon glyphicon-pencil"></button></a>
         </div>
     </div>
-        {% for x in genre.albums %}
+        {% for album in genre.albums %}
             <div class="col-md-3 col-centered col-fixed iconesAlbum">
                 <div class="row row-centered">
-                    {% if x.img != None %}
-                        <img class="img" src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}">
+                    {% if album.img != None %}
+                        <a href="{{ url_for('one_album', id=album.id) }}"><img class="img" src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}"></a>
                         {% else %}
                         <img class="img" src="{{ url_for('static', filename='images/404.jpg')}}">
                     {% endif %}
                 </div>
                 <div class="row text-center fond-gris">
                     <div class="row text-center setWidthImage">
-                        <a class="blanc" href="{{ url_for('one_album', id=x.id) }}">{{ x.title }}</a>
+                        <a class="blanc" href="{{ url_for('one_album', id=album.id) }}">{{ album.title }}</a>
                     </div>
                     <div class="row text-center">
-                    {% if x.releaseYear!="0" %}
-                    <a class="dateGris" href="{{ url_for('one_date', releaseY=x.releaseYear) }}">{{ x.releaseYear }}</a>
+                    {% if album.releaseYear!="0" %}
+                    <a class="dateGris" href="{{ url_for('one_date', releaseY=album.releaseYear) }}">{{ album.releaseYear }}</a>
                     {% else %}
                     <p class="italique dateGris">Non daté</p>
                     {% endif %}
