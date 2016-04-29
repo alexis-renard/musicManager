@@ -236,30 +236,6 @@ def save_genre():
 	a = get_genre(int(f.id.data))
 	return render_template("edit-genre.html", genre=a, form=f)
 
-class LoginForm(Form):
-	username = StringField('Username') #ce qui est entre simple quote correspond au label du champs
-	password = PasswordField('Password')
-	next = HiddenField()
-
-	def get_authenticated_user(self):
-		user = User.query.get(self.username.data)
-		if user is None:
-			return None
-		m = sha256()
-		m.update(self.password.data.encode())
-		passwd = m.hexdigest()
-		return user if passwd == user.password else None
-
-class RegisterForm(Form):
-	username = StringField('Username')
-	password = PasswordField('Password', [
-		validators.Required(),
-		validators.EqualTo('confirm', message='Passwords must match'),
-        validators.Length(min=4)
-	])
-	confirm = PasswordField('Repeat Password')
-	next = HiddenField() #à quoi sert exactement le next ?
-
 @app.route("/login/", methods=("GET","POST",))
 def login():
     error = None
