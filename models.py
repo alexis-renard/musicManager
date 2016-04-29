@@ -134,8 +134,8 @@ class AlbumForm(Form):
     releaseYear	= StringField('Année de sortie', validators=[DataRequired()])
 
 class LoginForm(Form):
-    username = StringField('Username') #ce qui est entre simple quote correspond au label du champs
-    password = PasswordField('Password')
+    username = StringField('Username', [validators.Length(min=4), validators.Required()]) #ce qui est entre simple quote correspond au label du champs
+    password = PasswordField('Password', [validators.Length(min=4), validators.Required()])
     next = HiddenField()
 
     def get_authenticated_user(self):
@@ -152,13 +152,13 @@ class PlaylistForm(Form):
     name        = StringField('Nom de la playlist', validators=[DataRequired()])
 
 class RegisterForm(Form):
-	username = StringField('Username')
+	username = StringField('Username', [validators.Length(min=4), validators.Required()])
 	password = PasswordField('Password', [
 		validators.Required(),
 		validators.EqualTo('confirm', message='Passwords must match'),
         validators.Length(min=4)
 	])
-	confirm = PasswordField('Repeat Password')
+	confirm = PasswordField('Repeat Password', [validators.Length(min=4), validators.Required()])
 	next = HiddenField() #à quoi sert exactement le next ?
 
 def get_all_artist():

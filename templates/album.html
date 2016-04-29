@@ -20,7 +20,7 @@
             <div class ="row infoalbum"><a href="{{ url_for('one_artist', id=album.artist_id) }}">{{ artist }}</a></div>
             <div class ="row infoalbum">
                 {% for g in album.genres %}
-                    {{ g.name_g + " "}}
+                    <a href="{{ url_for('one_genre', id=g.id) }}">{{ g.name_g + " "}}</a>
                 {% endfor %}
             </div>
         </div>
