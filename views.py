@@ -45,11 +45,21 @@ def search_results(query):
 
 @app.route("/")
 def home():
-	return render_template(
-	"home.html",
-	title="Musique / Playlist",
-	albums=get_sample_albums()
-	)
+    if g.user.is_authenticated:
+        albums_user = get_all_album_playlist_user(g.user.username)
+        return render_template(
+        "home.html",
+        title="Votre Musique",
+        titlePlaylist="Vos Playlists",
+        albums_user = albums_user,
+        playlists = get_sample_playlist_user(g.user.username)
+        )
+    else:
+        return render_template(
+        "home.html",
+        title="Musique / Playlist",
+        albums=get_sample_albums()
+        )
 
 @app.route("/album/")
 @app.route("/album/<int:id>")
@@ -285,13 +295,10 @@ def save_playlist():
         id = int(f.id.data)
         p = get_playlist(id)
         playlists = get_playlistByName(p.name)
-        if playlists == None:
-            p.name = f.name.data
-            db.session.add(p)
-            db.session.commit()
-            return redirect(url_for('one_playlist',id=p.id))
-        else:
-            error = "Une playlist existe déjà avec ce nom"
+        p.name = f.name.data
+        db.session.add(p)
+        db.session.commit()
+        return redirect(url_for('one_playlist',id=p.id))
     p = get_playlist(int(f.id.data))
     return render_template("edit-playlist.html", playlist=p, form=f, error=error)
 

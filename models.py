@@ -63,7 +63,7 @@ class Compositor(db.Model):
 class Playlist(db.Model):
     id          = db.Column(db.Integer, primary_key=True)
     name        = db.Column(db.String(100))
-    user_name   = db.Column(db.String(50), db.ForeignKey("user.username"))
+    user_name   = db.Column(db.Integer, db.ForeignKey("user.username"))
     user        = db.relationship("User", backref = db.backref("playlists", lazy="dynamic"))
     albums      = db.relationship("Album", secondary=belong_playlist_album, backref = db.backref("playlists", lazy="dynamic"))
 
@@ -191,8 +191,28 @@ def get_user(username):
 def get_playlists_user(username):
     return User.query.get(username).playlists
 
+def get_sample_playlist_user(username):
+    playlists = get_playlists_user(username)
+    listePlaylist = set()
+    cpt = 0
+    i = 0
+    for playlist in playlists:
+        if playlist.albums != [] and cpt < 3:
+            listePlaylist.add(playlist)
+            cpt+=1
+    return listePlaylist
+
 def get_albums_artist(idartist):
+    # return Album.query.filter(Album.artist_id==idartist).all()
     return Artist.query.get(idartist).albums
+
+def get_all_album_playlist_user(username):
+    playlists = get_playlists_user(username)
+    listeAlbums = set()
+    for playlist in playlists:
+        for album in playlist.albums:
+            listeAlbums.add(album)
+    return listeAlbums
 
 def get_albums_playlist(idplaylist):
     return Playlist.query.get(idplaylist).albums
