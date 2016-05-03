@@ -34,13 +34,26 @@ def search_results(query):
     genre_results = get_genre_search(query)
     album_result = [album_results_title, album_results_releaseYear]
     compositor_results = get_compositor_search(query)
+    playlist_results = get_album_search_playlist_username(query, current_user.username)
+    playlist_publique = []
+    playlist_privee = []
+    for key, value in playlist_results.items():
+        if key=='publique':
+            for playlist in value:
+                playlist_publique.append(playlist)
+        if key=='privee':
+            for playlist in value:
+                playlist_privee.append(playlist)
+                
     return render_template(
 			'search.html',
 	    	query		                = query,
             artist_results              = artist_results,
             genre_results               = genre_results,
             album_result                = album_result,
-            compositor_results          = compositor_results
+            compositor_results          = compositor_results,
+            playlist_publique           = playlist_publique,
+            playlist_privee             = playlist_privee
 	)
 
 @app.route("/")

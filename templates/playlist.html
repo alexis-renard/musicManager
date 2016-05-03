@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row titre_toppage">
     <div class="col-md-4">
-      <span class="titre_sans_marge"> {{ title }} {{ playlist.visibility }} </span>
+      <span class="titre_sans_marge"> {{ title }} <i>{% if playlist.visibility == True %} Publique {% else %} Privée {% endif %}</i> </span>
     </div>
     <div class="col-md-1 col-md-push-6">
       <a href ="{{ url_for('edit_playlist', id=playlist.id) }}"><button type="button" class = "glyphicon glyphicon-pencil"></button></a>

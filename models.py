@@ -175,8 +175,14 @@ class RegisterForm(Form):
 	confirm = PasswordField('Repeat Password', [validators.Length(min=4), validators.Required()])
 	next = HiddenField()
 
+##### Fonctions Artist ####
+
 def get_all_artists():
     return Artist.query.all()
+
+def get_artist(id):
+    return Artist.query.get(id)
+
 
 def get_all_albums():
     return Album.query.all()
@@ -187,8 +193,6 @@ def get_all_genres():
 def get_all_playlists():
     return Playlist.query.all()
 
-def get_artist(id):
-    return Artist.query.get(id)
 
 def get_album(id):
     return Album.query.get(id)
@@ -333,6 +337,19 @@ def get_compositor_search(search):
 
 def get_album_search_releaseYear(search):
     return Album.query.filter(Album.releaseYear.like("%"+search+"%")).all()
+
+def get_album_search_playlist(search):
+    return Playlist.query.filter(Playlist.name.like("%"+search+"%")).all()
+
+def get_album_search_playlist_username(search,username):
+    playlists = get_album_search_playlist(search)
+    dicoPlaylist = {'publique':set(),'privee':set()}
+    for playlist in playlists:
+        if playlist.visibility == 1:
+            dicoPlaylist['publique'].add(playlist)
+        if playlist.user_name == username:
+            dicoPlaylist['privee'].add(playlist)
+    return dicoPlaylist
 
 def get_genre_search(search):
     return Genre.query.filter(Genre.name_g==search).all()
