@@ -73,10 +73,12 @@ def home():
         playlist_publique = playlist_publique
         )
     else:
+        playlist_publique = get_public_playlists()
         return render_template(
         "home.html",
         title="Flask Music",
-        albums=get_sample_albums()
+        albums=get_sample_albums(),
+        playlist_publique = playlist_publique
         )
 
 @app.route("/album/")

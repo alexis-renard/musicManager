@@ -101,15 +101,17 @@
             </div>
 
         {% endif %}
-        <h2>Playlists publiques</h2>
-          <div class="row">
-                <ul>
-                {% for playlist in playlist_publique %}
-                    <li>
-                        <a href="{{ url_for('one_playlist', id=playlist.id) }}">{{ playlist.name }}</a> appartenant à {{ playlist.user_name }}
-                    </li>
-                {% endfor %}
-                </ul>
-        </div>
+        {% if playlist_publique %}
+          <h2>Playlists publiques</h2>
+            <div class="row">
+                  <ul>
+                  {% for playlist in playlist_publique %}
+                      <li>
+                          <a href="{{ url_for('one_playlist', id=playlist.id) }}">{{ playlist.name }}</a> appartenant à {{ playlist.user_name }}
+                      </li>
+                  {% endfor %}
+                  </ul>
+          </div>
+        {% endif %}
     </div>
 {% endblock %}
