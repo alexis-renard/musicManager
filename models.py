@@ -113,6 +113,7 @@ class Album(db.Model):
 class User(db.Model, UserMixin):
     username        = db.Column(db.String(50), primary_key=True)
     password        = db.Column(db.String(64))
+    admin           = db.Column(db.Boolean)
 
     def get_id(self):
         return self.username
@@ -148,6 +149,10 @@ class LoginForm(Form):
         return user if passwd == user.password else None
 
 class PlaylistForm(Form):
+    id			= HiddenField('id', validators=[DataRequired()])
+    name        = StringField('Nom de la playlist', validators=[DataRequired()])
+
+class PlaylistFormCreate(Form):
     id			= HiddenField('id', validators=[DataRequired()])
     name        = StringField('Nom de la playlist', validators=[DataRequired()])
 
@@ -188,6 +193,9 @@ def get_playlist(id):
 def get_user(username):
     return User.query.get(username)
 
+def get_admin(admin):
+    return User.query.get(admin)
+
 def get_playlists_user(username):
     return User.query.get(username).playlists
 
@@ -197,10 +205,19 @@ def get_sample_playlist_user(username):
     cpt = 0
     i = 0
     for playlist in playlists:
-        if playlist.albums != [] and cpt < 3:
+        if playlist.albums != [] and cpt < 2:
             listePlaylist.add(playlist)
             cpt+=1
     return listePlaylist
+
+def get_genre_playlist_user(username):
+    playlists = get_playlists_user(username)
+    listeGenre = set()
+    for playlist in playlists:
+        for album in playlist.albums:
+            for genre in album.genres:
+                listeGenre.add(genre)
+    return listeGenre
 
 def get_albums_artist(idartist):
     # return Album.query.filter(Album.artist_id==idartist).all()
@@ -237,7 +254,6 @@ def get_playlist_sans_doublons(idalbum,username):
         if not contenu :
             listePlaylist.add(playlist) #si on n'a pas l'album dans la playlist, alors on peut la choisir pour y ajouter notre album
     return(listePlaylist)
-
 
 def get_genre(name_g):
     return Genre.query.get(name_g)
