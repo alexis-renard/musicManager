@@ -5,7 +5,6 @@
 
     <div class = "container">
 
-
         {% if current_user.is_authenticated %}
         <!--Si l'user est authentifié -->
               <h2>{{ titleAlbums }}</h2>
@@ -72,7 +71,7 @@
          {% else %}
           <!--Si l'user n'est pas authentifié -->
           <div>
-              Vous ne pouvez pas accéder aux playlist, <a href="{{ url_for('register') }}">enregistrez-vous</a> ou <a href="{{ url_for('login') }}">connectez vous</a>
+              Vous ne pouvez pas accéder aux playlists, <a href="{{ url_for('register') }}">enregistrez-vous</a> ou <a href="{{ url_for('login') }}">connectez vous</a>
           </div>
       </br>
             <div class="row row-centered">

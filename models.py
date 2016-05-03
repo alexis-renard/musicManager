@@ -1,6 +1,6 @@
 from .app import db, login_manager, app
 from flask.ext.login import UserMixin
-from wtforms import StringField, HiddenField, PasswordField, SelectField, validators
+from wtforms import StringField, HiddenField, PasswordField, SelectField, RadioField, validators
 from wtforms.validators import DataRequired, Required, EqualTo, Length
 from flask.ext.wtf import Form
 from hashlib import sha256
@@ -157,8 +157,8 @@ class PlaylistForm(Form):
     name        = StringField('Nom de la playlist', validators=[DataRequired()])
     visibility  = SelectField(
                         'Visibilité',
-                        choices=[(1,'Publique'), (0,'Privée')],
-                        default= 1
+                        choices=[('1','Publique'), ('0','Privée')],
+                        default='1'
                   )
 
 class PlaylistFormCreate(Form):
@@ -252,7 +252,7 @@ def get_sample_playlist_user(username):
     cpt = 0
     #implémenter un while ici
     for playlist in playlists:
-        if playlist.albums != [] and cpt < 2:
+        if cpt < 2:
             listePlaylist.add(playlist)
             cpt+=1
     return listePlaylist

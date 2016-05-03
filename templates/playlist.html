@@ -1,12 +1,9 @@
 {% extends "base.html" %}
 {% block main %}
 <div class="container">
-  <div class="row titre_toppage">
+  <div class="row ">
     <div class="col-md-4">
-      <span class="titre_sans_marge"> {{ title }} </span>
-    </div>
-    <div class="col-md-1 col-md-push-6">
-      <a href ="{{ url_for('edit_playlist', id=playlist.id) }}"><button type="button" class = "glyphicon glyphicon-pencil"></button></a>
+      <span class="titre_sans_marge titre_toppage"> {{ title }} </span>
     </div>
   </div>
   {% if albums!=[] %}
@@ -40,11 +37,16 @@
           </div>
       </div>
       {% endfor %}
-      <div class="rpw">
-        <div class="col-md-12 centered"><a href="{{ url_for('one_album') }}">Ajouter un autre album</a></div>
+      <div class="row">
+        <div class="col-md-2"><a href="{{ url_for('one_album') }}">Ajouter un autre album</a></div>
       </div>
     {% else %}
       <div class="col-md-12 centered">Aucun album à afficher, <a href="{{ url_for('one_album') }}">ajoutez en</a> !</div>
     {% endif %}
+    <div class="row">
+    <div class="col-md-2 leger_margin">
+      <a href ="{{ url_for('edit_playlist', id=playlist.id) }}">Modifier la playlist</button></a>
+    </div>
+  </div>
 </div>
 {% endblock %}

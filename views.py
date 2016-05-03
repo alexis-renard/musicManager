@@ -59,7 +59,7 @@ def home():
     else:
         return render_template(
         "home.html",
-        title="Musique / Playlist",
+        title="Flask Music",
         albums=get_sample_albums()
         )
 
@@ -277,21 +277,20 @@ def one_playlist(id=None):
 def edit_playlist(id=None):
     p = get_playlist(id)
     f = PlaylistForm(id=id, name=p.name)
+    f.visibility.default=p.visibility
     return render_template("edit-playlist.html", playlist=p, form=f)
 
 @app.route("/saveedit/playlist/", methods=("POST",))
 def save_edit_playlist():
-    error = None
-    a = None
     f = PlaylistForm()
     if f.validate_on_submit():
         id = int(f.id.data)
         p = get_playlist(id)
         p.name = f.name.data
-        # p.visibility = f.visibility.data
+        p.visibility = f.visibility.data
         db.session.commit()
         return redirect(url_for('one_playlist', id=p.id))
-    return redirect(url_for('home'))
+    # return redirect(url_for('home'))
 
 @app.route("/ajouter/playlist/")
 @login_required
@@ -302,7 +301,6 @@ def ajouter_playlist():
     db.session.commit()
     id = p.id
     f = PlaylistForm(id=id, name=p.name)
-    # f.visibility.defaut=p.get_visibility()
     return render_template("ajouter-playlist.html", playlist=p, form=f)
 
 @app.route("/saveajout/playlist/", methods=("POST",))
