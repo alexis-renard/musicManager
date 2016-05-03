@@ -203,9 +203,8 @@ def get_sample_playlist_user(username):
     playlists = get_playlists_user(username)
     listePlaylist = set()
     cpt = 0
-    i = 0
     for playlist in playlists:
-        if playlist.albums != [] and cpt < 2:
+        if cpt < 2:
             listePlaylist.add(playlist)
             cpt+=1
     return listePlaylist
@@ -240,8 +239,13 @@ def get_albums_genre(idgenre):
 def get_artists_genre(idgenre):
     return Artist.query.filter(Album.genres.any(id=idgenre)).all()
 
-def get_playlistByName(name):
-    return Playlist.query.filter(Playlist.name == name).all()
+def get_playlistByNameUser(name, username):
+    playlists = get_playlists_user(username)
+    listePlaylist = set()
+    for playlist in playlists:
+        if playlist.name == name:
+            listePlaylist.add(playlist)
+    return listePlaylist
 
 def get_playlist_sans_doublons(idalbum,username):
     playlists = get_playlists_user(username)

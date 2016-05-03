@@ -309,8 +309,8 @@ def save_ajout_playlist():
     a = None
     f = PlaylistFormCreate()
     if f.validate_on_submit():
-        playlists = get_playlistByName(f.name.data)
-        if playlists == []:
+        playlists = get_playlistByNameUser(f.name.data, current_user.username)
+        if playlists == set():
             id = int(f.id.data)
             p = get_playlist(id)
             p.name = f.name.data
