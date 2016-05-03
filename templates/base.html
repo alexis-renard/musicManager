@@ -22,7 +22,9 @@
            <li><a href="/artist/">Artists</a></li>
            <li><a href="/album/">Albums</a></li>
            <li><a href="/genre/">Genres</a></li>
-           <li><a href="/playlist/">Playlist</a></li>
+           {% if g.user.is_authenticated %}
+           <li><a href="/playlist/">Playlists</a></li>
+           {% endif %}
        </ul>
          <ul class="nav navbar-nav navbar-right">
             {% if current_user.is_authenticated %}

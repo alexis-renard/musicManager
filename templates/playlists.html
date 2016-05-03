@@ -6,7 +6,7 @@
       <span class="titre_sans_marge"> {{ title }} </span>
     </div>
     <div class="col-md-1 col-md-push-6">
-      <a href ="{{ url_for('edit_playlist') }}"><button type="button" class = "glyphicon glyphicon-plus"></button></a>
+      <a href ="{{ url_for('ajouter_playlist') }}"><button type="button" class = "glyphicon glyphicon-plus"></button></a>
     </div>
   </div>
   {% if playlists!=[] %}
@@ -15,9 +15,6 @@
         <div class="row">
           <div class="col-md-4">
             <a href="{{ url_for('one_playlist', id=playlist.id) }}">{{ playlist.name }}</a>
-          </div>
-          <div class="col-sm-1 col-sm-push-6">
-              <a href ="{{ url_for('edit_playlist', id=playlist.id) }}"><button type="button" class = "glyphicon glyphicon-pencil"></button></a>
           </div>
           <div class="col-sm-1 centered col-sm-push-6">
               <a href ="{{ url_for('delete_playlist', id=playlist.id) }}"><button type="button" class = "glyphicon glyphicon-remove"></button></a>
@@ -35,12 +32,12 @@
                 {% endif %}
               </div>
           {% endfor %}
+        </div>
         {% else %}
           <div class="col-md-12 centered">Aucun album à afficher</div>
         {% endif %}
         </div>
     {% endfor %}
-    </div>
   {% else %}
   <div class="row">
     <div class="col-md-12 centered">Aucune playlist à afficher, n'hésitez pas à en <a href ="{{ url_for('edit_playlist') }}">créer une</a> !</div>

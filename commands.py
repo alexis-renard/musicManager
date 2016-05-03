@@ -1,4 +1,5 @@
 from .app import manager, db
+from hashlib import sha256
 
 @manager.command
 def loaddb(filename):
@@ -12,7 +13,7 @@ def loaddb(filename):
     albums = yaml.load(open(filename))
 
     #import des modèles
-    from .models import Artist, Album, Genre, Compositor, get_genre
+    from .models import Artist, Album, Genre, Compositor, get_genre, User
 
     dict_artists = {}
     dict_genres = {}
@@ -54,6 +55,14 @@ def loaddb(filename):
             album.genres.append(genre)
         #on peut désormais ajouter l'album complet à la db
         db.session.add(album)
+    m = sha256()
+    m.update("valentinalexis".encode())
+    password=m.hexdigest()
+    admin = User(username = "admin",
+                 password = password,
+                 admin    = 1,
+                )
+    db.session.add(admin)
     db.session.commit()
 
 @manager.command
