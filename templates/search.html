@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block main %}
-    {% if artist_results!=[] or genre_results!=[] or album_result[0]!=[] or compositor_results!=[] or album_result[1]!=[] %}
+    {% if artist_results!=[] or genre_results!=[] or album_result[0]!=[] or compositor_results!=[] or album_result[1]!=[] or playlist_publique!=[] or playlist_privee!=[] %}
 <div class = "container search_total">
     <div class = "row">
         <h1>Search results for "{{ query }}":</h1>
@@ -48,8 +48,8 @@
                         </div>
                     </div>
                         {% endfor %}
-        {% endif %}
         </div>
+        {% endif %}
     </div>
 
     <div class = "row">
@@ -90,6 +90,30 @@
     </div>
 
     <div class = "row">
+        {% if playlist_publique != [] %}
+        <div class="list_paylist_publique_pour_query">
+                <ul>
+                    <h3>Resultats dans les playlists publiques :</h3>
+                        {% for playlist in playlist_publique %}
+                            <a href="{{ url_for('one_playlist', id=playlist.id) }}"><li>{{ playlist.get_name() }}</a> appartenant à {{ playlist.user_name }} </li>
+                        {% endfor %}
+                </ul>
+        </div>
+        {% endif %}
+
+        {% if playlist_privee != [] %}
+        <div class="list_paylist__privee_pour_query">
+                <ul>
+                    <h3>Resultats dans vos playlists :</h3>
+                        {% for playlist in playlist_privee %}
+                            <a href="{{ url_for('one_playlist', id=playlist.id) }}"><li>{{ playlist.get_name() }}</a></li>
+                        {% endfor %}
+                </ul>
+        </div>
+        {% endif %}
+
+
+    <div class = "row">
         <div class="resultat_vide_search">
             <h3>Aucun résultat n'a été trouvé dans les catégories suivantes :</h3>
                 <ul>
@@ -107,6 +131,12 @@
                     {% endif %}
                     {% if album_result[1]==[] %}
                         <li>Année</li>
+                    {% endif %}
+                    {% if playlist_publique == [] %}
+                        <li>Playlist publiques</li>
+                    {% endif %}
+                    {% if playlist_privee == [] %}
+                        <li>Playlist privées</li>
                     {% endif %}
                 </ul>
         </div>

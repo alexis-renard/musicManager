@@ -5,6 +5,7 @@
 
     <div class = "container">
 
+
         {% if current_user.is_authenticated %}
         <!--Si l'user est authentifié -->
               <h2>{{ titleAlbums }}</h2>
@@ -29,10 +30,12 @@
             {% endif %}
 
             <h2>{{ titlePlaylist }}</h2>
-            <div>
+            <div class="row">
+              <div class="col-md-12">
             {% if playlists %}
               {% for playlist in playlists %}
-                <div class="row">
+                <div class="row leger_margin">
+                  <div class="col-md-12">
                   <div class="row">
                     <div class="col-md-4">
                       <a href="{{ url_for('one_playlist', id=playlist.id) }}">{{ playlist.name }}</a>
@@ -51,10 +54,11 @@
                           {% endif %}
                         </div>
                     {% endfor %}
+                  </div>
                   {% else %}
                     <div class="col-md-12 centered">Aucun album à afficher</div>
                   {% endif %}
-                  </div>
+                </div>
                 </div>
               {% endfor %}
             {% else %}
@@ -62,16 +66,26 @@
                     <div class="col-md-12 centered">Aucune playlist à afficher, n'hésitez pas à en <a href ="{{ url_for('ajouter_playlist') }}">créer une</a> !</div>
                 </div>
             {% endif %}
-            {% for g in genre %}
-                <div class = "col-md-3">
-                    <a href="{{ url_for('one_genre', id=g.id) }}">{{ g.name_g }}</a>
-                </div>
-            {% endfor %}
-        </div>
+          </div>
+          </div>
+            <h2>{{ titreGenre }}</h2>
+            <div class="row">
+            {% if genre %}
+                <ul>
+                {% for g in genre %}
+                    <li>
+                        <a href="{{ url_for('one_genre', id=g.id) }}">{{ g.name_g }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                    <div class="col-md-12 centered">Aucune genre à afficher, n'hésitez pas créer une <a href ="{{ url_for('ajouter_playlist') }}">playlist</a> pour en avoir !</div>
+            {% endif %}
+          </div>
          {% else %}
           <!--Si l'user n'est pas authentifié -->
           <div>
-              Vous ne pouvez pas accéder aux playlists, <a href="{{ url_for('register') }}">enregistrez-vous</a> ou <a href="{{ url_for('login') }}">connectez vous</a>
+              Vous ne pouvez pas accéder aux playlist, <a href="{{ url_for('register') }}">enregistrez-vous</a> ou <a href="{{ url_for('login') }}">connectez vous</a>
           </div>
       </br>
             <div class="row row-centered">
@@ -86,7 +100,16 @@
             {% endfor %}
             </div>
 
-
         {% endif %}
+        <h2>Playlists publiques</h2>
+          <div class="row">
+                <ul>
+                {% for playlist in playlist_publique %}
+                    <li>
+                        <a href="{{ url_for('one_playlist', id=playlist.id) }}">{{ playlist.name }}</a> appartenant à {{ playlist.user_name }}
+                    </li>
+                {% endfor %}
+                </ul>
+        </div>
     </div>
 {% endblock %}

@@ -2,10 +2,18 @@
 {% block main %}
 <div class="container">
   <div class="row ">
-    <div class="col-md-4">
-      <span class="titre_sans_marge titre_toppage"> {{ title }} </span>
+    <div class="col-md-12">
+      <h1 class="titre_sans_marge titre_toppage"> {{ title }} </h1>
     </div>
   </div>
+  <div class="row ">
+    <div class="col-md-2 leger_margin_b">
+      <a href ="{{ url_for('edit_playlist', id=playlist.id) }}">Modifier la playlist</button></a>
+    </div>
+    <div class="col-md-2 col-md-push-8 leger_margin_b">
+      {% if playlist.visibility == True %} Publique {% else %} Privée {% endif %}
+    </div>
+</div>
   {% if albums!=[] %}
       {% for album in playlist.albums %}
       <div class="row">
@@ -16,21 +24,22 @@
               <img src="{{ url_for('static', filename='images/404.jpg')}}">
               {% endif %}
           </div>
-          <div class="col-md-3">
+          <div class="col-md-5">
+              <div class ="row row-padding"><a href="{{ url_for('one_album', id=album.id) }}">{{ album.title }}</a></div>
               {% if album.releaseYear!=0 %}
-              <div class="row infoalbum">
-                  <a href="{{ url_for('one_date', releaseY=album.releaseYear) }}">{{ album.releaseYear }}</a>
+              <div class="row row-padding">
+                <a href="{{ url_for('one_date', releaseY=album.releaseYear) }}">{{ album.releaseYear }}</a>
               </div>
               {% endif %}
-              <div class ="row infoalbum"><a href="{{ url_for('one_album', id=album.id) }}">{{ album.title }}</a></div>
-              <div class ="row infoalbum"><a href="{{ url_for('one_artist', id=album.artist_id) }}">{{ artist }}</a></div>
-              <div class ="row infoalbum">
+              <div class ="row row-padding"><a href="{{ url_for('one_artist', id=album.artist_id) }}">{{ get_name_compositor_context(album.artist_id) }}</a></div>
+              <div class ="row row-padding">
+                Genre(s) :
                   {% for g in album.genres %}
                       <a href="{{ url_for('one_genre', id=g.id) }}">{{ g.name_g}}</a>
                   {% endfor %}
               </div>
           </div>
-          <div class="col-md-1 col-md-push-4">
+          <div class="col-md-1 col-md-push-2">
               <div class ="row row-centered supprimer">
                   <a href ="{{ url_for('delete_album_playlist', idplaylist=playlist.id, idalbum=album.id) }}"><button type="button" class = "glyphicon glyphicon-remove"></button></a>
               </div>
@@ -38,15 +47,10 @@
       </div>
       {% endfor %}
       <div class="row">
-        <div class="col-md-2"><a href="{{ url_for('one_album') }}">Ajouter un autre album</a></div>
+        <div class="col-md-2 leger_margin"><a href="{{ url_for('one_album') }}">Ajouter un autre album</a></div>
       </div>
     {% else %}
       <div class="col-md-12 centered">Aucun album à afficher, <a href="{{ url_for('one_album') }}">ajoutez en</a> !</div>
     {% endif %}
-    <div class="row">
-    <div class="col-md-2 leger_margin">
-      <a href ="{{ url_for('edit_playlist', id=playlist.id) }}">Modifier la playlist</button></a>
-    </div>
-  </div>
 </div>
 {% endblock %}

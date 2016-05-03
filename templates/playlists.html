@@ -8,7 +8,7 @@
   </div>
   {% if playlists!=[] %}
     {% for playlist in playlists %}
-      <div class="row">
+      <div class="row leger_margin">
         <div class="row">
           <div class="col-md-4">
             <a href="{{ url_for('one_playlist', id=playlist.id) }}">{{ playlist.name }}</a>

@@ -34,27 +34,43 @@ def search_results(query):
     genre_results = get_genre_search(query)
     album_result = [album_results_title, album_results_releaseYear]
     compositor_results = get_compositor_search(query)
+    playlist_results = get_album_search_playlist_username(query, current_user.username)
+    playlist_publique = []
+    playlist_privee = []
+    for key, value in playlist_results.items():
+        if key=='publique':
+            for playlist in value:
+                playlist_publique.append(playlist)
+        if key=='privee':
+            for playlist in value:
+                playlist_privee.append(playlist)
+
     return render_template(
 			'search.html',
 	    	query		                = query,
             artist_results              = artist_results,
             genre_results               = genre_results,
             album_result                = album_result,
-            compositor_results          = compositor_results
+            compositor_results          = compositor_results,
+            playlist_publique           = playlist_publique,
+            playlist_privee             = playlist_privee
 	)
 
 @app.route("/")
 def home():
     if g.user.is_authenticated:
         albums_user = get_all_album_playlist_user(g.user.username)
+        playlist_publique = get_public_playlists()
         return render_template(
         "home.html",
         title="Votre Musique",
-        titlePlaylist="Vos Playlists",
+        titlePlaylist="Certaines de vos Playlists",
         titleAlbums="Vos Albums",
+        titreGenre="Les genres que vous ecoutez",
         albums_user = albums_user,
         playlists = get_sample_playlist_user(g.user.username),
-        genre = get_genre_playlist_user(g.user.username)
+        genre = get_genre_playlist_user(g.user.username),
+        playlist_publique = playlist_publique
         )
     else:
         return render_template(
@@ -307,14 +323,14 @@ def ajouter_playlist():
 def save_ajout_playlist():
     error = None
     a = None
-    f = PlaylistFormCreate()
+    f = PlaylistForm()
     if f.validate_on_submit():
-        playlists = get_playlistByName(f.name.data)
-        if playlists == []:
+        playlists = get_playlistByNameUser(f.name.data, current_user.username)
+        if playlists == set():
             id = int(f.id.data)
             p = get_playlist(id)
             p.name = f.name.data
-            p.visibility=0
+            p.visibility=f.visibility.data
             db.session.commit()
             return redirect(url_for('one_playlist', id=p.id))
         else:

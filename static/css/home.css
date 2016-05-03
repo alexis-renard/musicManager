@@ -42,9 +42,9 @@ img{
     margin-right:-4px;
 }
 
-.infoalbum{
-    padding-top : 5.5%;
-    padding-bottom: 5.5%;
+.row-padding{
+    padding-top : 15px;
+    padding-bottom: 15px;
 }
 
 .button_modifier, .button_supprimer, .button_ajouter {
@@ -94,4 +94,8 @@ a.blanc, a.blanc:hover{
 
 .leger_margin{
   margin:50px 0px;
+}
+
+.leger_margin_b{
+  margin-bottom:70px;
 }

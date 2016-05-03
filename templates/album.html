@@ -12,17 +12,17 @@
         </div>
         <div class="col-md-3">
             {% if album.releaseYear!=0 %}
-            <div class="row infoalbum">
+            <div class="row row-padding">
                 <a href="{{ url_for('one_date', releaseY=album.releaseYear) }}">{{ album.releaseYear }}</a>
             </div>
             {% endif %}
-            <div class ="row infoalbum"><a href="{{ url_for('one_artist', id=album.artist_id) }}">{{ artist }}</a></div>
-            <div class ="row infoalbum">
+            <div class ="row row-padding"><a href="{{ url_for('one_artist', id=album.artist_id) }}">{{ artist }}</a></div>
+            <div class ="row row-padding">
                 {% for g in album.genres %}
                     <a href="{{ url_for('one_genre', id=g.id) }}">{{ g.name_g + " "}}</a>
                 {% endfor %}
             </div>
-            <div class ="row infoalbum">Compostiteur : {{ compositor }}</div>
+            <div class ="row row-padding">Compostiteur : {{ compositor }}</div>
         </div>
         <div class="col-md-1 col-md-push-4">
 
