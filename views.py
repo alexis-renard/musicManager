@@ -169,7 +169,7 @@ def one_artist(id=None):
 		return render_template(
 			"artists.html",
 			title="All Artists",
-			artists=get_all_artist()
+			artists=get_all_artists()
 		)
 
 @app.route("/edit/artist/")
@@ -215,7 +215,7 @@ def one_genre(id=None):
 		return render_template(
 			"genres.html",
 			title="Genre Sample",
-			genres=get_all_genre()
+			genres=get_all_genres()
 		)
 
 @app.route("/edit/genre/")
@@ -281,6 +281,7 @@ def edit_playlist(id=None):
         db.session.commit()
         id = p.id
     f = PlaylistForm(id=id, name=p.name)
+    # f.visibility.defaut=p.get_visibility()
     albums = get_albums_playlist(id)
     return render_template("edit-playlist.html", playlist=p, form=f, albums=albums)
 
@@ -295,6 +296,7 @@ def save_playlist():
             id = int(f.id.data)
             p = get_playlist(id)
             p.name = f.name.data
+            p.visibility=0
             db.session.commit()
             return redirect(url_for('one_playlist', id=p.id))
         else:
@@ -303,7 +305,8 @@ def save_playlist():
             p = get_playlist(int(f.id.data))
             db.session.delete(p)
             db.session.commit()
-    return render_template("edit-playlist.html", playlist=p, form=f, error=error)
+            return render_template("edit-playlist.html", playlist=p, form=f, error=error)
+    return render_template("edit-playlist.html", form=f, error=error)
 
 @app.route("/ajoute/playlist/")
 @app.route("/ajoute/playlist/<int:idplaylist>/<int:idalbum>")
