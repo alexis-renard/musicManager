@@ -31,7 +31,7 @@
                 <a href="{{ url_for('one_date', releaseY=album.releaseYear) }}">{{ album.releaseYear }}</a>
               </div>
               {% endif %}
-              <div class ="row row-padding"><a href="{{ url_for('one_artist', id=album.artist_id) }}">{{ get_name_compositor_context(album.artist_id) }}</a></div>
+              <div class ="row row-padding"><a href="{{ url_for('one_artist', id=album.artist_id) }}">{{ get_name_compositor_context(album.compositor_id) }}</a></div>
               <div class ="row row-padding">
                 Genre(s) :
                   {% for g in album.genres %}
