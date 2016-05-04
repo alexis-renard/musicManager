@@ -34,11 +34,11 @@
               <div class="col-md-12">
             {% if playlists %}
               {% for playlist in playlists %}
-                <div class="row leger_margin">
+                <div class="row leger_margin_b">
                   <div class="col-md-12">
                   <div class="row">
-                    <div class="col-md-4">
-                      <a href="{{ url_for('one_playlist', id=playlist.id) }}">{{ playlist.name }}</a>
+                    <div class="col-md-4 leger_margin_b_playlist">
+                      <span class="carouselTitle"><a href="{{ url_for('one_playlist', id=playlist.id) }}">{{ playlist.name }}</a></span>
                     </div>
                   </div>
                   <!-- Slick carrousel -->
@@ -71,13 +71,11 @@
             <h2>{{ titreGenre }}</h2>
             <div class="row">
             {% if genre %}
-                <ul>
+            <div class="col-md-12 col-centered contour-genre">
                 {% for g in genre %}
-                    <li>
                         <a href="{{ url_for('one_genre', id=g.id) }}">{{ g.name_g }}</a>
-                    </li>
                 {% endfor %}
-                </ul>
+            </div>
             {% else %}
                     <div class="col-md-12 centered">Aucune genre à afficher, n'hésitez pas créer une <a href ="{{ url_for('ajouter_playlist') }}">playlist</a> pour en avoir !</div>
             {% endif %}

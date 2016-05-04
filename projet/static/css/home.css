@@ -97,5 +97,44 @@ a.blanc, a.blanc:hover{
 }
 
 .leger_margin_b{
-  margin-bottom:70px;
+  margin-bottom:50px;
+}
+
+.leger_margin_b_playlist{
+  margin-bottom:20px;
+}
+
+.carouselTitle > a{
+    text-decoration: none;
+    color: black;
+    font-size:25px;
+    font-family: 'Averia Serif Libre', cursive;
+}
+
+.contour-genre{
+    font-size:15px;
+}
+
+.contour-genre > a{
+    text-decoration: none;
+    color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-color: : red;
+    padding : 5px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.contour-genre > span{
+    text-decoration: none;
+    color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-color: : red;
+    padding : 5px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
 }

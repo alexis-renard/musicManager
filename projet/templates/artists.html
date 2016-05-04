@@ -5,7 +5,7 @@
     {% for artist in artists %}
         <div class="row">
             <div class="col-md-3">
-                <a href="{{ url_for('one_artist', id=artist.id) }}">{{ artist.name }}</a>
+                <span class="carouselTitle"><a href="{{ url_for('one_artist', id=artist.id) }}">{{ artist.name }}</a></span>
             </div>
             <div class="carrousel_albums_genres iconesAlbum">
             {% for album in artist.albums %}

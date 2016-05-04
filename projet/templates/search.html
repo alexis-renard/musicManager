@@ -111,34 +111,35 @@
                 </ul>
         </div>
         {% endif %}
+    </div>
 
 
     <div class = "row">
         <div class="resultat_vide_search">
             <h3>Aucun résultat n'a été trouvé dans les catégories suivantes :</h3>
-                <ul>
+                <div class="col-md-12 col-centered contour-genre">
                     {% if artist_results==[] %}
-                        <li>Artiste</li>
+                        <span>Artiste</span>
                     {% endif %}
                     {% if genre_results==[] %}
-                        <li>Genre</li>
+                        <span>Genre</span>
                     {% endif %}
                     {% if album_result[0]==[] %}
-                        <li>Album</li>
+                        <span>Album</span>
                     {% endif %}
                     {% if compositor_results==[] %}
-                        <li>Compositor</li>
+                        <span>Compositor</span>
                     {% endif %}
                     {% if album_result[1]==[] %}
-                        <li>Année</li>
+                        <span>Année</span>
                     {% endif %}
                     {% if playlist_publique == [] %}
-                        <li>Playlist publiques</li>
+                        <span>Playlist publiques</span>
                     {% endif %}
                     {% if playlist_privee == [] %}
-                        <li>Playlist privées</li>
+                        <span>Playlist privées</span>
                     {% endif %}
-                </ul>
+                </div>
         </div>
     </div>
 </div>
