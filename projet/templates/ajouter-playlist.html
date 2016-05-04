@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block main %}
+{% if current_user.is_authenticated %}
+<h1>Ajouter playlist</h1>
+  <form role="form" method="POST" action="{{ url_for('save_ajout_playlist') }}">
+    <div class = "row">
+      <div class="col-md-9">
+        {{ form.hidden_tag() }}
+        <div class={% if form.name.errors %}
+            "form-group has-error"
+            {% else %}
+            "form-group"
+            {% endif %}
+            >
+            {{ form.name.label }} {{ form.name(size=50, class_="form-control") }}
+        </div>
+        {% if form.name.errors %}
+          <ul class="list-group">
+              {% for e in form.name.errors %}
+              <li class="list-group-item list-group-item-danger">{{ e }}</li>
+              {% endfor %}
+          </ul>
+        {% endif %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          {{ form.visibility }}
+        </div>
+      </div>
+      <div class = "row leger_margin">
+        <div class="col-md-12">
+          <input class="btn btn-default" type ="submit" value="Enregistrer">
+        </div>
+      {% if error %}
+          <div class="leger_margin">
+              <ul class="list-group">
+                  <li class="list-group-item list-group-item-danger">{{ error }}</li>
+              </ul>
+          </div>
+      {% endif %}
+    </div>
+  </form>
+</div>
+
+{% endif %}
+{% endblock %}

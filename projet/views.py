@@ -34,32 +34,51 @@ def search_results(query):
     genre_results = get_genre_search(query)
     album_result = [album_results_title, album_results_releaseYear]
     compositor_results = get_compositor_search(query)
+    playlist_results = get_album_search_playlist_username(query, current_user.username)
+    playlist_publique = []
+    playlist_privee = []
+    for key, value in playlist_results.items():
+        if key=='publique':
+            for playlist in value:
+                playlist_publique.append(playlist)
+        if key=='privee':
+            for playlist in value:
+                playlist_privee.append(playlist)
+
     return render_template(
 			'search.html',
 	    	query		                = query,
             artist_results              = artist_results,
             genre_results               = genre_results,
             album_result                = album_result,
-            compositor_results          = compositor_results
+            compositor_results          = compositor_results,
+            playlist_publique           = playlist_publique,
+            playlist_privee             = playlist_privee
 	)
 
 @app.route("/")
 def home():
     if g.user.is_authenticated:
         albums_user = get_all_album_playlist_user(g.user.username)
+        playlist_publique = get_public_playlists()
         return render_template(
         "home.html",
         title="Votre Musique",
-        titlePlaylist="Vos Playlists",
+        titlePlaylist="Certaines de vos Playlists",
         titleAlbums="Vos Albums",
+        titreGenre="Les genres que vous ecoutez",
         albums_user = albums_user,
-        playlists = get_sample_playlist_user(g.user.username)
+        playlists = get_sample_playlist_user(g.user.username),
+        genre = get_genre_playlist_user(g.user.username),
+        playlist_publique = playlist_publique
         )
     else:
+        playlist_publique = get_public_playlists()
         return render_template(
         "home.html",
-        title="Musique / Playlist",
-        albums=get_sample_albums()
+        title="Flask Music",
+        albums=get_sample_albums(),
+        playlist_publique = playlist_publique
         )
 
 @app.route("/album/")
@@ -71,7 +90,10 @@ def one_album(id=None):
         artist=get_artist(id_artist)
         artist_name=artist.get_name()
         compositor = get_compositor(a.get_compositor()).name
-        playlist_dropdown = get_playlist_sans_doublons(id,current_user.username)
+        if g.user.is_authenticated:
+            playlist_dropdown = get_playlist_sans_doublons(id,current_user.username)
+        else:
+            playlist_dropdown = []
         title = a.get_title()
         return render_template(
             "album.html",
@@ -169,7 +191,7 @@ def one_artist(id=None):
 		return render_template(
 			"artists.html",
 			title="All Artists",
-			artists=get_all_artist()
+			artists=get_all_artists()
 		)
 
 @app.route("/edit/artist/")
@@ -215,7 +237,7 @@ def one_genre(id=None):
 		return render_template(
 			"genres.html",
 			title="Genre Sample",
-			genres=get_all_genre()
+			genres=get_all_genres()
 		)
 
 @app.route("/edit/genre/")
@@ -252,58 +274,75 @@ def save_genre():
 @app.route("/playlist/")
 @app.route("/playlist/<int:id>")
 def one_playlist(id=None):
-	if id is not None:
-		p = get_playlist(id)
-		name = p.get_name()
-		return render_template(
-			"playlist.html",
-			title=name,
-            playlist=p,
-			albums=get_albums_playlist(id)
-		)
-	else:
-		return render_template(
-			"playlists.html",
-			title="All Playlists",
-			playlists=get_playlists_user(current_user.username)
-		)
+    if id is not None:
+        p = get_playlist(id)
+        name = p.get_name()
+        return render_template(
+        "playlist.html",
+        title=name,
+        playlist=p,
+        albums=get_albums_playlist(id)
+        )
+    else:
+        return render_template(
+        "playlists.html",
+        title="All Playlists",
+        playlists=get_playlists_user(current_user.username)
+        )
 
-@app.route("/edit/playlist/")
 @app.route("/edit/playlist/<int:id>")
 @login_required
 def edit_playlist(id=None):
-    if id is not None:
-        p = get_playlist(id)
-    else:
-        p = Playlist(name="")
-        p.user_name = current_user.username
-        db.session.add(p)
-        db.session.commit()
-        id = p.id
+    p = get_playlist(id)
     f = PlaylistForm(id=id, name=p.name)
-    albums = get_albums_playlist(id)
-    return render_template("edit-playlist.html", playlist=p, form=f, albums=albums)
+    f.visibility.default=p.visibility
+    return render_template("edit-playlist.html", playlist=p, form=f)
 
-@app.route("/save/playlist/", methods=("POST",))
-def save_playlist():
+@app.route("/saveedit/playlist/", methods=("POST",))
+def save_edit_playlist():
+    f = PlaylistForm()
+    if f.validate_on_submit():
+        id = int(f.id.data)
+        p = get_playlist(id)
+        p.name = f.name.data
+        p.visibility = f.visibility.data
+        db.session.commit()
+        return redirect(url_for('one_playlist', id=p.id))
+    # return redirect(url_for('home'))
+
+@app.route("/ajouter/playlist/")
+@login_required
+def ajouter_playlist():
+    p = Playlist(name="")
+    p.user_name = current_user.username
+    db.session.add(p)
+    db.session.commit()
+    id = p.id
+    f = PlaylistForm(id=id, name=p.name)
+    return render_template("ajouter-playlist.html", playlist=p, form=f)
+
+@app.route("/saveajout/playlist/", methods=("POST",))
+def save_ajout_playlist():
     error = None
     a = None
     f = PlaylistForm()
     if f.validate_on_submit():
-        playlists = get_playlistByName(f.name.data)
-        if playlists == []:
+        playlists = get_playlistByNameUser(f.name.data, current_user.username)
+        if playlists == set():
             id = int(f.id.data)
             p = get_playlist(id)
             p.name = f.name.data
+            p.visibility=f.visibility.data
             db.session.commit()
             return redirect(url_for('one_playlist', id=p.id))
         else:
-            error = "Une playlist existe déjà avec ce nom"
+            error = "Cette playlist existe déjà"
             id = int(f.id.data)
             p = get_playlist(int(f.id.data))
             db.session.delete(p)
             db.session.commit()
-    return render_template("edit-playlist.html", playlist=p, form=f, error=error)
+            return render_template("ajouter-playlist.html", playlist=p, form=f, error=error)
+    return render_template("ajouter-playlist.html", form=f, error=error)
 
 @app.route("/ajoute/playlist/")
 @app.route("/ajoute/playlist/<int:idplaylist>/<int:idalbum>")
@@ -375,7 +414,7 @@ def register():
         if users == None:
             m = sha256()
             m.update(f.password.data.encode())
-            u = User(username=f.username.data, password=m.hexdigest())
+            u = User(username=f.username.data, password=m.hexdigest(), admin=0)
             db.session.add(u)
             db.session.commit()
             login_user(u)

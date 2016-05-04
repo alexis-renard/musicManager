@@ -1,6 +1,6 @@
 from .app import db, login_manager, app
 from flask.ext.login import UserMixin
-from wtforms import StringField, HiddenField, PasswordField, validators
+from wtforms import StringField, HiddenField, PasswordField, SelectField, RadioField, validators
 from wtforms.validators import DataRequired, Required, EqualTo, Length
 from flask.ext.wtf import Form
 from hashlib import sha256
@@ -63,6 +63,7 @@ class Compositor(db.Model):
 class Playlist(db.Model):
     id          = db.Column(db.Integer, primary_key=True)
     name        = db.Column(db.String(100))
+    visibility  = db.Column(db.Boolean)
     user_name   = db.Column(db.Integer, db.ForeignKey("user.username"))
     user        = db.relationship("User", backref = db.backref("playlists", lazy="dynamic"))
     albums      = db.relationship("Album", secondary=belong_playlist_album, backref = db.backref("playlists", lazy="dynamic"))
@@ -72,6 +73,9 @@ class Playlist(db.Model):
 
     def get_name(self):
         return self.name
+
+    def get_visibility(self):
+        return self.visibility
 
 
 #Création de la table Ablum
@@ -113,6 +117,7 @@ class Album(db.Model):
 class User(db.Model, UserMixin):
     username        = db.Column(db.String(50), primary_key=True)
     password        = db.Column(db.String(64))
+    admin           = db.Column(db.Boolean)
 
     def get_id(self):
         return self.username
@@ -150,6 +155,15 @@ class LoginForm(Form):
 class PlaylistForm(Form):
     id			= HiddenField('id', validators=[DataRequired()])
     name        = StringField('Nom de la playlist', validators=[DataRequired()])
+    visibility  = SelectField(
+                        'Visibilité',
+                        choices=[('1','Publique'), ('0','Privée')],
+                        default='1'
+                  )
+
+class PlaylistFormCreate(Form):
+    id			= HiddenField('id', validators=[DataRequired()])
+    name        = StringField('Nom de la playlist', validators=[DataRequired()])
 
 class RegisterForm(Form):
 	username = StringField('Username', [validators.Length(min=4), validators.Required()])
@@ -159,22 +173,26 @@ class RegisterForm(Form):
         validators.Length(min=4)
 	])
 	confirm = PasswordField('Repeat Password', [validators.Length(min=4), validators.Required()])
-	next = HiddenField() #à quoi sert exactement le next ?
+	next = HiddenField()
 
-def get_all_artist():
+##### Fonctions Artist ####
+
+def get_all_artists():
     return Artist.query.all()
+
+def get_artist(id):
+    return Artist.query.get(id)
+
 
 def get_all_albums():
     return Album.query.all()
 
-def get_all_genre():
+def get_all_genres():
     return Genre.query.all()
 
-def get_all_playlist():
+def get_all_playlists():
     return Playlist.query.all()
 
-def get_artist(id):
-    return Artist.query.get(id)
 
 def get_album(id):
     return Album.query.get(id)
@@ -188,19 +206,69 @@ def get_playlist(id):
 def get_user(username):
     return User.query.get(username)
 
+def get_admin(admin):
+    return User.query.get(admin)
+
 def get_playlists_user(username):
     return User.query.get(username).playlists
+
+def get_public_playlists():
+    return Playlist.query.filter(Playlist.visibility==1).all()
+
+def get_private_playlists():
+    return Playlist.query.filter(Playlist.visibility==0).all()
+
+
+## PEUT ÊTRE A SUPPRIMER CAR ON PEUT UTILISER DIRECTEMENT LES BACKREFS
+
+def get_private_playlists_user(username):
+    listePlaylist = set()
+    for playlist in get_playlists_user(username):
+        if not playlist.visibility :
+            listePlaylist.add(playlist)
+    return listePlaylist
+
+def get_public_playlists_user(username):
+    listePlaylist = set()
+    for playlist in get_playlists_user(username):
+        if playlist.visibility :
+            listePlaylist.add(playlist)
+    return listePlaylist
+
+## FIN PEUT ÊTRE A SUPPRIMER CAR ON PEUT UTILISER DIRECTEMENT LES BACKREFS
+
+
+def get_sample_public_playlists():
+    playlists = get_playlists()
+    listePlaylist = set()
+    cpt = 0
+    #implémenter un while ici
+    for playlist in playlists:
+        if playlist.visibility and cpt < 3:
+            listePlaylist.add(playlist)
+            cpt+=1
+    return listePlaylist
+
 
 def get_sample_playlist_user(username):
     playlists = get_playlists_user(username)
     listePlaylist = set()
     cpt = 0
-    i = 0
+    #implémenter un while ici
     for playlist in playlists:
-        if playlist.albums != [] and cpt < 3:
+        if cpt < 2:
             listePlaylist.add(playlist)
             cpt+=1
     return listePlaylist
+
+def get_genre_playlist_user(username):
+    playlists = get_playlists_user(username)
+    listeGenre = set()
+    for playlist in playlists:
+        for album in playlist.albums:
+            for genre in album.genres:
+                listeGenre.add(genre)
+    return listeGenre
 
 def get_albums_artist(idartist):
     # return Album.query.filter(Album.artist_id==idartist).all()
@@ -223,8 +291,13 @@ def get_albums_genre(idgenre):
 def get_artists_genre(idgenre):
     return Artist.query.filter(Album.genres.any(id=idgenre)).all()
 
-def get_playlistByName(name):
-    return Playlist.query.filter(Playlist.name == name).all()
+def get_playlistByNameUser(name, username):
+    playlists = get_playlists_user(username)
+    listePlaylist = set()
+    for playlist in playlists:
+        if playlist.name == name:
+            listePlaylist.add(playlist)
+    return listePlaylist
 
 def get_playlist_sans_doublons(idalbum,username):
     playlists = get_playlists_user(username)
@@ -237,7 +310,6 @@ def get_playlist_sans_doublons(idalbum,username):
         if not contenu :
             listePlaylist.add(playlist) #si on n'a pas l'album dans la playlist, alors on peut la choisir pour y ajouter notre album
     return(listePlaylist)
-
 
 def get_genre(name_g):
     return Genre.query.get(name_g)
@@ -265,6 +337,19 @@ def get_compositor_search(search):
 
 def get_album_search_releaseYear(search):
     return Album.query.filter(Album.releaseYear.like("%"+search+"%")).all()
+
+def get_album_search_playlist(search):
+    return Playlist.query.filter(Playlist.name.like("%"+search+"%")).all()
+
+def get_album_search_playlist_username(search,username):
+    playlists = get_album_search_playlist(search)
+    dicoPlaylist = {'publique':set(),'privee':set()}
+    for playlist in playlists:
+        if playlist.visibility == 1:
+            dicoPlaylist['publique'].add(playlist)
+        if playlist.user_name == username:
+            dicoPlaylist['privee'].add(playlist)
+    return dicoPlaylist
 
 def get_genre_search(search):
     return Genre.query.filter(Genre.name_g==search).all()

@@ -1,6 +1,10 @@
 h1{
-  color:red;
+  color:black;
+  margin: 50px 20px;
+  font-family: 'Lobster', cursive;
+  font-size: 70px;
 }
+
 
 div.sample{
   text-align: center;
@@ -38,9 +42,9 @@ img{
     margin-right:-4px;
 }
 
-.infoalbum{
-    padding-top : 5.5%;
-    padding-bottom: 5.5%;
+.row-padding{
+    padding-top : 15px;
+    padding-bottom: 15px;
 }
 
 .button_modifier, .button_supprimer, .button_ajouter {
@@ -64,6 +68,8 @@ margin-right: auto;
 
 .titre_toppage{
   margin: 50px 20px;
+  font-family: 'Lobster', cursive;
+  font-size: 70px;
 }
 
 .home-margin{
@@ -84,4 +90,12 @@ margin-right: auto;
 a.blanc, a.blanc:hover{
     text-decoration: none;
     color: white;
+}
+
+.leger_margin{
+  margin:50px 0px;
+}
+
+.leger_margin_b{
+  margin-bottom:70px;
 }
