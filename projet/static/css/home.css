@@ -122,6 +122,38 @@ a.blanc, a.blanc:hover{
     display: inline;
 }
 
+.contour_vertical{
+    font-size:15px;
+    margin:10px;
+    list-style-type:none;
+}
+
+.paddingtab{
+    padding:10px;
+}
+
+.table {
+    border-bottom:0px !important;
+}
+.table th, .table td {
+    border: 1px !important;
+}
+.fixed-table-container {
+    border:0px !important;
+}
+
+.contour_vertical>a{
+    text-decoration: none;
+    color: black;
+    border-style: solid;
+    border-width: 1px;span
+    border-color: : red;
+    padding : 5px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
 .contour > a{
     text-decoration: none;
     color: black;

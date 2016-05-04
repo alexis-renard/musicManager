@@ -10,7 +10,7 @@
         <!--Si l'user est authentifié -->
               <h2>{{ titleAlbums }}</h2>
               {% if albums_user %}
-                <div class="row carrousel_albums_playlists">
+                <div class="row carrousel_albums_playlists leger_margin">
 
                 {% for x in albums_user %}
                     <div class = "home-margin">
@@ -24,7 +24,7 @@
 
                 </div>
               {% else %}
-                <div class="row">
+                <div class="row leger_margin">
                   <div class="col-md-12">Aucun album n'est affilié à aucune de vos playlist. <a href ="{{ url_for('one_playlist') }}">Gérer ses playlists</a></div>
                 </div>
             {% endif %}
@@ -62,14 +62,14 @@
                 </div>
               {% endfor %}
             {% else %}
-                <div class="row">
+                <div class="row leger_margin">
                     <div class="col-md-12 centered">Aucune playlist à afficher, n'hésitez pas à en <a href ="{{ url_for('ajouter_playlist') }}">créer une</a> !</div>
                 </div>
             {% endif %}
           </div>
           </div>
             <h2>{{ titreGenre }}</h2>
-            <div class="row">
+            <div class="row leger_margin">
             {% if genre %}
             <div class="col-md-12 col-centered">
                 {% for g in genre %}
@@ -79,7 +79,7 @@
                 {% endfor %}
             </div>
             {% else %}
-                    <div class="col-md-12 centered">Aucun genre à afficher, car vos <a href ="{{ url_for('ajouter_playlist') }}"> playlistes </a> sont vides !</div>
+                    <div class="col-md-12 centered">Aucun genre à afficher, car vos <a href ="{{ url_for('one_playlist') }}"> playlistes </a> sont vides !</div>
             {% endif %}
           </div>
          {% else %}
@@ -103,15 +103,26 @@
         {% endif %}
         {% if playlist_publique %}
           <h2>Playlists publiques</h2>
-            <div class="row">
-                  <ul>
+            <div class="row leger_margin">
+              <table class="table">
                   {% for playlist in playlist_publique %}
-                      <li>
-                          <a href="{{ url_for('one_playlist', id=playlist.id) }}">{{ playlist.name }}</a> appartenant à {{ playlist.user_name }}
-                      </li>
+                      <tr>
+                          <td class="contour">
+                              <a href="{{ url_for('one_playlist', id=playlist.id) }}">{{ playlist.name }}</a>
+                          </td>
+                          {% if playlist.user_name != current_user.username %}
+                          <td>
+                              appartenant à {{ playlist.user_name }}
+                          </td>
+                          {% else %}
+                          <td>
+                              vous appartenant.
+                          </td>
+                          {% endif %}
+                      </tr>
                   {% endfor %}
-                  </ul>
-          </div>
+                </table>
+            </div>
         {% endif %}
     </div>
 {% endblock %}

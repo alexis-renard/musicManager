@@ -38,7 +38,7 @@
                 <h4>Resultats dans les titres d'albums</h4>
                     {% for album in album_result[0] %}
                     <div class="col-md-3">
-                        <div class="row row-centered leger_margin_b_playlist">
+                        <div class="row row-centered">
                             {% if album.img != None %}
                                 <a href="{{ url_for('one_album', id=album.id) }}"><img class = "img" src="{{ url_for('static', filename='img/'+album.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}"></a>
                                 {% else %}
@@ -95,25 +95,40 @@
 
     <div class = "row">
         {% if playlist_publique != [] %}
-        <div class="list_paylist_publique_pour_query leger_margin">
-                <ul class="leger_margin">
-                    <h2>Resultats dans les playlists publiques :</h2>
-                        {% for playlist in playlist_publique %}
-                            <a href="{{ url_for('one_playlist', id=playlist.id) }}"><li>{{ playlist.get_name() }}</a> appartenant à {{ playlist.user_name }} </li>
-                        {% endfor %}
-                </ul>
-        </div>
+        <h2>Résultat dans les playlists publiques</h2>
+        <table class="table">
+            {% for playlist in playlist_publique %}
+                <tr>
+                    <td class="contour">
+                        <a href="{{ url_for('one_playlist', id=playlist.id) }}">{{ playlist.name }}</a>
+                    </td>
+                    {% if playlist.user_name != current_user.username %}
+                    <td>
+                        appartenant à {{ playlist.user_name }}
+                    </td>
+                    {% else %}
+                    <td>
+                        vous appartenant.
+                    </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+          </table>
         {% endif %}
 
         {% if playlist_privee != [] %}
-        <div class="list_paylist__privee_pour_query leger_margin">
-                <ul class="leger_margin">
-                    <h2>Resultats dans vos playlists :</h2>
-                        {% for playlist in playlist_privee %}
-                            <a href="{{ url_for('one_playlist', id=playlist.id) }}"><li>{{ playlist.get_name() }}</a></li>
-                        {% endfor %}
-                </ul>
-        </div>
+        <h2>Résultat dans vos playlists</h2>
+        <table class="table">
+            {% for playlist in playlist_privee %}
+                <tr>
+                    <td class="contour">
+                        <a href="{{ url_for('one_playlist', id=playlist.id) }}">{{ playlist.name }}</a>
+                    </td>
+                    <td> vous appartenant
+                    </td>
+                </tr>
+            {% endfor %}
+          </table>
         {% endif %}
     </div>
 
