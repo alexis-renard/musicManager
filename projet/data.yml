@@ -103,433 +103,433 @@
   parent: Terry Allen (country singer)
   releaseYear: 1979
   title: Lubbock
-# - by: Terry Allen
-#   entryId: 10893
-#   genre: [Country]
-#   img: TerryAllen_Juarez.jpg
-#   parent: Terry Allen (country singer)
-#   releaseYear: 1975
-#   title: Juarez
-# - by: Terry Allen
-#   entryId: 10895
-#   genre: [Country]
-#   img: Terry_Allen_Pedal_Steal.jpg
-#   parent: Terry Allen (country singer)
-#   releaseYear: 1985
-#   title: Pedal Steal
-# - by: Terry Allen
-#   entryId: 10899
-#   genre: [Country]
-#   img: Terry_Allen_Human_Remains.jpg
-#   parent: Terry Allen (country singer)
-#   releaseYear: 1996
-#   title: Human Remains
-# - by: X
-#   entryId: 10913
-#   genre: [Alternative rock, alternative country]
-#   img: XSeeHowWeAre.jpg
-#   parent: Dave Alvin
-#   releaseYear: 1987
-#   title: See How We Are
-# - by: Dave Alvin
-#   entryId: 10919
-#   genre: [Folk rock, country rock]
-#   img: null
-#   parent: Dave Alvin
-#   releaseYear: 2011
-#   title: Eleven Eleven
-# - by: The Blasters
-#   entryId: 10932
-#   genre: [Rock and roll, rockabilly, roots rock]
-#   img: null
-#   parent: Dave Alvin
-#   releaseYear: 1980
-#   title: American Music
-# - by: The Blasters
-#   entryId: 10933
-#   genre: [Rock and roll, rockabilly, roots rock]
-#   img: The_Blasters_%28album%29.jpg
-#   parent: Dave Alvin
-#   releaseYear: 1981
-#   title: The Blasters
-# - by: X
-#   entryId: 10947
-#   genre: [Punk rock]
-#   img: 220px-XLosAngeles.jpg
-#   parent: Dave Alvin
-#   releaseYear: 1980
-#   title: Los Angeles
-# - by: X
-#   entryId: 10948
-#   genre: [Punk rock]
-#   img: 220px-XWildGift.jpg
-#   parent: Dave Alvin
-#   releaseYear: 1981
-#   title: Wild Gift
-# - by: X
-#   entryId: 10950
-#   genre: [Punk rock]
-#   img: XMoreFunInTheNewWorld.jpg
-#   parent: Dave Alvin
-#   releaseYear: 1983
-#   title: More Fun in the New World
-# - by: X
-#   entryId: 10952
-#   genre: [Alternative rock]
-#   img: 220px-XHeyZeus.jpg
-#   parent: Dave Alvin
-#   releaseYear: 1993
-#   title: Hey Zeus!
-# - by: Andrew Jackson Jihad
-#   entryId: 10984
-#   genre: [Indie rock, folk punk, indie folk]
-#   img: 220px-Cant_Maintain.jpg
-#   parent: Andrew Jackson Jihad
-#   releaseYear: 2009
-#   title: Can't Maintain
-# - by: Angels of Light
-#   entryId: 11003
-#   genre: [Experimental rock, indie folk, post-rock]
-#   img: 220px-The_Angels_of_Light_Sing_%27Other_People%27.jpeg
-#   parent: The Angels of Light
-#   releaseYear: 2005
-#   title: The Angels of Light Sing 'Other People'
-# - by: Angels of Light
-#   entryId: 11005
-#   genre: [Experimental rock, folk rock, alternative country]
-#   img: 220px-Angels-wearehim.jpg
-#   parent: The Angels of Light
-#   releaseYear: 2007
-#   title: We Are Him
-# - by: Asylum Street Spankers
-#   entryId: 11030
-#   genre: [Children's, comedy rock, country, folk, jazz, blues, ragtime]
-#   img: 220px-Mommy_Says_No_cover.jpg
-#   parent: The Asylum Street Spankers
-#   releaseYear: 2007
-#   title: Mommy Says No!
-# - by: The Audreys
-#   entryId: 11038
-#   genre: [Blues & Roots]
-#   img: 220px-Between_Last_Night_and_Us.jpg
-#   parent: The Audreys
-#   releaseYear: 2006
-#   title: Between Last Night And Us
-# - by: The Audreys
-#   entryId: 11042
-#   genre: [Blues & Roots]
-#   img: null
-#   parent: The Audreys
-#   releaseYear: 2008
-#   title: When the Flood Comes
-# - by: The Avett Brothers
-#   entryId: 11072
-#   genre: [Folk]
-#   img: 220px-Carolinajubilee.jpg
-#   parent: The Avett Brothers
-#   releaseYear: 2003
-#   title: A Carolina Jubilee
-# - by: The Boggs
-#   entryId: 12316
-#   genre: [Rock]
-#   img: 220px-Stitches.jpg
-#   parent: The Boggs
-#   releaseYear: 2003
-#   title: Stitches
-# - by: 16 Horsepower
-#   entryId: 10555
-#   genre: [Alternative country]
-#   img: 220px-Sackclothandashes.jpg
-#   parent: 16 Horsepower
-#   releaseYear: 1996
-#   title: Sackcloth 'n' Ashes
-# - by: DevilDriver
-#   entryId: 10558
-#   genre: [Groove metal, melodic death metal]
-#   img: 220px-BEAST_%28Devil_Driver_album%29.jpg
-#   parent: 16 Horsepower
-#   releaseYear: 2011
-#   title: Beast
-# - by: Sarah McLeod
-#   entryId: 67927
-#   genre: [Rock]
-#   img: 220px-Beauty_Was_a_Tiger.jpg
-#   parent: The Superjesus
-#   releaseYear: 2005
-#   title: Beauty Was a Tiger
-# - by: Band of Horses
-#   entryId: 11152
-#   genre: [Alternative rock]
-#   img: 220px-Mirage_Rock.jpg
-#   parent: Band of Horses
-#   releaseYear: 2012
-#   title: Mirage Rock
-# - by: Band of Horses
-#   entryId: 11156
-#   genre: [Indie rock]
-#   img: 220px-Ceasetobegin.jpg
-#   parent: Band of Horses
-#   releaseYear: 2007
-#   title: Cease to Begin
-# - by: Bill Frisell
-#   entryId: 11235
-#   genre: [Folk jazz, New Acoustic, Progressive bluegrass, Americana]
-#   img: The_Willies.jpg
-#   parent: Danny Barnes
-#   releaseYear: 2002
-#   title: The Willies
-# - by: Elliott Smith
-#   entryId: 11250
-#   genre: [Indie folk, lo-fi]
-#   img: 220px-Elliottsmithromancandle.jpeg
-#   parent: Danny Barnes
-#   releaseYear: 1994
-#   title: Roman Candle
-# - by: Tim Barry
-#   entryId: 11263
-#   genre: [Folk]
-#   img: Laurel_street_demo.jpg
-#   parent: Tim Barry
-#   releaseYear: 2006
-#   title: Laurel Street Demo 2005
-# - by: Tim Barry
-#   entryId: 11264
-#   genre: [Folk]
-#   img: 220px-Rivanna-junction.jpg
-#   parent: Tim Barry
-#   releaseYear: 2006
-#   title: Rivanna Junction
-# - by: Avail
-#   entryId: 11268
-#   genre: [Hardcore punk]
-#   img: 220px-Avail-Dixie-cover.jpg
-#   parent: Tim Barry
-#   releaseYear: 1994
-#   title: Dixie
-# - by: Avail
-#   entryId: 11269
-#   genre: [Hardcore punk]
-#   img: 220px-Avail-4amfriday.jpg
-#   parent: Tim Barry
-#   releaseYear: 1996
-#   title: 4am Friday
-# - by: Avail
-#   entryId: 11271
-#   genre: [Hardcore punk]
-#   img: 220px-Avail-ow.jpg
-#   parent: Tim Barry
-#   releaseYear: 2000
-#   title: One Wrench
-# - by: The Be Good Tanyas
-#   entryId: 11305
-#   genre: [Folk, Bluegrass]
-#   img: 220px-Chinatown_be_good_tanyas.jpg
-#   parent: The Be Good Tanyas
-#   releaseYear: 2003
-#   title: Chinatown
-# - by: Frazey Ford
-#   entryId: 11315
-#   genre: [Folk]
-#   img: 220px-Obadiah_album.jpg
-#   parent: The Be Good Tanyas
-#   releaseYear: 2010
-#   title: Obadiah
-# - by: GG Allin
-#   entryId: 11362
-#   genre: [Punk rock, Hardcore punk]
-#   img: 220px-GGBBFA.jpg
-#   parent: Beachwood Sparks
-#   releaseYear: 1993
-#   title: Brutality and Bloodshed for All
-# - by: Thee Michelle Gun Elephant
-#   entryId: 11364
-#   genre: [Garage rock]
-#   img: null
-#   parent: Beachwood Sparks
-#   releaseYear: 2001
-#   title: Collection
-# - by: Two Gallants
-#   entryId: 11367
-#   genre: [Indie rock, Lo-fi]
-#   img: 220px-Throes.jpg
-#   parent: Beachwood Sparks
-#   releaseYear: 2004
-#   title: The Throes
-# - by: Buffalo Killers
-#   entryId: 11369
-#   genre: [Blues rock]
-#   img: 220px-Buffalo_Killers_-_Buffalo_Killers.jpg
-#   parent: Beachwood Sparks
-#   releaseYear: 2006
-#   title: Buffalo Killers
-# - by: Black Diamond Heavies
-#   entryId: 11372
-#   genre: [Blues rock]
-#   img: null
-#   parent: Beachwood Sparks
-#   releaseYear: 2007
-#   title: Every Damn Time
-# - by: Black Diamond Heavies
-#   entryId: 11373
-#   genre: [Blues rock]
-#   img: null
-#   parent: Beachwood Sparks
-#   releaseYear: 2008
-#   title: A Touch of Someone Else's Class
-# - by: Left Lane Cruiser
-#   entryId: 11374
-#   genre: [Blues rock]
-#   img: 220px-Bring_Yo%27_Ass_to_the_Table.jpg
-#   parent: Beachwood Sparks
-#   releaseYear: 2008
-#   title: Bring Yo' Ass to the Table
-# - by: Radio Moscow
-#   entryId: 11378
-#   genre: [Psychedelic rock, blues rock, garage rock]
-#   img: 220px-RadioMoscowTheGreatEscape.jpg
-#   parent: Beachwood Sparks
-#   releaseYear: 2011
-#   title: The Great Escape of Leslie Magnafuzz
-# - by: Left Lane Cruiser
-#   entryId: 11379
-#   genre: [Blues rock]
-#   img: null
-#   parent: Beachwood Sparks
-#   releaseYear: 2011
-#   title: Junkyard Speed Ball
-# - by: Radio Moscow
-#   entryId: 11381
-#   genre: [Psychedelic rock, blues rock, garage rock, hard rock]
-#   img: 220px-3_%26_3_Quarters.jpg
-#   parent: Beachwood Sparks
-#   releaseYear: 2012
-#   title: 3 & 3 Quarters
-# - by: The Cruel Sea
-#   entryId: 11404
-#   genre: [Indie rock]
-#   img: 220px-HoneymoonOver.jpg
-#   parent: The Beasts of Bourbon
-#   releaseYear: 1993
-#   title: The Honeymoon Is Over
-# - by: Pixies
-#   entryId: 11432
-#   genre: [Alternative rock]
-#   img: 220px-Pixies-Doolittle.jpg
-#   parent: The Beauty Shop
-#   releaseYear: 1989
-#   title: Gouge Away
-# - by: Beck
-#   entryId: 11445
-#   genre: [Alternative rock, funk rock, R&B]
-#   img: 220px-BeckMidniteVultures.jpg
-#   parent: Beck
-#   releaseYear: 1999
-#   title: Midnite Vultures
-# - by: Beck
-#   entryId: 11447
-#   genre: [Alternative rock, alternative hip hop]
-#   img: 220px-Guero_cover.jpg
-#   parent: Beck
-#   releaseYear: 2005
-#   title: Guero
-# - by: Beck
-#   entryId: 11450
-#   genre: [Folk rock]
-#   img: 220px-Beck_Morning_Phase.jpg
-#   parent: Beck
-#   releaseYear: 2014
-#   title: Morning Phase
-# - by: Beastie Boys
-#   entryId: 11512
-#   genre: [Hip hop]
-#   img: 220px-BeastieBoysPaul%27sBoutique.jpg
-#   parent: Beck
-#   releaseYear: 1989
-#   title: Paul's Boutique
-# - by: Bob Dylan
-#   entryId: 11530
-#   genre: [Folk rock]
-#   img: 220px-Bob_Dylan_-_Blood_on_the_Tracks.jpg
-#   parent: Beck
-#   releaseYear: 1975
-#   title: Blood on the Tracks
-# - by: Skip Spence
-#   entryId: 11555
-#   genre: [Rock, folk, psychedelic rock]
-#   img: 220px-Skip_Spence_-_Oar.jpg
-#   parent: Beck
-#   releaseYear: 1969
-#   title: Oar
-# - by: Jamie Lidell
-#   entryId: 11558
-#   genre: [Soul, folk, blues]
-#   img: 220px-Jamie-lidell-compass.jpg
-#   parent: Beck
-#   releaseYear: 2010
-#   title: Compass
-# - by: Thurston Moore
-#   entryId: 11563
-#   genre: [Acoustic rock]
-#   img: 220px-Demolished_Thoughts.jpg
-#   parent: Beck
-#   releaseYear: 2011
-#   title: Demolished Thoughts
-# - by: Frank Sinatra
-#   entryId: 11658
-#   genre: [Vocal jazz, Traditional pop music]
-#   img: 220px-Come_Dance_With_Me.jpg
-#   parent: Beck
-#   releaseYear: 1959
-#   title: Come Dance with Me!
-# - by: The Avett Brothers
-#   entryId: 11113
-#   genre: [Indie Rock, folk, folk punk, roots rock]
-#   img: 220px-The_Carpenter_%28The_Avett_Brothers%29_cover_art.jpg
-#   parent: The Avett Brothers
-#   releaseYear: 2012
-#   title: The Carpenter
-# - by: Band of Horses
-#   entryId: 11151
-#   genre: [Indie rock]
-#   img: 220px-Infinitearms.jpg
-#   parent: Band of Horses
-#   releaseYear: 2010
-#   title: Infinite Arms
-# - by: Motionless in White
-#   entryId: 58744
-#   genre: [Metalcore, gothic metal, post-hardcore, electronicore]
-#   img: 220px-Motionless_in_white_creatures.jpg
-#   parent: Motionless in White
-#   releaseYear: 2010
-#   title: Creatures
-# - by: Simon & Garfunkel
-#   entryId: 11676
-#   genre: [Folk rock]
-#   img: null
-#   parent: Beck
-#   releaseYear: 1970
-#   title: Bridge over Troubled Water
-# - by: Carole King
-#   entryId: 11677
-#   genre: [Folk, pop]
-#   img: 220px-Carole_King_-_Tapestry.jpg
-#   parent: Beck
-#   releaseYear: 1971
-#   title: Tapestry
-# - by: Paul Simon
-#   entryId: 11681
-#   genre: [Rock]
-#   img: 220px-PaulSimonStillCrazyAfterAllTheseYearsCover.jpg
-#   parent: Beck
-#   releaseYear: 1975
-#   title: Still Crazy After All These Years
-# - by: Fleetwood Mac
-#   entryId: 11683
-#   genre: [Rock, soft rock, pop]
-#   img: 220px-FMacRumours.PNG
-#   parent: Beck
-#   releaseYear: 1977
-#   title: Rumours
+- by: Terry Allen
+  entryId: 10893
+  genre: [Country]
+  img: TerryAllen_Juarez.jpg
+  parent: Terry Allen (country singer)
+  releaseYear: 1975
+  title: Juarez
+- by: Terry Allen
+  entryId: 10895
+  genre: [Country]
+  img: Terry_Allen_Pedal_Steal.jpg
+  parent: Terry Allen (country singer)
+  releaseYear: 1985
+  title: Pedal Steal
+- by: Terry Allen
+  entryId: 10899
+  genre: [Country]
+  img: Terry_Allen_Human_Remains.jpg
+  parent: Terry Allen (country singer)
+  releaseYear: 1996
+  title: Human Remains
+- by: X
+  entryId: 10913
+  genre: [Alternative rock, alternative country]
+  img: XSeeHowWeAre.jpg
+  parent: Dave Alvin
+  releaseYear: 1987
+  title: See How We Are
+- by: Dave Alvin
+  entryId: 10919
+  genre: [Folk rock, country rock]
+  img: null
+  parent: Dave Alvin
+  releaseYear: 2011
+  title: Eleven Eleven
+- by: The Blasters
+  entryId: 10932
+  genre: [Rock and roll, rockabilly, roots rock]
+  img: null
+  parent: Dave Alvin
+  releaseYear: 1980
+  title: American Music
+- by: The Blasters
+  entryId: 10933
+  genre: [Rock and roll, rockabilly, roots rock]
+  img: The_Blasters_%28album%29.jpg
+  parent: Dave Alvin
+  releaseYear: 1981
+  title: The Blasters
+- by: X
+  entryId: 10947
+  genre: [Punk rock]
+  img: 220px-XLosAngeles.jpg
+  parent: Dave Alvin
+  releaseYear: 1980
+  title: Los Angeles
+- by: X
+  entryId: 10948
+  genre: [Punk rock]
+  img: 220px-XWildGift.jpg
+  parent: Dave Alvin
+  releaseYear: 1981
+  title: Wild Gift
+- by: X
+  entryId: 10950
+  genre: [Punk rock]
+  img: XMoreFunInTheNewWorld.jpg
+  parent: Dave Alvin
+  releaseYear: 1983
+  title: More Fun in the New World
+- by: X
+  entryId: 10952
+  genre: [Alternative rock]
+  img: 220px-XHeyZeus.jpg
+  parent: Dave Alvin
+  releaseYear: 1993
+  title: Hey Zeus!
+- by: Andrew Jackson Jihad
+  entryId: 10984
+  genre: [Indie rock, folk punk, indie folk]
+  img: 220px-Cant_Maintain.jpg
+  parent: Andrew Jackson Jihad
+  releaseYear: 2009
+  title: Can't Maintain
+- by: Angels of Light
+  entryId: 11003
+  genre: [Experimental rock, indie folk, post-rock]
+  img: 220px-The_Angels_of_Light_Sing_%27Other_People%27.jpeg
+  parent: The Angels of Light
+  releaseYear: 2005
+  title: The Angels of Light Sing 'Other People'
+- by: Angels of Light
+  entryId: 11005
+  genre: [Experimental rock, folk rock, alternative country]
+  img: 220px-Angels-wearehim.jpg
+  parent: The Angels of Light
+  releaseYear: 2007
+  title: We Are Him
+- by: Asylum Street Spankers
+  entryId: 11030
+  genre: [Children's, comedy rock, country, folk, jazz, blues, ragtime]
+  img: 220px-Mommy_Says_No_cover.jpg
+  parent: The Asylum Street Spankers
+  releaseYear: 2007
+  title: Mommy Says No!
+- by: The Audreys
+  entryId: 11038
+  genre: [Blues & Roots]
+  img: 220px-Between_Last_Night_and_Us.jpg
+  parent: The Audreys
+  releaseYear: 2006
+  title: Between Last Night And Us
+- by: The Audreys
+  entryId: 11042
+  genre: [Blues & Roots]
+  img: null
+  parent: The Audreys
+  releaseYear: 2008
+  title: When the Flood Comes
+- by: The Avett Brothers
+  entryId: 11072
+  genre: [Folk]
+  img: 220px-Carolinajubilee.jpg
+  parent: The Avett Brothers
+  releaseYear: 2003
+  title: A Carolina Jubilee
+- by: The Boggs
+  entryId: 12316
+  genre: [Rock]
+  img: 220px-Stitches.jpg
+  parent: The Boggs
+  releaseYear: 2003
+  title: Stitches
+- by: 16 Horsepower
+  entryId: 10555
+  genre: [Alternative country]
+  img: 220px-Sackclothandashes.jpg
+  parent: 16 Horsepower
+  releaseYear: 1996
+  title: Sackcloth 'n' Ashes
+- by: DevilDriver
+  entryId: 10558
+  genre: [Groove metal, melodic death metal]
+  img: 220px-BEAST_%28Devil_Driver_album%29.jpg
+  parent: 16 Horsepower
+  releaseYear: 2011
+  title: Beast
+- by: Sarah McLeod
+  entryId: 67927
+  genre: [Rock]
+  img: 220px-Beauty_Was_a_Tiger.jpg
+  parent: The Superjesus
+  releaseYear: 2005
+  title: Beauty Was a Tiger
+- by: Band of Horses
+  entryId: 11152
+  genre: [Alternative rock]
+  img: 220px-Mirage_Rock.jpg
+  parent: Band of Horses
+  releaseYear: 2012
+  title: Mirage Rock
+- by: Band of Horses
+  entryId: 11156
+  genre: [Indie rock]
+  img: 220px-Ceasetobegin.jpg
+  parent: Band of Horses
+  releaseYear: 2007
+  title: Cease to Begin
+- by: Bill Frisell
+  entryId: 11235
+  genre: [Folk jazz, New Acoustic, Progressive bluegrass, Americana]
+  img: The_Willies.jpg
+  parent: Danny Barnes
+  releaseYear: 2002
+  title: The Willies
+- by: Elliott Smith
+  entryId: 11250
+  genre: [Indie folk, lo-fi]
+  img: 220px-Elliottsmithromancandle.jpeg
+  parent: Danny Barnes
+  releaseYear: 1994
+  title: Roman Candle
+- by: Tim Barry
+  entryId: 11263
+  genre: [Folk]
+  img: Laurel_street_demo.jpg
+  parent: Tim Barry
+  releaseYear: 2006
+  title: Laurel Street Demo 2005
+- by: Tim Barry
+  entryId: 11264
+  genre: [Folk]
+  img: 220px-Rivanna-junction.jpg
+  parent: Tim Barry
+  releaseYear: 2006
+  title: Rivanna Junction
+- by: Avail
+  entryId: 11268
+  genre: [Hardcore punk]
+  img: 220px-Avail-Dixie-cover.jpg
+  parent: Tim Barry
+  releaseYear: 1994
+  title: Dixie
+- by: Avail
+  entryId: 11269
+  genre: [Hardcore punk]
+  img: 220px-Avail-4amfriday.jpg
+  parent: Tim Barry
+  releaseYear: 1996
+  title: 4am Friday
+- by: Avail
+  entryId: 11271
+  genre: [Hardcore punk]
+  img: 220px-Avail-ow.jpg
+  parent: Tim Barry
+  releaseYear: 2000
+  title: One Wrench
+- by: The Be Good Tanyas
+  entryId: 11305
+  genre: [Folk, Bluegrass]
+  img: 220px-Chinatown_be_good_tanyas.jpg
+  parent: The Be Good Tanyas
+  releaseYear: 2003
+  title: Chinatown
+- by: Frazey Ford
+  entryId: 11315
+  genre: [Folk]
+  img: 220px-Obadiah_album.jpg
+  parent: The Be Good Tanyas
+  releaseYear: 2010
+  title: Obadiah
+- by: GG Allin
+  entryId: 11362
+  genre: [Punk rock, Hardcore punk]
+  img: 220px-GGBBFA.jpg
+  parent: Beachwood Sparks
+  releaseYear: 1993
+  title: Brutality and Bloodshed for All
+- by: Thee Michelle Gun Elephant
+  entryId: 11364
+  genre: [Garage rock]
+  img: null
+  parent: Beachwood Sparks
+  releaseYear: 2001
+  title: Collection
+- by: Two Gallants
+  entryId: 11367
+  genre: [Indie rock, Lo-fi]
+  img: 220px-Throes.jpg
+  parent: Beachwood Sparks
+  releaseYear: 2004
+  title: The Throes
+- by: Buffalo Killers
+  entryId: 11369
+  genre: [Blues rock]
+  img: 220px-Buffalo_Killers_-_Buffalo_Killers.jpg
+  parent: Beachwood Sparks
+  releaseYear: 2006
+  title: Buffalo Killers
+- by: Black Diamond Heavies
+  entryId: 11372
+  genre: [Blues rock]
+  img: null
+  parent: Beachwood Sparks
+  releaseYear: 2007
+  title: Every Damn Time
+- by: Black Diamond Heavies
+  entryId: 11373
+  genre: [Blues rock]
+  img: null
+  parent: Beachwood Sparks
+  releaseYear: 2008
+  title: A Touch of Someone Else's Class
+- by: Left Lane Cruiser
+  entryId: 11374
+  genre: [Blues rock]
+  img: 220px-Bring_Yo%27_Ass_to_the_Table.jpg
+  parent: Beachwood Sparks
+  releaseYear: 2008
+  title: Bring Yo' Ass to the Table
+- by: Radio Moscow
+  entryId: 11378
+  genre: [Psychedelic rock, blues rock, garage rock]
+  img: 220px-RadioMoscowTheGreatEscape.jpg
+  parent: Beachwood Sparks
+  releaseYear: 2011
+  title: The Great Escape of Leslie Magnafuzz
+- by: Left Lane Cruiser
+  entryId: 11379
+  genre: [Blues rock]
+  img: null
+  parent: Beachwood Sparks
+  releaseYear: 2011
+  title: Junkyard Speed Ball
+- by: Radio Moscow
+  entryId: 11381
+  genre: [Psychedelic rock, blues rock, garage rock, hard rock]
+  img: 220px-3_%26_3_Quarters.jpg
+  parent: Beachwood Sparks
+  releaseYear: 2012
+  title: 3 & 3 Quarters
+- by: The Cruel Sea
+  entryId: 11404
+  genre: [Indie rock]
+  img: 220px-HoneymoonOver.jpg
+  parent: The Beasts of Bourbon
+  releaseYear: 1993
+  title: The Honeymoon Is Over
+- by: Pixies
+  entryId: 11432
+  genre: [Alternative rock]
+  img: 220px-Pixies-Doolittle.jpg
+  parent: The Beauty Shop
+  releaseYear: 1989
+  title: Gouge Away
+- by: Beck
+  entryId: 11445
+  genre: [Alternative rock, funk rock, R&B]
+  img: 220px-BeckMidniteVultures.jpg
+  parent: Beck
+  releaseYear: 1999
+  title: Midnite Vultures
+- by: Beck
+  entryId: 11447
+  genre: [Alternative rock, alternative hip hop]
+  img: 220px-Guero_cover.jpg
+  parent: Beck
+  releaseYear: 2005
+  title: Guero
+- by: Beck
+  entryId: 11450
+  genre: [Folk rock]
+  img: 220px-Beck_Morning_Phase.jpg
+  parent: Beck
+  releaseYear: 2014
+  title: Morning Phase
+- by: Beastie Boys
+  entryId: 11512
+  genre: [Hip hop]
+  img: 220px-BeastieBoysPaul%27sBoutique.jpg
+  parent: Beck
+  releaseYear: 1989
+  title: Paul's Boutique
+- by: Bob Dylan
+  entryId: 11530
+  genre: [Folk rock]
+  img: 220px-Bob_Dylan_-_Blood_on_the_Tracks.jpg
+  parent: Beck
+  releaseYear: 1975
+  title: Blood on the Tracks
+- by: Skip Spence
+  entryId: 11555
+  genre: [Rock, folk, psychedelic rock]
+  img: 220px-Skip_Spence_-_Oar.jpg
+  parent: Beck
+  releaseYear: 1969
+  title: Oar
+- by: Jamie Lidell
+  entryId: 11558
+  genre: [Soul, folk, blues]
+  img: 220px-Jamie-lidell-compass.jpg
+  parent: Beck
+  releaseYear: 2010
+  title: Compass
+- by: Thurston Moore
+  entryId: 11563
+  genre: [Acoustic rock]
+  img: 220px-Demolished_Thoughts.jpg
+  parent: Beck
+  releaseYear: 2011
+  title: Demolished Thoughts
+- by: Frank Sinatra
+  entryId: 11658
+  genre: [Vocal jazz, Traditional pop music]
+  img: 220px-Come_Dance_With_Me.jpg
+  parent: Beck
+  releaseYear: 1959
+  title: Come Dance with Me!
+- by: The Avett Brothers
+  entryId: 11113
+  genre: [Indie Rock, folk, folk punk, roots rock]
+  img: 220px-The_Carpenter_%28The_Avett_Brothers%29_cover_art.jpg
+  parent: The Avett Brothers
+  releaseYear: 2012
+  title: The Carpenter
+- by: Band of Horses
+  entryId: 11151
+  genre: [Indie rock]
+  img: 220px-Infinitearms.jpg
+  parent: Band of Horses
+  releaseYear: 2010
+  title: Infinite Arms
+- by: Motionless in White
+  entryId: 58744
+  genre: [Metalcore, gothic metal, post-hardcore, electronicore]
+  img: 220px-Motionless_in_white_creatures.jpg
+  parent: Motionless in White
+  releaseYear: 2010
+  title: Creatures
+- by: Simon & Garfunkel
+  entryId: 11676
+  genre: [Folk rock]
+  img: null
+  parent: Beck
+  releaseYear: 1970
+  title: Bridge over Troubled Water
+- by: Carole King
+  entryId: 11677
+  genre: [Folk, pop]
+  img: 220px-Carole_King_-_Tapestry.jpg
+  parent: Beck
+  releaseYear: 1971
+  title: Tapestry
+- by: Paul Simon
+  entryId: 11681
+  genre: [Rock]
+  img: 220px-PaulSimonStillCrazyAfterAllTheseYearsCover.jpg
+  parent: Beck
+  releaseYear: 1975
+  title: Still Crazy After All These Years
+- by: Fleetwood Mac
+  entryId: 11683
+  genre: [Rock, soft rock, pop]
+  img: 220px-FMacRumours.PNG
+  parent: Beck
+  releaseYear: 1977
+  title: Rumours
 # - by: John Lennon and Yoko Ono
 #   entryId: 11690
 #   genre: [Rock]

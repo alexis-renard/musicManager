@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_debugtoolbar import DebugToolbarExtension
 from flask.ext.script import Manager
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -25,6 +24,3 @@ app.config['SECRET_KEY'] = "7b31fdc6-85ff-4855-9e25-7dbbe134d746"
 login_manager = LoginManager(app)
 
 login_manager.login_view = "login"
-
-toolbar = DebugToolbarExtension(app)
-app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False

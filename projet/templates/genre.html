@@ -4,11 +4,13 @@
     <div class="row">
         <div class="col-md-12" id="span-titre">
             <h1> {{ title }} </h1>
-            {% if g.user.admin == 1 %}
-                <a href ="{{ url_for('edit_genre', id=genre.id) }}"><button type="button" class = "glyphicon glyphicon-pencil"></button></a>
-            {% endif %}
         </div>
     </div>
+    {% if g.user.admin == 1 %}
+        <div class="row">
+          <div class="col-md-3 col-md-push-9"><a href ="{{ url_for('edit_genre', id=genre.id) }}">Modifier l'album</button></a></div>
+        </div>
+    {% endif %}
         {% for album in genre.albums %}
             <div class="col-md-3 col-centered col-fixed iconesAlbum">
                 <div class="row row-centered">

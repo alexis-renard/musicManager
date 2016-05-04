@@ -13,7 +13,7 @@
                 <div class="row carrousel_albums_playlists">
 
                 {% for x in albums_user %}
-                    <div class = "col-md-3 col-centered col-fixed home-margin">
+                    <div class = "home-margin">
                         {% if x.img != None %}
                             <a href="{{ url_for('one_album', id=x.id) }}"><img class="img imgHome" src="{{ url_for('static', filename='img/'+x.img)}}" onerror=this.src="{{ url_for('static', filename='images/404.jpg')}}"></a>
                         {% else %}
