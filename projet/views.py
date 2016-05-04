@@ -106,7 +106,7 @@ def one_album(id=None):
     else:
         return render_template(
             "albums.html",
-            title="Albums Sample",
+            title="All Albums",
             albums=get_all_albums()
         )
 

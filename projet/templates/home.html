@@ -71,13 +71,15 @@
             <h2>{{ titreGenre }}</h2>
             <div class="row">
             {% if genre %}
-            <div class="col-md-12 col-centered contour">
+            <div class="col-md-12 col-centered">
                 {% for g in genre %}
+                    <span class="contour">
                         <a href="{{ url_for('one_genre', id=g.id) }}">{{ g.name_g }}</a>
+                    </span>
                 {% endfor %}
             </div>
             {% else %}
-                    <div class="col-md-12 centered">Aucune genre à afficher, n'hésitez pas créer une <a href ="{{ url_for('ajouter_playlist') }}">playlist</a> pour en avoir !</div>
+                    <div class="col-md-12 centered">Aucun genre à afficher, car vos <a href ="{{ url_for('ajouter_playlist') }}"> playlistes </a> sont vides !</div>
             {% endif %}
           </div>
          {% else %}
