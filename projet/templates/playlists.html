@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="row">
-      <div class="col-md-2 col-md-push-5">
+      <div class="col-md-2 col-md-push-9">
         <a href ="{{ url_for('ajouter_playlist') }}">Nouvelle Playlist</button></a>
       </div>
   </div>
@@ -15,7 +15,7 @@
     {% for playlist in playlists %}
       <div class="row leger_margin">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4 carouselTitle leger_margin_b_playlist">
             <a href="{{ url_for('one_playlist', id=playlist.id) }}">{{ playlist.name }}</a>
           </div>
           <div class="col-sm-1 centered col-sm-push-6">

@@ -111,11 +111,14 @@ a.blanc, a.blanc:hover{
     font-family: 'Averia Serif Libre', cursive;
 }
 
-.contour-genre{
+.contour{
     font-size:15px;
+    margin:10px;
+    list-style-type:none;
+    display: inline;
 }
 
-.contour-genre > a{
+.contour > a,span{
     text-decoration: none;
     color: black;
     border-style: solid;
@@ -127,7 +130,8 @@ a.blanc, a.blanc:hover{
     border-top-left-radius: 15px;
 }
 
-.contour-genre > span{
+
+.contour > a,span{
     text-decoration: none;
     color: black;
     border-style: solid;

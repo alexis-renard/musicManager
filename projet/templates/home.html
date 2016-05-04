@@ -71,7 +71,7 @@
             <h2>{{ titreGenre }}</h2>
             <div class="row">
             {% if genre %}
-            <div class="col-md-12 col-centered contour-genre">
+            <div class="col-md-12 col-centered contour">
                 {% for g in genre %}
                         <a href="{{ url_for('one_genre', id=g.id) }}">{{ g.name_g }}</a>
                 {% endfor %}
